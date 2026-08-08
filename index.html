@@ -40,8 +40,7 @@
 
   --line:rgba(255,255,255,.09);
 
-  --shadow:
-    0 25px 80px rgba(0,0,0,.45);
+  --shadow:0 25px 80px rgba(0,0,0,.45);
 
   --max:1180px;
 }
@@ -56,27 +55,40 @@ html{
 
 body{
   margin:0;
+
   background:
     radial-gradient(circle at 15% 10%,rgba(212,119,47,.10),transparent 30%),
     radial-gradient(circle at 85% 25%,rgba(35,143,161,.08),transparent 30%),
     var(--bg);
 
   color:var(--text);
-  font-family:"Inter","Noto Sans Tamil","Noto Sans Kannada","Noto Sans Devanagari",sans-serif;
+
+  font-family:
+    "Inter",
+    "Noto Sans Tamil",
+    "Noto Sans Kannada",
+    "Noto Sans Devanagari",
+    sans-serif;
 
   line-height:1.55;
+
   -webkit-font-smoothing:antialiased;
 }
 
 body::before{
   content:"";
+
   position:fixed;
   inset:0;
+
   pointer-events:none;
+
   background-image:
     linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+
   background-size:45px 45px;
+
   mask-image:linear-gradient(to bottom,black,transparent 75%);
 }
 
@@ -86,7 +98,8 @@ a{
 }
 
 button,
-input{
+input,
+select{
   font-family:inherit;
 }
 
@@ -127,7 +140,8 @@ header{
   top:0;
   z-index:1000;
 
-  background:rgba(8,10,12,.82);
+  background:rgba(8,10,12,.84);
+
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
@@ -143,19 +157,23 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:18px;
 }
 
 .brand{
   display:flex;
   align-items:center;
+
   gap:12px;
+
   min-width:0;
 }
 
 .logo{
   width:48px;
   height:48px;
+
   border-radius:50%;
 
   object-fit:cover;
@@ -174,30 +192,41 @@ header{
 .brand-text{
   display:flex;
   flex-direction:column;
+
   line-height:1.05;
+
   min-width:0;
 }
 
 .brand-text strong{
   font-family:"Oswald",sans-serif;
+
   font-size:18px;
   font-weight:600;
+
   letter-spacing:.03em;
+
   white-space:nowrap;
 }
 
 .brand-text span{
   margin-top:3px;
+
   font-family:"Oswald",sans-serif;
+
   font-size:14px;
+
   letter-spacing:.13em;
+
   color:var(--orange2);
+
   white-space:nowrap;
 }
 
 .nav-right{
   display:flex;
   align-items:center;
+
   gap:10px;
 }
 
@@ -225,22 +254,34 @@ header{
   font-weight:700;
 
   outline:none;
+
   cursor:pointer;
+}
+
+.language select option{
+  background:#151a1e;
+  color:#fff;
 }
 
 .language::after{
   content:"⌄";
+
   position:absolute;
+
   right:13px;
   top:5px;
+
   pointer-events:none;
+
   color:var(--orange2);
+
   font-size:17px;
 }
 
 .call-btn{
   display:flex;
   align-items:center;
+
   gap:7px;
 
   padding:10px 15px;
@@ -255,6 +296,12 @@ header{
   font-weight:800;
 
   box-shadow:0 7px 25px rgba(212,119,47,.18);
+
+  transition:.2s ease;
+}
+
+.call-btn:hover{
+  transform:translateY(-2px);
 }
 
 .call-btn svg{
@@ -267,23 +314,32 @@ header{
 
 .hero{
   padding:65px 0 45px;
+
   position:relative;
+
   overflow:hidden;
 }
 
 .hero-grid{
   display:grid;
+
   grid-template-columns:1fr 1.05fr;
+
   align-items:center;
+
   gap:50px;
 }
 
 .eyebrow{
   color:var(--orange2);
+
   font-size:11px;
   font-weight:800;
+
   letter-spacing:.16em;
+
   text-transform:uppercase;
+
   margin-bottom:14px;
 }
 
@@ -318,7 +374,9 @@ header{
 
 .hero-actions{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:12px;
 
   margin-top:30px;
@@ -326,8 +384,10 @@ header{
 
 .btn{
   display:inline-flex;
+
   align-items:center;
   justify-content:center;
+
   gap:9px;
 
   min-height:48px;
@@ -347,7 +407,13 @@ header{
 }
 
 .btn-primary{
-  background:linear-gradient(135deg,var(--orange2),var(--orange));
+  background:
+    linear-gradient(
+      135deg,
+      var(--orange2),
+      var(--orange)
+    );
+
   color:#180b02;
 
   box-shadow:
@@ -356,14 +422,19 @@ header{
 
 .btn-secondary{
   border:1px solid var(--line);
+
   background:rgba(255,255,255,.035);
+
   color:var(--text);
 }
 
 .stats{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:30px;
+
   margin-top:35px;
 }
 
@@ -371,6 +442,7 @@ header{
   display:block;
 
   font-family:"Oswald",sans-serif;
+
   font-size:22px;
 
   color:var(--blue2);
@@ -378,20 +450,27 @@ header{
 
 .stat span{
   font-size:10px;
+
   text-transform:uppercase;
+
   letter-spacing:.09em;
+
   color:var(--muted2);
 }
 
 /* =========================================================
-   3D DRILLING SIMULATOR
+   DRILLING SIMULATOR
 ========================================================= */
 
 .drill-card{
   position:relative;
 
   background:
-    linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018));
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.065),
+      rgba(255,255,255,.018)
+    );
 
   border:1px solid rgba(255,255,255,.11);
 
@@ -401,9 +480,9 @@ header{
 
   box-shadow:var(--shadow);
 
-  overflow:hidden;
-
   transform-style:preserve-3d;
+
+  overflow:hidden;
 }
 
 .drill-card::before{
@@ -417,40 +496,55 @@ header{
   right:-100px;
   top:-100px;
 
-  background:radial-gradient(circle,rgba(240,154,77,.18),transparent 65%);
+  background:
+    radial-gradient(
+      circle,
+      rgba(240,154,77,.18),
+      transparent 65%
+    );
 
   pointer-events:none;
 }
 
 .drill-head{
   display:flex;
+
   justify-content:space-between;
   align-items:center;
 
   padding:2px 4px 15px;
 }
 
-.drill-head span:first-child{
+.drill-head-title{
   font-family:"Oswald",sans-serif;
+
   font-size:15px;
+
   letter-spacing:.05em;
 }
 
 .live{
   display:flex;
+
   align-items:center;
+
   gap:7px;
 
   font-size:10px;
+
   text-transform:uppercase;
+
   letter-spacing:.1em;
+
   color:var(--muted);
 }
 
 .live-dot{
   width:7px;
   height:7px;
+
   border-radius:50%;
+
   background:#78bd82;
 
   box-shadow:0 0 12px #78bd82;
@@ -465,7 +559,9 @@ header{
   }
 }
 
-/* MACHINE */
+/* =========================================================
+   MACHINE SCENE
+========================================================= */
 
 .machine-scene{
   height:400px;
@@ -492,8 +588,6 @@ header{
   perspective:900px;
 }
 
-/* GROUND SURFACE */
-
 .surface{
   position:absolute;
 
@@ -511,14 +605,14 @@ header{
       #755d3c
     );
 
-  box-shadow:
-    0 2px 8px rgba(0,0,0,.4);
-}
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
 
-/* SOIL TEXTURE */
+  z-index:3;
+}
 
 .rock-texture{
   position:absolute;
+
   inset:12% 0 0;
 
   opacity:.18;
@@ -532,14 +626,11 @@ header{
   background-size:80px 70px;
 }
 
-/* WATER LAYER */
-
 .water-zone{
   position:absolute;
 
   left:0;
   right:0;
-
   bottom:0;
 
   height:16%;
@@ -552,12 +643,15 @@ header{
     );
 
   overflow:hidden;
+
+  z-index:2;
 }
 
 .water-wave{
   position:absolute;
 
   left:-10%;
+
   width:120%;
 
   height:25px;
@@ -587,7 +681,9 @@ header{
   }
 }
 
-/* CASING PIPE */
+/* =========================================================
+   CASING
+========================================================= */
 
 .casing{
   position:absolute;
@@ -613,15 +709,16 @@ header{
       #d6d9da
     );
 
-  box-shadow:
-    3px 0 10px rgba(0,0,0,.45);
+  box-shadow:3px 0 10px rgba(0,0,0,.45);
 
   transition:height .15s linear;
 
   z-index:6;
 }
 
-/* ROD */
+/* =========================================================
+   DRILL ROD
+========================================================= */
 
 .drill-rod{
   position:absolute;
@@ -647,15 +744,16 @@ header{
 
   border-radius:4px;
 
-  box-shadow:
-    3px 0 12px rgba(0,0,0,.6);
+  box-shadow:3px 0 12px rgba(0,0,0,.6);
 
   transition:height .15s linear;
 
   z-index:8;
 }
 
-/* DRILL BIT */
+/* =========================================================
+   DRILL BIT
+========================================================= */
 
 .drill-bit{
   position:absolute;
@@ -664,7 +762,6 @@ header{
   height:42px;
 
   left:50%;
-
   top:13%;
 
   transform:translate(-50%,0);
@@ -703,14 +800,15 @@ header{
       #9a4d19
     );
 
-  clip-path:polygon(
-    50% 0,
-    100% 75%,
-    72% 68%,
-    50% 100%,
-    28% 68%,
-    0 75%
-  );
+  clip-path:
+    polygon(
+      50% 0,
+      100% 75%,
+      72% 68%,
+      50% 100%,
+      28% 68%,
+      0 75%
+    );
 
   filter:drop-shadow(0 4px 3px rgba(0,0,0,.5));
 }
@@ -730,11 +828,12 @@ header{
 
   background:#222;
 
-  box-shadow:
-    0 0 8px rgba(255,180,90,.5);
+  box-shadow:0 0 8px rgba(255,180,90,.5);
 }
 
-/* SPLASH */
+/* =========================================================
+   SPLASH
+========================================================= */
 
 .splash{
   position:absolute;
@@ -772,7 +871,7 @@ header{
   left:50%;
   bottom:15px;
 
-  animation:splash 1.1s infinite ease-out;
+  animation:splashAnimation 1.1s infinite ease-out;
 }
 
 .splash span:nth-child(1){
@@ -798,10 +897,10 @@ header{
   animation-delay:.3s;
 }
 
-@keyframes splash{
+@keyframes splashAnimation{
   0%{
     opacity:0;
-    transform:translateY(8px) scale(.5) rotate(var(--r));
+    transform:translateY(8px) scale(.5);
   }
 
   25%{
@@ -810,11 +909,13 @@ header{
 
   100%{
     opacity:0;
-    transform:translateY(-35px) scale(.8) rotate(var(--r));
+    transform:translateY(-35px) scale(.8);
   }
 }
 
-/* MACHINE TOP */
+/* =========================================================
+   MACHINE
+========================================================= */
 
 .machine{
   position:absolute;
@@ -848,8 +949,7 @@ header{
       #9a4d1c
     );
 
-  box-shadow:
-    0 7px 15px rgba(0,0,0,.4);
+  box-shadow:0 7px 15px rgba(0,0,0,.4);
 }
 
 .machine-window{
@@ -907,7 +1007,9 @@ header{
 
   left:50%;
 
-  transform:translateX(-50%) rotate(0deg);
+  transform:
+    translateX(-50%)
+    rotate(0deg);
 
   transform-origin:top;
 
@@ -916,7 +1018,9 @@ header{
   z-index:-1;
 }
 
-/* DEPTH LABELS */
+/* =========================================================
+   DEPTH LABELS
+========================================================= */
 
 .depth-label{
   position:absolute;
@@ -928,6 +1032,8 @@ header{
   font-size:9px;
 
   color:rgba(255,255,255,.5);
+
+  z-index:4;
 }
 
 .depth-label.l1{
@@ -971,27 +1077,32 @@ header{
 
 .depth-top{
   display:flex;
+
   justify-content:space-between;
   align-items:flex-end;
 }
 
 .depth-top small{
   color:var(--muted);
+
   font-size:11px;
 }
 
 .depth-value{
   font-family:"Oswald",sans-serif;
+
   font-size:31px;
 }
 
 .depth-value span{
   color:var(--blue2);
+
   font-size:13px;
 }
 
 input[type="range"]{
   width:100%;
+
   margin:12px 0 17px;
 
   appearance:none;
@@ -1023,14 +1134,27 @@ input[type="range"]::-webkit-slider-thumb{
 
   border:4px solid var(--orange);
 
-  box-shadow:
-    0 3px 12px rgba(0,0,0,.4);
+  box-shadow:0 3px 12px rgba(0,0,0,.4);
+
+  cursor:pointer;
+}
+
+input[type="range"]::-moz-range-thumb{
+  width:22px;
+  height:22px;
+
+  border-radius:50%;
+
+  background:#f5f1e8;
+
+  border:4px solid var(--orange);
 
   cursor:pointer;
 }
 
 .price-box{
   display:grid;
+
   grid-template-columns:1fr 1fr;
 
   gap:8px;
@@ -1068,40 +1192,6 @@ input[type="range"]::-webkit-slider-thumb{
   font-family:"JetBrains Mono",monospace;
 
   font-size:14px;
-}
-
-.total{
-  margin-top:10px;
-
-  padding:14px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  border-radius:11px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(212,119,47,.16),
-      rgba(35,143,161,.08)
-    );
-
-  border:1px solid rgba(240,154,77,.2);
-}
-
-.total span{
-  color:var(--muted);
-  font-size:11px;
-}
-
-.total strong{
-  font-family:"JetBrains Mono",monospace;
-
-  color:var(--orange3);
-
-  font-size:21px;
 }
 
 /* =========================================================
@@ -1173,6 +1263,48 @@ input[type="range"]::-webkit-slider-thumb{
 }
 
 /* =========================================================
+   TOTAL
+========================================================= */
+
+.total{
+  margin-top:10px;
+
+  padding:14px;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  gap:15px;
+
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(212,119,47,.16),
+      rgba(35,143,161,.08)
+    );
+
+  border:1px solid rgba(240,154,77,.2);
+}
+
+.total span{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+.total strong{
+  font-family:"JetBrains Mono",monospace;
+
+  color:var(--orange3);
+
+  font-size:21px;
+}
+
+/* =========================================================
    OFFER
 ========================================================= */
 
@@ -1192,6 +1324,7 @@ input[type="range"]::-webkit-slider-thumb{
   min-height:55px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -1213,6 +1346,7 @@ input[type="range"]::-webkit-slider-thumb{
   font-weight:800;
 
   text-transform:uppercase;
+
   letter-spacing:.08em;
 }
 
@@ -1290,8 +1424,7 @@ input[type="range"]::-webkit-slider-thumb{
 
   border-color:rgba(240,154,77,.28);
 
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.3);
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
 }
 
 .service-number{
@@ -1314,6 +1447,7 @@ input[type="range"]::-webkit-slider-thumb{
   border-radius:12px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -1341,11 +1475,12 @@ input[type="range"]::-webkit-slider-thumb{
 }
 
 /* =========================================================
-   COVERAGE
+   LOCATIONS
 ========================================================= */
 
 .locations{
   display:flex;
+
   flex-wrap:wrap;
 
   gap:10px;
@@ -1457,7 +1592,9 @@ input[type="range"]::-webkit-slider-thumb{
 
 .contact-actions{
   display:flex;
+
   justify-content:center;
+
   flex-wrap:wrap;
 
   gap:12px;
@@ -1479,13 +1616,16 @@ footer{
 
 .footer-inner{
   display:flex;
+
   justify-content:space-between;
+
   gap:20px;
+
   flex-wrap:wrap;
 }
 
 /* =========================================================
-   FLOAT WHATSAPP
+   WHATSAPP
 ========================================================= */
 
 .whatsapp-float{
@@ -1498,6 +1638,7 @@ footer{
   height:55px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -1509,8 +1650,7 @@ footer{
 
   z-index:900;
 
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.45);
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
 
   animation:float 3s ease-in-out infinite;
 }
@@ -1552,17 +1692,19 @@ footer{
   .why-card{
     border-left:0;
     border-top:1px solid var(--line);
+
     padding:20px 15px;
   }
 
   .why-card:first-child{
     padding-left:15px;
+
     border-top:0;
   }
 }
 
 /* =========================================================
-   MOBILE PORTRAIT HEADER
+   MOBILE PORTRAIT
 ========================================================= */
 
 @media(max-width:600px){
@@ -1586,20 +1728,34 @@ footer{
 
   .brand{
     gap:7px;
+
+    min-width:0;
+
+    flex:1;
+  }
+
+  .brand-text{
     min-width:0;
   }
 
   .brand-text strong{
     font-size:14px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
   }
 
   .brand-text span{
     font-size:10px;
+
     letter-spacing:.08em;
   }
 
   .nav-right{
     gap:5px;
+
+    flex:none;
   }
 
   .language select{
@@ -1663,6 +1819,18 @@ footer{
     border-radius:18px;
   }
 
+  .drill-head{
+    gap:10px;
+  }
+
+  .drill-head-title{
+    font-size:13px;
+  }
+
+  .live{
+    font-size:8px;
+  }
+
   .price-box{
     grid-template-columns:1fr 1fr;
   }
@@ -1697,7 +1865,9 @@ footer{
 
   .offer-inner{
     padding:10px 15px;
+
     flex-direction:column;
+
     gap:4px;
   }
 
@@ -1714,7 +1884,9 @@ footer{
   }
 }
 
-/* VERY SMALL PHONES */
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
 
 @media(max-width:380px){
 
@@ -1738,9 +1910,16 @@ footer{
   .hero h1{
     font-size:36px;
   }
+
+  .total{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
 
-/* REDUCED MOTION */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1763,64 +1942,66 @@ footer{
 
 <header>
 
-  <nav class="nav">
+<nav class="nav">
 
-    <a href="#" class="brand">
+<a href="#" class="brand">
 
-      <img
-        class="logo"
-        src="https://i.ibb.co/k2R7hVVS/IMG-3949.png"
-        alt="Sri Venkateshwara TubeWells Logo"
-      >
+<img
+  class="logo"
+  src="https://i.ibb.co/k2R7hVVS/IMG-3949.png"
+  alt="Sri Venkateshwara TubeWells Logo"
+>
 
-      <div class="brand-text">
+<div class="brand-text">
 
-        <strong>Sri Venkateshwara</strong>
+<strong>Sri Venkateshwara</strong>
 
-        <span>TubeWells</span>
+<span>TubeWells</span>
 
-      </div>
+</div>
 
-    </a>
+</a>
 
-    <div class="nav-right">
+<div class="nav-right">
 
-      <div class="language">
+<div class="language">
 
-        <select id="languageSelect" aria-label="Select language">
+<select id="languageSelect" aria-label="Select language">
 
-          <option value="en">English</option>
-          <option value="kn">ಕನ್ನಡ</option>
-          <option value="ta">தமிழ்</option>
-          <option value="hi">हिन्दी</option>
-          <option value="mr">मराठी</option>
+<option value="en">English</option>
+<option value="ta">தமிழ்</option>
+<option value="kn">ಕನ್ನಡ</option>
+<option value="hi">हिन्दी</option>
+<option value="mr">मराठी</option>
 
-        </select>
+</select>
 
-      </div>
+</div>
 
-      <a
-        class="call-btn"
-        href="tel:+917010894661"
-        aria-label="Call Sri Venkateshwara TubeWells"
-      >
+<a
+  class="call-btn"
+  href="tel:+917010894661"
+  aria-label="Call"
+>
 
-        <svg viewBox="0 0 24 24" fill="none">
-          <path
-            d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linejoin="round"
-          />
-        </svg>
+<svg viewBox="0 0 24 24" fill="none">
 
-        <span>Call</span>
+<path
+d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"
+stroke="currentColor"
+stroke-width="1.8"
+stroke-linejoin="round"
+/>
 
-      </a>
+</svg>
 
-    </div>
+<span data-i18n="call">Call</span>
 
-  </nav>
+</a>
+
+</div>
+
+</nav>
 
 </header>
 
@@ -1831,331 +2012,396 @@ footer{
 
 <section class="hero">
 
-  <div class="wrap hero-grid">
+<div class="wrap hero-grid">
 
-    <div>
+<div>
 
-      <div class="eyebrow">
-        Professional Borewell Drilling & Casing
-      </div>
+<div
+  class="eyebrow"
+  data-i18n="eyebrow"
+>
+Professional Borewell Drilling & Casing
+</div>
 
-      <h1 id="heroTitle">
+<h1 id="heroTitle">
 
-        Borewell drilling
+Borewell drilling
 
-        <span class="orange">
-          done right.
-        </span>
+<span class="orange">
+done right.
+</span>
 
-        Built for the ground beneath you.
+Built for the ground beneath you.
 
-      </h1>
+</h1>
 
-      <p class="hero-desc" id="heroDesc">
+<p
+  class="hero-desc"
+  id="heroDesc"
+>
+Borewell drilling and casing pipe installation across Tamil Nadu,
+Karnataka, Maharashtra, Madhya Pradesh and Rajasthan.
+Get a transparent estimate before work begins.
+</p>
 
-        Borewell drilling and casing pipe installation across
-        Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan.
-        Get a transparent estimate before work begins.
+<div class="hero-actions">
 
-      </p>
+<a
+  href="#calculator"
+  class="btn btn-primary"
+  data-i18n="estimate"
+>
+Estimate Borewell
+</a>
 
-      <div class="hero-actions">
+<a
+  href="https://wa.me/917010894661"
+  target="_blank"
+  class="btn btn-secondary"
+  data-i18n="whatsapp"
+>
+WhatsApp Us
+</a>
 
-        <a
-          href="#calculator"
-          class="btn btn-primary"
-        >
-          Estimate Borewell
-        </a>
+</div>
 
-        <a
-          href="https://wa.me/917010894661"
-          target="_blank"
-          class="btn btn-secondary"
-        >
-          WhatsApp Us
-        </a>
+<div class="stats">
 
-      </div>
+<div class="stat">
 
-      <div class="stats">
+<strong>₹110/ft</strong>
 
-        <div class="stat">
-          <strong>₹110/ft</strong>
-          <span>Starting drilling rate</span>
-        </div>
+<span data-i18n="startingRate">
+Starting drilling rate
+</span>
 
-        <div class="stat">
-          <strong>5 States</strong>
-          <span>Service coverage</span>
-        </div>
+</div>
 
-        <div class="stat">
-          <strong>Casing</strong>
-          <span>Pipe installation</span>
-        </div>
+<div class="stat">
 
-      </div>
+<strong data-i18n="fiveStates">
+5 States
+</strong>
 
-    </div>
+<span data-i18n="coverage">
+Service coverage
+</span>
 
+</div>
 
-    <!-- =================================================
-         3D DRILLING CARD
-    ================================================= -->
+<div class="stat">
 
-    <div class="drill-card">
+<strong data-i18n="casingStat">
+Casing
+</strong>
 
-      <div class="drill-head">
+<span data-i18n="pipeInstallation">
+Pipe installation
+</span>
 
-        <span>Live Borewell Simulator</span>
+</div>
 
-        <div class="live">
+</div>
 
-          <span class="live-dot"></span>
+</div>
 
-          Drilling simulation
 
-        </div>
+<!-- =====================================================
+     DRILL CARD
+===================================================== -->
 
-      </div>
+<div class="drill-card">
 
+<div class="drill-head">
 
-      <div class="machine-scene" id="machineScene">
+<span
+  class="drill-head-title"
+  data-i18n="simulator"
+>
+Live Borewell Simulator
+</span>
 
-        <!-- ground -->
-        <div class="surface"></div>
+<div class="live">
 
-        <div class="rock-texture"></div>
+<span class="live-dot"></span>
 
+<span data-i18n="simulation">
+Drilling simulation
+</span>
 
-        <!-- depth labels -->
+</div>
 
-        <span class="depth-label l1">200 FT</span>
-        <span class="depth-label l2">400 FT</span>
-        <span class="depth-label l3">600 FT</span>
-        <span class="depth-label l4">800 FT</span>
+</div>
 
 
-        <!-- water -->
+<div class="machine-scene">
 
-        <div class="water-zone">
+<div class="surface"></div>
 
-          <div class="water-wave"></div>
-          <div class="water-wave"></div>
+<div class="rock-texture"></div>
 
-          <span class="water-label">
-            Underground water zone
-          </span>
 
-        </div>
+<span class="depth-label l1">200 FT</span>
+<span class="depth-label l2">400 FT</span>
+<span class="depth-label l3">600 FT</span>
+<span class="depth-label l4">800 FT</span>
 
 
-        <!-- casing -->
+<div class="water-zone">
 
-        <div
-          class="casing"
-          id="casing"
-        ></div>
+<div class="water-wave"></div>
+<div class="water-wave"></div>
 
+<span
+  class="water-label"
+  data-i18n="waterZone"
+>
+Underground water zone
+</span>
 
-        <!-- drilling rod -->
+</div>
 
-        <div
-          class="drill-rod"
-          id="drillRod"
-        ></div>
 
+<div
+  class="casing"
+  id="casing"
+></div>
 
-        <!-- machine -->
 
-        <div class="machine">
+<div
+  class="drill-rod"
+  id="drillRod"
+></div>
 
-          <div class="machine-body">
 
-            <div class="machine-window"></div>
+<div class="machine">
 
-          </div>
+<div class="machine-body">
 
-          <div class="machine-wheel one"></div>
-          <div class="machine-wheel two"></div>
+<div class="machine-window"></div>
 
-          <div class="machine-arm"></div>
+</div>
 
-        </div>
+<div class="machine-wheel one"></div>
+<div class="machine-wheel two"></div>
 
+<div class="machine-arm"></div>
 
-        <!-- drill bit -->
+</div>
 
-        <div
-          class="drill-bit"
-          id="drillBit"
-        >
 
-          <div class="bit-body"></div>
+<div
+  class="drill-bit"
+  id="drillBit"
+>
 
-        </div>
+<div class="bit-body"></div>
 
+</div>
 
-        <!-- water splash -->
 
-        <div
-          class="splash"
-          id="splash"
-        >
+<div
+  class="splash"
+  id="splash"
+>
 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
 
-      <!-- CALCULATOR -->
+<!-- =====================================================
+     CALCULATOR
+===================================================== -->
 
-      <div
-        class="calculator"
-        id="calculator"
-      >
+<div
+  class="calculator"
+  id="calculator"
+>
 
-        <div class="depth-top">
+<div class="depth-top">
 
-          <small>
-            Required drilling depth
-          </small>
+<small data-i18n="requiredDepth">
+Required drilling depth
+</small>
 
-          <div class="depth-value">
+<div class="depth-value">
 
-            <span id="depthValue">
-              300
-            </span>
+<span id="depthValue">300</span>
 
-            <span>
-              FT
-            </span>
+<span>FT</span>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
 
-        <input
-          type="range"
-          id="depthSlider"
-          min="200"
-          max="1000"
-          step="10"
-          value="300"
-        >
+<input
+  type="range"
+  id="depthSlider"
+  min="200"
+  max="1000"
+  step="10"
+  value="300"
+>
 
 
-        <div class="price-box">
+<div class="price-box">
 
-          <div class="price-item">
+<div class="price-item">
 
-            <small>
-              Drilling
-            </small>
+<small data-i18n="drilling">
+Drilling
+</small>
 
-            <strong id="drillingAmount">
-              ₹33,000
-            </strong>
+<strong id="drillingAmount">
+₹33,000
+</strong>
 
-          </div>
+</div>
 
 
-          <div class="price-item">
+<div class="price-item">
 
-            <small>
-              Travel
-            </small>
+<small data-i18n="travel">
+Travel
+</small>
 
-            <strong id="travelAmount">
-              ₹500
-            </strong>
+<strong id="travelAmount">
+₹500
+</strong>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
 
-        <!-- SERVICE OPTIONS -->
+<!-- CASING OPTIONS -->
 
-        <div class="service-options">
+<div class="service-options">
 
-          <label
-            class="option active"
-            id="drillingOption"
-          >
+<label
+  class="option active"
+  id="drillingOption"
+>
 
-            <input
-              type="checkbox"
-              checked
-              disabled
-            >
+<input
+  type="checkbox"
+  checked
+  disabled
+>
 
-            <div class="option-title">
-              Borewell Drilling
-            </div>
+<div
+  class="option-title"
+  data-i18n="borewellDrilling"
+>
+Borewell Drilling
+</div>
 
-            <div class="option-desc">
-              Drilling work
-            </div>
+<div
+  class="option-desc"
+  data-i18n="drillingWork"
+>
+Drilling work
+</div>
 
-            <div class="option-price">
-              ₹110 / FT
-            </div>
+<div class="option-price">
+₹110 / FT
+</div>
 
-          </label>
+</label>
 
 
-          <label
-            class="option"
-            id="casingOption"
-          >
+<label
+  class="option"
+  id="casingOption"
+>
 
-            <input
-              type="checkbox"
-              id="casingCheckbox"
-            >
+<input
+  type="checkbox"
+  id="casingCheckbox"
+>
 
-            <div class="option-title">
-              Casing Pipe
-            </div>
+<div
+  class="option-title"
+  data-i18n="casingPipe"
+>
+Casing Pipe
+</div>
 
-            <div class="option-desc">
-              Installation available
-            </div>
+<div
+  class="option-desc"
+  data-i18n="casingInstallation"
+>
+Installation available
+</div>
 
-            <div class="option-price">
-              Add casing
-            </div>
+<div class="option-price">
+₹120 / FT
+</div>
 
-          </label>
+</label>
 
-        </div>
+</div>
 
 
-        <div class="total">
+<!-- CASING COST -->
 
-          <span>
-            Estimated project total
-          </span>
+<div
+  class="price-box"
+  id="casingCostBox"
+  style="display:none;"
+>
 
-          <strong id="totalAmount">
-            ₹33,500
-          </strong>
+<div class="price-item">
 
-        </div>
+<small data-i18n="casingCost">
+Casing Cost
+</small>
 
-      </div>
+<strong id="casingAmount">
+₹0
+</strong>
 
-    </div>
+</div>
 
-  </div>
+<div class="price-item">
+
+<small data-i18n="rate">
+Rate
+</small>
+
+<strong>
+₹120 / FT
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="total">
+
+<span data-i18n="projectTotal">
+Estimated project total
+</span>
+
+<strong id="totalAmount">
+₹33,500
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -2166,21 +2412,24 @@ footer{
 
 <div class="offer">
 
-  <div class="wrap offer-inner">
+<div class="wrap offer-inner">
 
-    <span class="offer-badge">
-      Service
-    </span>
+<span
+  class="offer-badge"
+  data-i18n="service"
+>
+Service
+</span>
 
-    <strong>
-      Borewell drilling + casing pipe installation available
-    </strong>
+<strong data-i18n="offerTitle">
+Borewell drilling + casing pipe installation available
+</strong>
 
-    <span>
-      Final quotation confirmed based on site conditions.
-    </span>
+<span data-i18n="finalQuotation">
+Final quotation confirmed based on site conditions.
+</span>
 
-  </div>
+</div>
 
 </div>
 
@@ -2191,124 +2440,134 @@ footer{
 
 <section class="section">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="section-head">
+<div class="section-head">
 
-      <div class="eyebrow">
-        Our Services
-      </div>
+<div
+  class="eyebrow"
+  data-i18n="ourServices"
+>
+Our Services
+</div>
 
-      <h2>
-        Complete borewell solutions
-      </h2>
+<h2 data-i18n="completeSolutions">
+Complete borewell solutions
+</h2>
 
-      <p>
-        From drilling the bore to casing installation,
-        our service is focused on dependable borewell work.
-      </p>
+<p data-i18n="serviceDescription">
+From drilling the bore to casing installation,
+our service is focused on dependable borewell work.
+</p>
 
-    </div>
-
-
-    <div class="services">
-
-      <div class="service-card">
-
-        <span class="service-number">
-          01
-        </span>
-
-        <div class="service-icon">
-
-          <svg width="23" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 3v14M7 8l5-5 5 5M8 17h8M9 21h6"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-
-        </div>
-
-        <h3>
-          Borewell Drilling
-        </h3>
-
-        <p>
-          Professional drilling for agricultural,
-          residential and commercial borewell requirements.
-        </p>
-
-      </div>
+</div>
 
 
-      <div class="service-card">
-
-        <span class="service-number">
-          02
-        </span>
-
-        <div class="service-icon">
-
-          <svg width="23" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M7 3h10v18H7zM9 7h6M9 11h6M9 15h6"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linejoin="round"
-            />
-          </svg>
-
-        </div>
-
-        <h3>
-          Casing Pipe Installation
-        </h3>
-
-        <p>
-          Casing pipe installation is available to help
-          support and protect the borewell structure.
-        </p>
-
-      </div>
+<div class="services">
 
 
-      <div class="service-card">
+<div class="service-card">
 
-        <span class="service-number">
-          03
-        </span>
+<span class="service-number">
+01
+</span>
 
-        <div class="service-icon">
+<div class="service-icon">
 
-          <svg width="23" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 2v20M4 12h16M6 6l12 12M18 6L6 18"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-          </svg>
+<svg width="23" viewBox="0 0 24 24" fill="none">
 
-        </div>
+<path
+d="M12 3v14M7 8l5-5 5 5M8 17h8M9 21h6"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
 
-        <h3>
-          Site-Based Drilling
-        </h3>
+</svg>
 
-        <p>
-          Vehicle-based drilling service with pricing
-          discussed according to depth and site conditions.
-        </p>
+</div>
 
-      </div>
+<h3 data-i18n="borewellDrilling">
+Borewell Drilling
+</h3>
 
-    </div>
+<p data-i18n="borewellDescription">
+Professional drilling for agricultural,
+residential and commercial borewell requirements.
+</p>
 
-  </div>
+</div>
+
+
+<div class="service-card">
+
+<span class="service-number">
+02
+</span>
+
+<div class="service-icon">
+
+<svg width="23" viewBox="0 0 24 24" fill="none">
+
+<path
+d="M7 3h10v18H7zM9 7h6M9 11h6M9 15h6"
+stroke="currentColor"
+stroke-width="2"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+</div>
+
+<h3 data-i18n="casingPipe">
+Casing Pipe Installation
+</h3>
+
+<p data-i18n="casingDescription">
+Casing pipe installation is available to help
+support and protect the borewell structure.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<span class="service-number">
+03
+</span>
+
+<div class="service-icon">
+
+<svg width="23" viewBox="0 0 24 24" fill="none">
+
+<path
+d="M12 2v20M4 12h16M6 6l12 12M18 6L6 18"
+stroke="currentColor"
+stroke-width="1.8"
+stroke-linecap="round"
+/>
+
+</svg>
+
+</div>
+
+<h3 data-i18n="siteDrilling">
+Site-Based Drilling
+</h3>
+
+<p data-i18n="siteDescription">
+Vehicle-based drilling service with pricing
+discussed according to depth and site conditions.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -2322,51 +2581,54 @@ footer{
 
 <section class="section">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="section-head">
+<div class="section-head">
 
-      <div class="eyebrow">
-        Service Coverage
-      </div>
+<div
+  class="eyebrow"
+  data-i18n="serviceCoverage"
+>
+Service Coverage
+</div>
 
-      <h2>
-        Serving five states
-      </h2>
+<h2 data-i18n="servingFive">
+Serving five states
+</h2>
 
-      <p>
-        Contact us to check drilling vehicle availability
-        for your location.
-      </p>
+<p data-i18n="coverageDescription">
+Contact us to check drilling vehicle availability
+for your location.
+</p>
 
-    </div>
+</div>
 
 
-    <div class="locations">
+<div class="locations">
 
-      <span class="location">
-        Tamil Nadu
-      </span>
+<span class="location" data-i18n="tamilNadu">
+Tamil Nadu
+</span>
 
-      <span class="location">
-        Karnataka
-      </span>
+<span class="location" data-i18n="karnataka">
+Karnataka
+</span>
 
-      <span class="location">
-        Maharashtra
-      </span>
+<span class="location" data-i18n="maharashtra">
+Maharashtra
+</span>
 
-      <span class="location">
-        Madhya Pradesh
-      </span>
+<span class="location" data-i18n="madhyaPradesh">
+Madhya Pradesh
+</span>
 
-      <span class="location">
-        Rajasthan
-      </span>
+<span class="location" data-i18n="rajasthan">
+Rajasthan
+</span>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -2380,77 +2642,81 @@ footer{
 
 <section class="section">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="section-head">
+<div class="section-head">
 
-      <div class="eyebrow">
-        Why Sri Venkateshwara TubeWells
-      </div>
+<div
+  class="eyebrow"
+  data-i18n="whyEyebrow"
+>
+Why Sri Venkateshwara TubeWells
+</div>
 
-      <h2>
-        Built around the work
-      </h2>
+<h2 data-i18n="builtAroundWork">
+Built around the work
+</h2>
 
-    </div>
-
-
-    <div class="why">
-
-      <div class="why-card">
-
-        <strong>
-          Transparent Pricing
-        </strong>
-
-        <p>
-          Estimate the drilling cost before starting the work.
-        </p>
-
-      </div>
+</div>
 
 
-      <div class="why-card">
-
-        <strong>
-          Casing Available
-        </strong>
-
-        <p>
-          Casing pipe installation is available as part of the service.
-        </p>
-
-      </div>
+<div class="why">
 
 
-      <div class="why-card">
+<div class="why-card">
 
-        <strong>
-          Multi-State Service
-        </strong>
+<strong data-i18n="transparentPricing">
+Transparent Pricing
+</strong>
 
-        <p>
-          Service coverage across five states.
-        </p>
+<p data-i18n="transparentDescription">
+Estimate the drilling cost before starting the work.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="why-card">
+<div class="why-card">
 
-        <strong>
-          Direct Contact
-        </strong>
+<strong data-i18n="casingAvailable">
+Casing Available
+</strong>
 
-        <p>
-          Speak directly with the service team for availability.
-        </p>
+<p data-i18n="casingWhyDescription">
+Casing pipe installation is available as part of the service.
+</p>
 
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<div class="why-card">
+
+<strong data-i18n="multiState">
+Multi-State Service
+</strong>
+
+<p data-i18n="multiStateDescription">
+Service coverage across five states.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<strong data-i18n="directContact">
+Direct Contact
+</strong>
+
+<p data-i18n="directContactDescription">
+Speak directly with the service team for availability.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -2461,45 +2727,53 @@ footer{
 
 <section class="section">
 
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="contact">
+<div class="contact">
 
-      <div class="eyebrow">
-        Start Your Borewell
-      </div>
+<div
+  class="eyebrow"
+  data-i18n="startBorewell"
+>
+Start Your Borewell
+</div>
 
-      <h2>
-        Ready to drill?
-      </h2>
+<h2 data-i18n="readyToDrill">
+Ready to drill?
+</h2>
 
-      <p>
-        Tell us your location and required depth.
-        We'll help you with the next step.
-      </p>
+<p data-i18n="contactDescription">
+Tell us your location and required depth.
+We'll help you with the next step.
+</p>
 
-      <div class="contact-actions">
+<div class="contact-actions">
 
-        <a
-          href="https://wa.me/917010894661"
-          target="_blank"
-          class="btn btn-primary"
-        >
-          Get Quote on WhatsApp
-        </a>
+<a
+  href="https://wa.me/917010894661"
+  target="_blank"
+  class="btn btn-primary"
+  data-i18n="quoteWhatsapp"
+>
+Get Quote on WhatsApp
+</a>
 
-        <a
-          href="tel:+917010894661"
-          class="btn btn-secondary"
-        >
-          Call 70108 94661
-        </a>
+<a
+  href="tel:+917010894661"
+  class="btn btn-secondary"
+>
 
-      </div>
+<span data-i18n="callPhone">
+Call 70108 94661
+</span>
 
-    </div>
+</a>
 
-  </div>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -2510,21 +2784,21 @@ footer{
 
 <footer>
 
-  <div class="wrap footer-inner">
+<div class="wrap footer-inner">
 
-    <span>
-      © 2026 Sri Venkateshwara TubeWells
-    </span>
+<span data-i18n="copyright">
+© 2026 Sri Venkateshwara TubeWells
+</span>
 
-    <span>
-      Borewell Drilling · Casing Pipe Installation
-    </span>
+<span data-i18n="footerServices">
+Borewell Drilling · Casing Pipe Installation
+</span>
 
-    <span>
-      Tamil Nadu · Karnataka · Maharashtra · Madhya Pradesh · Rajasthan
-    </span>
+<span data-i18n="footerStates">
+Tamil Nadu · Karnataka · Maharashtra · Madhya Pradesh · Rajasthan
+</span>
 
-  </div>
+</div>
 
 </footer>
 
@@ -2540,20 +2814,20 @@ footer{
   aria-label="WhatsApp"
 >
 
-  <svg width="25" viewBox="0 0 24 24" fill="none">
+<svg width="25" viewBox="0 0 24 24" fill="none">
 
-    <path
-      d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"
-      stroke="currentColor"
-      stroke-width="1.7"
-    />
+<path
+d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"
+stroke="currentColor"
+stroke-width="1.7"
+/>
 
-    <path
-      d="M8.5 8.7c.3-.7 1-.6 1.5-.6.3 0 .5.2.6.5l.6 1.6c.1.2 0 .5-.1.6l-.6.7c-.2.2-.2.4-.1.6.6 1.2 1.6 2.2 2.8 2.8.2.1.4.1.6-.1l.7-.6c.2-.2.4-.2.6-.1l1.6.6c.3.1.5.3.5.6 0 .5.1 1.2-.6 1.5-1.6.7-3.6.3-5.6-1.7s-2.4-4-1.6-5.6z"
-      fill="currentColor"
-    />
+<path
+d="M8.5 8.7c.3-.7 1-.6 1.5-.6.3 0 .5.2.6.5l.6 1.6c.1.2 0 .5-.1.6l-.6.7c-.2.2-.2.4-.1.6.6 1.2 1.6 2.2 2.8 2.8.2.1.4.1.6-.1l.7-.6c.2-.2.4-.2.6-.1l1.6.6c.3.1.5.3.5.6 0 .5.1 1.2-.6 1.5-1.6.7-3.6.3-5.6-1.7s-2.4-4-1.6-5.6z"
+fill="currentColor"
+/>
 
-  </svg>
+</svg>
 
 </a>
 
@@ -2562,33 +2836,34 @@ footer{
 
 /* =========================================================
    CONFIGURATION
+   CHANGE PRICES HERE
 ========================================================= */
 
 const CONFIG = {
 
-  company:
-    "Sri Venkateshwara TubeWells",
+  company: "Sri Venkateshwara TubeWells",
 
-  phone:
-    "70108 94661",
+  phone: "70108 94661",
 
-  whatsapp:
-    "917010894661",
+  whatsapp: "917010894661",
 
-  drillingRate:
-    110,
+  /* Borewell drilling price */
+  drillingRate: 110,
 
-  minimumDepth:
-    200,
+  /* Casing pipe installation price */
+  casingRate: 120,
 
-  travelCharge:
-    500,
+  /* Travel charge */
+  travelCharge: 500,
 
-  casingRate:
-    0,
+  /* Minimum depth */
+  minimumDepth: 200,
 
-  waterDepth:
-    700
+  /* Maximum depth */
+  maximumDepth: 1000,
+
+  /* Water starts at this depth */
+  waterDepth: 700
 
 };
 
@@ -2605,6 +2880,12 @@ const depthValue =
 
 const drillingAmount =
   document.getElementById("drillingAmount");
+
+const casingAmount =
+  document.getElementById("casingAmount");
+
+const travelAmount =
+  document.getElementById("travelAmount");
 
 const totalAmount =
   document.getElementById("totalAmount");
@@ -2627,22 +2908,24 @@ const casingCheckbox =
 const casingOption =
   document.getElementById("casingOption");
 
+const casingCostBox =
+  document.getElementById("casingCostBox");
+
 
 /* =========================================================
-   FORMAT MONEY
+   MONEY FORMAT
 ========================================================= */
 
 function money(value){
 
   return "₹" +
-    Math.round(value)
-      .toLocaleString("en-IN");
+    Math.round(value).toLocaleString("en-IN");
 
 }
 
 
 /* =========================================================
-   UPDATE DRILLING
+   UPDATE PRICE
 ========================================================= */
 
 function updateDrilling(){
@@ -2655,37 +2938,58 @@ function updateDrilling(){
     depth;
 
 
+  /* -----------------------------------------
+     DRILLING COST
+  ----------------------------------------- */
+
   const drillingCost =
-    depth *
-    CONFIG.drillingRate;
+    depth * CONFIG.drillingRate;
 
 
   drillingAmount.textContent =
     money(drillingCost);
 
 
-  let casingCost =
-    0;
+  /* -----------------------------------------
+     TRAVEL
+  ----------------------------------------- */
+
+  travelAmount.textContent =
+    money(CONFIG.travelCharge);
+
+
+  /* -----------------------------------------
+     CASING COST
+  ----------------------------------------- */
+
+  let casingCost = 0;
 
 
   if(casingCheckbox.checked){
 
-    /*
-      If you want to charge casing later,
-      change CONFIG.casingRate above.
-
-      Example:
-
-      casingRate: 120
-
-    */
-
     casingCost =
-      depth *
-      CONFIG.casingRate;
+      depth * CONFIG.casingRate;
+
+    casingAmount.textContent =
+      money(casingCost);
+
+    casingCostBox.style.display =
+      "grid";
+
+  }else{
+
+    casingAmount.textContent =
+      money(0);
+
+    casingCostBox.style.display =
+      "none";
 
   }
 
+
+  /* -----------------------------------------
+     TOTAL
+  ----------------------------------------- */
 
   const total =
     drillingCost +
@@ -2697,9 +3001,9 @@ function updateDrilling(){
     money(total);
 
 
-  /*
-    Convert depth to visual percentage.
-  */
+  /* -----------------------------------------
+     DRILL VISUAL
+  ----------------------------------------- */
 
   const min =
     Number(slider.min);
@@ -2707,14 +3011,11 @@ function updateDrilling(){
   const max =
     Number(slider.max);
 
+
   const percent =
     ((depth - min) /
     (max - min)) * 100;
 
-
-  /*
-    Keep the drill inside the scene.
-  */
 
   const safePercent =
     Math.min(
@@ -2723,25 +3024,19 @@ function updateDrilling(){
     );
 
 
-  /*
-    Rod begins below surface.
-  */
+  /* Rod */
 
   drillRod.style.height =
     safePercent + "%";
 
 
-  /*
-    Drill bit follows rod.
-  */
+  /* Drill bit */
 
   drillBit.style.top =
     (13 + safePercent) + "%";
 
 
-  /*
-    Casing follows drill.
-  */
+  /* Casing */
 
   if(casingCheckbox.checked){
 
@@ -2756,10 +3051,9 @@ function updateDrilling(){
   }
 
 
-  /*
-    Water splash appears
-    when drill approaches water zone.
-  */
+  /* -----------------------------------------
+     WATER SPLASH
+  ----------------------------------------- */
 
   if(depth >= CONFIG.waterDepth){
 
@@ -2772,12 +3066,104 @@ function updateDrilling(){
   }
 
 
-  /*
-    Update WhatsApp message.
-  */
+  /* -----------------------------------------
+     WHATSAPP MESSAGE
+  ----------------------------------------- */
 
-  const message =
-    `Hello ${CONFIG.company}, I need a borewell of approximately ${depth} ft. Estimated drilling cost is ${money(total)}. Please share details and availability.`;
+  const selectedLanguage =
+    document.getElementById(
+      "languageSelect"
+    ).value;
+
+
+  let message;
+
+
+  if(selectedLanguage === "ta"){
+
+    message =
+      `வணக்கம் ${CONFIG.company}, சுமார் ${depth} அடி போர்வெல் தேவை. டிரில்லிங் செலவு ${money(drillingCost)}.`;
+
+    if(casingCheckbox.checked){
+
+      message +=
+        ` கேசிங் பைப் செலவு ${money(casingCost)}.`;
+
+    }
+
+    message +=
+      ` மொத்த மதிப்பீடு ${money(total)}. தயவுசெய்து விவரங்களை பகிரவும்.`;
+
+  }
+
+  else if(selectedLanguage === "kn"){
+
+    message =
+      `ನಮಸ್ಕಾರ ${CONFIG.company}, ಸುಮಾರು ${depth} ಅಡಿ ಬೋರ್‌ವೆಲ್ ಅಗತ್ಯವಿದೆ. ಡ್ರಿಲ್ಲಿಂಗ್ ವೆಚ್ಚ ${money(drillingCost)}.`;
+
+    if(casingCheckbox.checked){
+
+      message +=
+        ` ಕೇಸಿಂಗ್ ಪೈಪ್ ವೆಚ್ಚ ${money(casingCost)}.`;
+
+    }
+
+    message +=
+      ` ಒಟ್ಟು ಅಂದಾಜು ${money(total)}. ದಯವಿಟ್ಟು ವಿವರಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.`;
+
+  }
+
+  else if(selectedLanguage === "hi"){
+
+    message =
+      `नमस्ते ${CONFIG.company}, लगभग ${depth} फीट बोरवेल की आवश्यकता है। ड्रिलिंग लागत ${money(drillingCost)} है।`;
+
+    if(casingCheckbox.checked){
+
+      message +=
+        ` केसिंग पाइप लागत ${money(casingCost)} है।`;
+
+    }
+
+    message +=
+      ` कुल अनुमान ${money(total)} है। कृपया विवरण साझा करें।`;
+
+  }
+
+  else if(selectedLanguage === "mr"){
+
+    message =
+      `नमस्कार ${CONFIG.company}, अंदाजे ${depth} फूट बोअरवेल आवश्यक आहे. ड्रिलिंग खर्च ${money(drillingCost)} आहे.`;
+
+    if(casingCheckbox.checked){
+
+      message +=
+        ` केसिंग पाईप खर्च ${money(casingCost)} आहे.`;
+
+    }
+
+    message +=
+      ` एकूण अंदाज ${money(total)} आहे. कृपया माहिती शेअर करा.`;
+
+  }
+
+  else{
+
+    message =
+      `Hello ${CONFIG.company}, I need a borewell of approximately ${depth} ft. Drilling cost is ${money(drillingCost)}.`;
+
+    if(casingCheckbox.checked){
+
+      message +=
+        ` Casing pipe installation cost is ${money(casingCost)}.`;
+
+    }
+
+    message +=
+      ` Total estimated cost is ${money(total)}. Please share details and availability.`;
+
+  }
+
 
   const whatsappURL =
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
@@ -2827,53 +3213,1085 @@ casingCheckbox.addEventListener(
 
 
 /* =========================================================
-   LANGUAGE
+   TRANSLATIONS
 ========================================================= */
 
 const translations = {
 
-  en:{
-    title:
-      `Borewell drilling <span class="orange">done right.</span> Built for the ground beneath you.`,
+en:{
 
-    desc:
-      `Borewell drilling and casing pipe installation across Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan. Get a transparent estimate before work begins.`
-  },
+  eyebrow:
+    "Professional Borewell Drilling & Casing",
 
-  ta:{
-    title:
-      `போர்வெல் துளையிடுதல் <span class="orange">சரியாக.</span> உங்கள் நிலத்திற்கான நம்பகமான சேவை.`,
+  title:
+    `Borewell drilling <span class="orange">done right.</span> Built for the ground beneath you.`,
 
-    desc:
-      `தமிழ்நாடு, கர்நாடகா, மகாராஷ்டிரா, மத்தியப் பிரதேசம் மற்றும் ராஜஸ்தானில் போர்வெல் துளையிடுதல் மற்றும் கேசிங் பைப் பொருத்துதல் சேவை.`
-  },
+  desc:
+    "Borewell drilling and casing pipe installation across Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan. Get a transparent estimate before work begins.",
 
-  kn:{
-    title:
-      `ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ <span class="orange">ಸರಿಯಾಗಿ.</span> ನಿಮ್ಮ ನೆಲಕ್ಕೆ ನಂಬಿಕையான ಸೇವೆ.`,
+  call:
+    "Call",
 
-    desc:
-      `ಕರ್ನಾಟಕ, ತಮಿಳುನಾಡು, ಮಹಾರಾಷ್ಟ್ರ, ಮಧ್ಯಪ್ರದೇಶ ಮತ್ತು ರಾಜಸ್ಥಾನದಲ್ಲಿ ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ ಮತ್ತು ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ ಸೇವೆ.`
-  },
+  estimate:
+    "Estimate Borewell",
 
-  hi:{
-    title:
-      `बोरवेल ड्रिलिंग <span class="orange">सही तरीके से।</span> आपकी जमीन के लिए भरोसेमंद सेवा।`,
+  whatsapp:
+    "WhatsApp Us",
 
-    desc:
-      `तमिलनाडु, कर्नाटक, महाराष्ट्र, मध्य प्रदेश और राजस्थान में बोरवेल ड्रिलिंग और केसिंग पाइप इंस्टॉलेशन सेवा।`
-  },
+  startingRate:
+    "Starting drilling rate",
 
-  mr:{
-    title:
-      `बोअरवेल ड्रिलिंग <span class="orange">योग्य पद्धतीने.</span> तुमच्या जमिनीसाठी विश्वासार्ह सेवा.`,
+  fiveStates:
+    "5 States",
 
-    desc:
-      `तमिळनाडू, कर्नाटक, महाराष्ट्र, मध्य प्रदेश आणि राजस्थानमध्ये बोअरवेल ड्रिलिंग व केसिंग पाईप बसवण्याची सेवा.`
-  }
+  coverage:
+    "Service coverage",
+
+  casingStat:
+    "Casing",
+
+  pipeInstallation:
+    "Pipe installation",
+
+  simulator:
+    "Live Borewell Simulator",
+
+  simulation:
+    "Drilling simulation",
+
+  waterZone:
+    "Underground water zone",
+
+  requiredDepth:
+    "Required drilling depth",
+
+  drilling:
+    "Drilling",
+
+  travel:
+    "Travel",
+
+  borewellDrilling:
+    "Borewell Drilling",
+
+  drillingWork:
+    "Drilling work",
+
+  casingPipe:
+    "Casing Pipe Installation",
+
+  casingInstallation:
+    "Installation available",
+
+  casingCost:
+    "Casing Cost",
+
+  rate:
+    "Rate",
+
+  projectTotal:
+    "Estimated project total",
+
+  service:
+    "Service",
+
+  offerTitle:
+    "Borewell drilling + casing pipe installation available",
+
+  finalQuotation:
+    "Final quotation confirmed based on site conditions.",
+
+  ourServices:
+    "Our Services",
+
+  completeSolutions:
+    "Complete borewell solutions",
+
+  serviceDescription:
+    "From drilling the bore to casing installation, our service is focused on dependable borewell work.",
+
+  borewellDescription:
+    "Professional drilling for agricultural, residential and commercial borewell requirements.",
+
+  casingDescription:
+    "Casing pipe installation is available to help support and protect the borewell structure.",
+
+  siteDrilling:
+    "Site-Based Drilling",
+
+  siteDescription:
+    "Vehicle-based drilling service with pricing discussed according to depth and site conditions.",
+
+  serviceCoverage:
+    "Service Coverage",
+
+  servingFive:
+    "Serving five states",
+
+  coverageDescription:
+    "Contact us to check drilling vehicle availability for your location.",
+
+  tamilNadu:
+    "Tamil Nadu",
+
+  karnataka:
+    "Karnataka",
+
+  maharashtra:
+    "Maharashtra",
+
+  madhyaPradesh:
+    "Madhya Pradesh",
+
+  rajasthan:
+    "Rajasthan",
+
+  whyEyebrow:
+    "Why Sri Venkateshwara TubeWells",
+
+  builtAroundWork:
+    "Built around the work",
+
+  transparentPricing:
+    "Transparent Pricing",
+
+  transparentDescription:
+    "Estimate the drilling cost before starting the work.",
+
+  casingAvailable:
+    "Casing Available",
+
+  casingWhyDescription:
+    "Casing pipe installation is available as part of the service.",
+
+  multiState:
+    "Multi-State Service",
+
+  multiStateDescription:
+    "Service coverage across five states.",
+
+  directContact:
+    "Direct Contact",
+
+  directContactDescription:
+    "Speak directly with the service team for availability.",
+
+  startBorewell:
+    "Start Your Borewell",
+
+  readyToDrill:
+    "Ready to drill?",
+
+  contactDescription:
+    "Tell us your location and required depth. We'll help you with the next step.",
+
+  quoteWhatsapp:
+    "Get Quote on WhatsApp",
+
+  callPhone:
+    "Call 70108 94661",
+
+  copyright:
+    "© 2026 Sri Venkateshwara TubeWells",
+
+  footerServices:
+    "Borewell Drilling · Casing Pipe Installation",
+
+  footerStates:
+    "Tamil Nadu · Karnataka · Maharashtra · Madhya Pradesh · Rajasthan"
+
+},
+
+
+/* =====================================================
+   TAMIL
+===================================================== */
+
+ta:{
+
+  eyebrow:
+    "தொழில்முறை போர்வெல் துளையிடுதல் மற்றும் கேசிங்",
+
+  title:
+    `போர்வெல் துளையிடுதல் <span class="orange">சரியாக.</span> உங்கள் நிலத்திற்கான நம்பகமான சேவை.`,
+
+  desc:
+    "தமிழ்நாடு, கர்நாடகா, மகாராஷ்டிரா, மத்தியப் பிரதேசம் மற்றும் ராஜஸ்தானில் போர்வெல் துளையிடுதல் மற்றும் கேசிங் பைப் பொருத்துதல் சேவை. பணியைத் தொடங்குவதற்கு முன் தெளிவான மதிப்பீட்டைப் பெறுங்கள்.",
+
+  call:
+    "அழைக்க",
+
+  estimate:
+    "போர்வெல் மதிப்பீடு",
+
+  whatsapp:
+    "WhatsApp",
+
+  startingRate:
+    "தொடக்க டிரில்லிங் விலை",
+
+  fiveStates:
+    "5 மாநிலங்கள்",
+
+  coverage:
+    "சேவை பகுதிகள்",
+
+  casingStat:
+    "கேசிங்",
+
+  pipeInstallation:
+    "பைப் பொருத்துதல்",
+
+  simulator:
+    "லைவ் போர்வெல் சிமுலேட்டர்",
+
+  simulation:
+    "டிரில்லிங் சிமுலேஷன்",
+
+  waterZone:
+    "நிலத்தடி நீர் பகுதி",
+
+  requiredDepth:
+    "தேவையான ஆழம்",
+
+  drilling:
+    "டிரில்லிங்",
+
+  travel:
+    "பயண கட்டணம்",
+
+  borewellDrilling:
+    "போர்வெல் டிரில்லிங்",
+
+  drillingWork:
+    "துளையிடும் பணி",
+
+  casingPipe:
+    "கேசிங் பைப் பொருத்துதல்",
+
+  casingInstallation:
+    "பொருத்துதல் கிடைக்கும்",
+
+  casingCost:
+    "கேசிங் செலவு",
+
+  rate:
+    "விலை",
+
+  projectTotal:
+    "மொத்த மதிப்பீடு",
+
+  service:
+    "சேவை",
+
+  offerTitle:
+    "போர்வெல் டிரில்லிங் + கேசிங் பைப் பொருத்துதல் கிடைக்கும்",
+
+  finalQuotation:
+    "இறுதி விலை தளத்தின் நிலைமையைப் பொறுத்து உறுதி செய்யப்படும்.",
+
+  ourServices:
+    "எங்கள் சேவைகள்",
+
+  completeSolutions:
+    "முழுமையான போர்வெல் தீர்வுகள்",
+
+  serviceDescription:
+    "போர்வெல் துளையிடுதல் முதல் கேசிங் பொருத்துதல் வரை நம்பகமான சேவையை வழங்குகிறோம்.",
+
+  borewellDescription:
+    "விவசாயம், வீடு மற்றும் வணிக தேவைகளுக்கான தொழில்முறை போர்வெல் டிரில்லிங்.",
+
+  casingDescription:
+    "போர்வெல் அமைப்பை பாதுகாக்கவும் உறுதியாக வைத்திருக்கவும் கேசிங் பைப் பொருத்துதல் சேவை கிடைக்கிறது.",
+
+  siteDrilling:
+    "தள அடிப்படையிலான டிரில்லிங்",
+
+  siteDescription:
+    "ஆழம் மற்றும் தள நிலைமையைப் பொறுத்து விலை நிர்ணயம் செய்யப்படும் வாகன அடிப்படையிலான டிரில்லிங் சேவை.",
+
+  serviceCoverage:
+    "சேவை பகுதிகள்",
+
+  servingFive:
+    "ஐந்து மாநிலங்களில் சேவை",
+
+  coverageDescription:
+    "உங்கள் பகுதியில் டிரில்லிங் வாகனம் கிடைக்கிறதா என்பதை தொடர்பு கொண்டு தெரிந்து கொள்ளுங்கள்.",
+
+  tamilNadu:
+    "தமிழ்நாடு",
+
+  karnataka:
+    "கர்நாடகா",
+
+  maharashtra:
+    "மகாராஷ்டிரா",
+
+  madhyaPradesh:
+    "மத்தியப் பிரதேசம்",
+
+  rajasthan:
+    "ராஜஸ்தான்",
+
+  whyEyebrow:
+    "ஏன் ஸ்ரீ வெங்கடேஸ்வரா டியூப்வெல்ஸ்",
+
+  builtAroundWork:
+    "பணியை மையமாகக் கொண்ட சேவை",
+
+  transparentPricing:
+    "தெளிவான விலை",
+
+  transparentDescription:
+    "பணியைத் தொடங்குவதற்கு முன் டிரில்லிங் செலவை மதிப்பிடுங்கள்.",
+
+  casingAvailable:
+    "கேசிங் வசதி",
+
+  casingWhyDescription:
+    "கேசிங் பைப் பொருத்துதல் சேவை கிடைக்கிறது.",
+
+  multiState:
+    "பல மாநில சேவை",
+
+  multiStateDescription:
+    "ஐந்து மாநிலங்களில் சேவை கிடைக்கிறது.",
+
+  directContact:
+    "நேரடி தொடர்பு",
+
+  directContactDescription:
+    "சேவை கிடைக்கும் நேரம் மற்றும் விவரங்களுக்கு நேரடியாக தொடர்பு கொள்ளுங்கள்.",
+
+  startBorewell:
+    "உங்கள் போர்வெல்லை தொடங்குங்கள்",
+
+  readyToDrill:
+    "டிரில்லிங் செய்ய தயாரா?",
+
+  contactDescription:
+    "உங்கள் இடம் மற்றும் தேவையான ஆழத்தை எங்களிடம் தெரிவியுங்கள். அடுத்த படிக்கு உதவுகிறோம்.",
+
+  quoteWhatsapp:
+    "WhatsApp மூலம் விலை பெறுங்கள்",
+
+  callPhone:
+    "அழைக்க 70108 94661",
+
+  copyright:
+    "© 2026 ஸ்ரீ வெங்கடேஸ்வரா டியூப்வெல்ஸ்",
+
+  footerServices:
+    "போர்வெல் டிரில்லிங் · கேசிங் பைப் பொருத்துதல்",
+
+  footerStates:
+    "தமிழ்நாடு · கர்நாடகா · மகாராஷ்டிரா · மத்தியப் பிரதேசம் · ராஜஸ்தான்"
+
+},
+
+
+/* =====================================================
+   KANNADA
+===================================================== */
+
+kn:{
+
+  eyebrow:
+    "ವೃತ್ತಿಪರ ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ ಮತ್ತು ಕೇಸಿಂಗ್",
+
+  title:
+    `ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ <span class="orange">ಸರಿಯಾಗಿ.</span> ನಿಮ್ಮ ನೆಲಕ್ಕೆ ನಂಬಿಕையான ಸೇವೆ.`,
+
+  desc:
+    "ತಮಿಳುನಾಡು, ಕರ್ನಾಟಕ, ಮಹಾರಾಷ್ಟ್ರ, ಮಧ್ಯಪ್ರದೇಶ ಮತ್ತು ರಾಜಸ್ಥಾನದಲ್ಲಿ ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ ಮತ್ತು ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ ಸೇವೆ. ಕೆಲಸ ಪ್ರಾರಂಭಿಸುವ ಮೊದಲು ಸ್ಪಷ್ಟ ಅಂದಾಜು ಪಡೆಯಿರಿ.",
+
+  call:
+    "ಕರೆ",
+
+  estimate:
+    "ಬೋರ್‌ವೆಲ್ ಅಂದಾಜು",
+
+  whatsapp:
+    "WhatsApp",
+
+  startingRate:
+    "ಆರಂಭಿಕ ಡ್ರಿಲ್ಲಿಂಗ್ ದರ",
+
+  fiveStates:
+    "5 ರಾಜ್ಯಗಳು",
+
+  coverage:
+    "ಸೇವಾ ವ್ಯಾಪ್ತಿ",
+
+  casingStat:
+    "ಕೇಸಿಂಗ್",
+
+  pipeInstallation:
+    "ಪೈಪ್ ಅಳವಡಿಕೆ",
+
+  simulator:
+    "ಲೈವ್ ಬೋರ್‌ವೆಲ್ ಸಿಮ್ಯುಲೇಟರ್",
+
+  simulation:
+    "ಡ್ರಿಲ್ಲಿಂಗ್ ಸಿಮ್ಯುಲೇಶನ್",
+
+  waterZone:
+    "ಭೂಗತ ನೀರಿನ ಪ್ರದೇಶ",
+
+  requiredDepth:
+    "ಅಗತ್ಯವಿರುವ ಆಳ",
+
+  drilling:
+    "ಡ್ರಿಲ್ಲಿಂಗ್",
+
+  travel:
+    "ಪ್ರಯಾಣ ಶುಲ್ಕ",
+
+  borewellDrilling:
+    "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್",
+
+  drillingWork:
+    "ಕೊರೆಯುವ ಕೆಲಸ",
+
+  casingPipe:
+    "ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ",
+
+  casingInstallation:
+    "ಅಳವಡಿಕೆ ಲಭ್ಯವಿದೆ",
+
+  casingCost:
+    "ಕೇಸಿಂಗ್ ವೆಚ್ಚ",
+
+  rate:
+    "ದರ",
+
+  projectTotal:
+    "ಅಂದಾಜು ಒಟ್ಟು ವೆಚ್ಚ",
+
+  service:
+    "ಸೇವೆ",
+
+  offerTitle:
+    "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ + ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ ಲಭ್ಯವಿದೆ",
+
+  finalQuotation:
+    "ಅಂತಿಮ ದರವನ್ನು ಸ್ಥಳದ ಪರಿಸ್ಥಿತಿಗೆ ಅನುಗುಣವಾಗಿ ನಿಗದಿಪಡಿಸಲಾಗುತ್ತದೆ.",
+
+  ourServices:
+    "ನಮ್ಮ ಸೇವೆಗಳು",
+
+  completeSolutions:
+    "ಸಂಪೂರ್ಣ ಬೋರ್‌ವೆಲ್ ಪರಿಹಾರಗಳು",
+
+  serviceDescription:
+    "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್‌ನಿಂದ ಕೇಸಿಂಗ್ ಅಳವಡಿಕೆಯವರೆಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಸೇವೆ.",
+
+  borewellDescription:
+    "ಕೃಷಿ, ವಸತಿ ಮತ್ತು ವಾಣಿಜ್ಯ ಬೋರ್‌ವೆಲ್ ಅಗತ್ಯಗಳಿಗಾಗಿ ವೃತ್ತಿಪರ ಡ್ರಿಲ್ಲಿಂಗ್.",
+
+  casingDescription:
+    "ಬೋರ್‌ವೆಲ್ ರಚನೆಯನ್ನು ಬೆಂಬಲಿಸಲು ಮತ್ತು ರಕ್ಷಿಸಲು ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ ಲಭ್ಯವಿದೆ.",
+
+  siteDrilling:
+    "ಸೈಟ್ ಆಧಾರಿತ ಡ್ರಿಲ್ಲಿಂಗ್",
+
+  siteDescription:
+    "ಆಳ ಮತ್ತು ಸ್ಥಳದ ಪರಿಸ್ಥಿತಿಗೆ ಅನುಗುಣವಾಗಿ ದರ ನಿಗದಿಯಾಗುವ ವಾಹನ ಆಧಾರಿತ ಡ್ರಿಲ್ಲಿಂಗ್ ಸೇವೆ.",
+
+  serviceCoverage:
+    "ಸೇವಾ ವ್ಯಾಪ್ತಿ",
+
+  servingFive:
+    "ಐದು ರಾಜ್ಯಗಳಲ್ಲಿ ಸೇವೆ",
+
+  coverageDescription:
+    "ನಿಮ್ಮ ಸ್ಥಳದಲ್ಲಿ ಡ್ರಿಲ್ಲಿಂಗ್ ವಾಹನ ಲಭ್ಯವಿದೆಯೇ ಎಂದು ಸಂಪರ್ಕಿಸಿ.",
+
+  tamilNadu:
+    "ತಮಿಳುನಾಡು",
+
+  karnataka:
+    "ಕರ್ನಾಟಕ",
+
+  maharashtra:
+    "ಮಹಾರಾಷ್ಟ್ರ",
+
+  madhyaPradesh:
+    "ಮಧ್ಯಪ್ರದೇಶ",
+
+  rajasthan:
+    "ರಾಜಸ್ಥಾನ",
+
+  whyEyebrow:
+    "ಏಕೆ ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಟ್ಯೂಬ್‌ವೆಲ್ಸ್",
+
+  builtAroundWork:
+    "ಕೆಲಸದ ಮೇಲೆ ಕೇಂದ್ರೀಕೃತ ಸೇವೆ",
+
+  transparentPricing:
+    "ಸ್ಪಷ್ಟ ದರ",
+
+  transparentDescription:
+    "ಕೆಲಸ ಪ್ರಾರಂಭಿಸುವ ಮೊದಲು ಡ್ರಿಲ್ಲಿಂಗ್ ವೆಚ್ಚವನ್ನು ಅಂದಾಜಿಸಿ.",
+
+  casingAvailable:
+    "ಕೇಸಿಂಗ್ ಲಭ್ಯ",
+
+  casingWhyDescription:
+    "ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ ಸೇವೆ ಲಭ್ಯವಿದೆ.",
+
+  multiState:
+    "ಬಹು-ರಾಜ್ಯ ಸೇವೆ",
+
+  multiStateDescription:
+    "ಐದು ರಾಜ್ಯಗಳಲ್ಲಿ ಸೇವಾ ವ್ಯಾಪ್ತಿ.",
+
+  directContact:
+    "ನೇರ ಸಂಪರ್ಕ",
+
+  directContactDescription:
+    "ಸೇವೆಯ ಲಭ್ಯತೆಗಾಗಿ ನೇರವಾಗಿ ಸೇವಾ ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+
+  startBorewell:
+    "ನಿಮ್ಮ ಬೋರ್‌ವೆಲ್ ಪ್ರಾರಂಭಿಸಿ",
+
+  readyToDrill:
+    "ಡ್ರಿಲ್ಲಿಂಗ್‌ಗೆ ಸಿದ್ಧವೇ?",
+
+  contactDescription:
+    "ನಿಮ್ಮ ಸ್ಥಳ ಮತ್ತು ಅಗತ್ಯವಿರುವ ಆಳವನ್ನು ತಿಳಿಸಿ. ಮುಂದಿನ ಹಂತದಲ್ಲಿ ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ.",
+
+  quoteWhatsapp:
+    "WhatsApp ಮೂಲಕ ದರ ಪಡೆಯಿರಿ",
+
+  callPhone:
+    "ಕರೆ 70108 94661",
+
+  copyright:
+    "© 2026 ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಟ್ಯೂಬ್‌ವೆಲ್ಸ್",
+
+  footerServices:
+    "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ · ಕೇಸಿಂಗ್ ಪೈಪ್ ಅಳವಡಿಕೆ",
+
+  footerStates:
+    "ತಮಿಳುನಾಡು · ಕರ್ನಾಟಕ · ಮಹಾರಾಷ್ಟ್ರ · ಮಧ್ಯಪ್ರದೇಶ · ರಾಜಸ್ಥಾನ"
+
+},
+
+
+/* =====================================================
+   HINDI
+========================================================= */
+
+hi:{
+
+  eyebrow:
+    "प्रोफेशनल बोरवेल ड्रिलिंग और केसिंग",
+
+  title:
+    `बोरवेल ड्रिलिंग <span class="orange">सही तरीके से।</span> आपकी जमीन के लिए भरोसेमंद सेवा।`,
+
+  desc:
+    "तमिलनाडु, कर्नाटक, महाराष्ट्र, मध्य प्रदेश और राजस्थान में बोरवेल ड्रिलिंग और केसिंग पाइप इंस्टॉलेशन सेवा। काम शुरू करने से पहले स्पष्ट अनुमान प्राप्त करें।",
+
+  call:
+    "कॉल",
+
+  estimate:
+    "बोरवेल अनुमान",
+
+  whatsapp:
+    "WhatsApp",
+
+  startingRate:
+    "शुरुआती ड्रिलिंग दर",
+
+  fiveStates:
+    "5 राज्य",
+
+  coverage:
+    "सेवा क्षेत्र",
+
+  casingStat:
+    "केसिंग",
+
+  pipeInstallation:
+    "पाइप इंस्टॉलेशन",
+
+  simulator:
+    "लाइव बोरवेल सिम्युलेटर",
+
+  simulation:
+    "ड्रिलिंग सिमुलेशन",
+
+  waterZone:
+    "भूमिगत जल क्षेत्र",
+
+  requiredDepth:
+    "आवश्यक ड्रिलिंग गहराई",
+
+  drilling:
+    "ड्रिलिंग",
+
+  travel:
+    "यात्रा शुल्क",
+
+  borewellDrilling:
+    "बोरवेल ड्रिलिंग",
+
+  drillingWork:
+    "ड्रिलिंग कार्य",
+
+  casingPipe:
+    "केसिंग पाइप इंस्टॉलेशन",
+
+  casingInstallation:
+    "इंस्टॉलेशन उपलब्ध",
+
+  casingCost:
+    "केसिंग लागत",
+
+  rate:
+    "दर",
+
+  projectTotal:
+    "अनुमानित कुल लागत",
+
+  service:
+    "सेवा",
+
+  offerTitle:
+    "बोरवेल ड्रिलिंग + केसिंग पाइप इंस्टॉलेशन उपलब्ध",
+
+  finalQuotation:
+    "अंतिम कीमत साइट की स्थिति के अनुसार तय की जाएगी।",
+
+  ourServices:
+    "हमारी सेवाएं",
+
+  completeSolutions:
+    "संपूर्ण बोरवेल समाधान",
+
+  serviceDescription:
+    "बोरवेल ड्रिलिंग से लेकर केसिंग इंस्टॉलेशन तक भरोसेमंद सेवा प्रदान की जाती है।",
+
+  borewellDescription:
+    "कृषि, आवासीय और व्यावसायिक बोरवेल आवश्यकताओं के लिए प्रोफेशनल ड्रिलिंग।",
+
+  casingDescription:
+    "बोरवेल संरचना को मजबूत और सुरक्षित रखने के लिए केसिंग पाइप इंस्टॉलेशन उपलब्ध है।",
+
+  siteDrilling:
+    "साइट आधारित ड्रिलिंग",
+
+  siteDescription:
+    "गहराई और साइट की स्थिति के अनुसार कीमत तय की जाने वाली वाहन आधारित ड्रिलिंग सेवा।",
+
+  serviceCoverage:
+    "सेवा क्षेत्र",
+
+  servingFive:
+    "पांच राज्यों में सेवा",
+
+  coverageDescription:
+    "अपने स्थान पर ड्रिलिंग वाहन की उपलब्धता जांचने के लिए संपर्क करें।",
+
+  tamilNadu:
+    "तमिलनाडु",
+
+  karnataka:
+    "कर्नाटक",
+
+  maharashtra:
+    "महाराष्ट्र",
+
+  madhyaPradesh:
+    "मध्य प्रदेश",
+
+  rajasthan:
+    "राजस्थान",
+
+  whyEyebrow:
+    "श्री वेंकटेश्वर ट्यूबवेल्स क्यों",
+
+  builtAroundWork:
+    "काम पर केंद्रित सेवा",
+
+  transparentPricing:
+    "पारदर्शी कीमत",
+
+  transparentDescription:
+    "काम शुरू करने से पहले ड्रिलिंग लागत का अनुमान प्राप्त करें।",
+
+  casingAvailable:
+    "केसिंग उपलब्ध",
+
+  casingWhyDescription:
+    "केसिंग पाइप इंस्टॉलेशन सेवा उपलब्ध है।",
+
+  multiState:
+    "बहु-राज्य सेवा",
+
+  multiStateDescription:
+    "पांच राज्यों में सेवा उपलब्ध है।",
+
+  directContact:
+    "सीधा संपर्क",
+
+  directContactDescription:
+    "सेवा की उपलब्धता के लिए सीधे टीम से संपर्क करें।",
+
+  startBorewell:
+    "अपना बोरवेल शुरू करें",
+
+  readyToDrill:
+    "ड्रिलिंग के लिए तैयार हैं?",
+
+  contactDescription:
+    "अपना स्थान और आवश्यक गहराई बताएं। हम अगले चरण में आपकी सहायता करेंगे।",
+
+  quoteWhatsapp:
+    "WhatsApp पर कोटेशन प्राप्त करें",
+
+  callPhone:
+    "कॉल 70108 94661",
+
+  copyright:
+    "© 2026 श्री वेंकटेश्वर ट्यूबवेल्स",
+
+  footerServices:
+    "बोरवेल ड्रिलिंग · केसिंग पाइप इंस्टॉलेशन",
+
+  footerStates:
+    "तमिलनाडु · कर्नाटक · महाराष्ट्र · मध्य प्रदेश · राजस्थान"
+
+},
+
+
+/* =====================================================
+   MARATHI
+========================================================= */
+
+mr:{
+
+  eyebrow:
+    "प्रोफेशनल बोअरवेल ड्रिलिंग आणि केसिंग",
+
+  title:
+    `बोअरवेल ड्रिलिंग <span class="orange">योग्य पद्धतीने.</span> तुमच्या जमिनीसाठी विश्वासार्ह सेवा.`,
+
+  desc:
+    "तमिळनाडू, कर्नाटक, महाराष्ट्र, मध्य प्रदेश आणि राजस्थानमध्ये बोअरवेल ड्रिलिंग व केसिंग पाईप बसवण्याची सेवा. काम सुरू करण्यापूर्वी स्पष्ट अंदाज मिळवा.",
+
+  call:
+    "कॉल",
+
+  estimate:
+    "बोअरवेल अंदाज",
+
+  whatsapp:
+    "WhatsApp",
+
+  startingRate:
+    "सुरुवातीचा ड्रिलिंग दर",
+
+  fiveStates:
+    "5 राज्ये",
+
+  coverage:
+    "सेवा क्षेत्र",
+
+  casingStat:
+    "केसिंग",
+
+  pipeInstallation:
+    "पाईप बसवणे",
+
+  simulator:
+    "लाईव्ह बोअरवेल सिम्युलेटर",
+
+  simulation:
+    "ड्रिलिंग सिम्युलेशन",
+
+  waterZone:
+    "भूजल क्षेत्र",
+
+  requiredDepth:
+    "आवश्यक ड्रिलिंग खोली",
+
+  drilling:
+    "ड्रिलिंग",
+
+  travel:
+    "प्रवास शुल्क",
+
+  borewellDrilling:
+    "बोअरवेल ड्रिलिंग",
+
+  drillingWork:
+    "ड्रिलिंग काम",
+
+  casingPipe:
+    "केसिंग पाईप बसवणे",
+
+  casingInstallation:
+    "बसवण्याची सुविधा उपलब्ध",
+
+  casingCost:
+    "केसिंग खर्च",
+
+  rate:
+    "दर",
+
+  projectTotal:
+    "अंदाजे एकूण खर्च",
+
+  service:
+    "सेवा",
+
+  offerTitle:
+    "बोअरवेल ड्रिलिंग + केसिंग पाईप बसवण्याची सुविधा उपलब्ध",
+
+  finalQuotation:
+    "अंतिम किंमत साइटच्या परिस्थितीनुसार निश्चित केली जाईल.",
+
+  ourServices:
+    "आमच्या सेवा",
+
+  completeSolutions:
+    "संपूर्ण बोअरवेल समाधान",
+
+  serviceDescription:
+    "बोअरवेल ड्रिलिंगपासून केसिंग पाईप बसवण्यापर्यंत विश्वासार्ह सेवा.",
+
+  borewellDescription:
+    "शेती, निवासी आणि व्यावसायिक बोअरवेलसाठी व्यावसायिक ड्रिलिंग सेवा.",
+
+  casingDescription:
+    "बोअरवेलची रचना मजबूत आणि सुरक्षित ठेवण्यासाठी केसिंग पाईप बसवण्याची सुविधा उपलब्ध आहे.",
+
+  siteDrilling:
+    "साइट आधारित ड्रिलिंग",
+
+  siteDescription:
+    "खोली आणि साइटच्या परिस्थितीनुसार किंमत निश्चित केली जाणारी वाहन आधारित ड्रिलिंग सेवा.",
+
+  serviceCoverage:
+    "सेवा क्षेत्र",
+
+  servingFive:
+    "पाच राज्यांमध्ये सेवा",
+
+  coverageDescription:
+    "तुमच्या ठिकाणी ड्रिलिंग वाहन उपलब्ध आहे का हे तपासण्यासाठी संपर्क करा.",
+
+  tamilNadu:
+    "तमिळनाडू",
+
+  karnataka:
+    "कर्नाटक",
+
+  maharashtra:
+    "महाराष्ट्र",
+
+  madhyaPradesh:
+    "मध्य प्रदेश",
+
+  rajasthan:
+    "राजस्थान",
+
+  whyEyebrow:
+    "श्री वेंकटेश्वर ट्यूबवेल्स का",
+
+  builtAroundWork:
+    "कामावर आधारित सेवा",
+
+  transparentPricing:
+    "पारदर्शक किंमत",
+
+  transparentDescription:
+    "काम सुरू करण्यापूर्वी ड्रिलिंग खर्चाचा अंदाज मिळवा.",
+
+  casingAvailable:
+    "केसिंग उपलब्ध",
+
+  casingWhyDescription:
+    "केसिंग पाईप बसवण्याची सेवा उपलब्ध आहे.",
+
+  multiState:
+    "बहु-राज्य सेवा",
+
+  multiStateDescription:
+    "पाच राज्यांमध्ये सेवा उपलब्ध.",
+
+  directContact:
+    "थेट संपर्क",
+
+  directContactDescription:
+    "सेवा उपलब्धतेसाठी थेट टीमशी संपर्क साधा.",
+
+  startBorewell:
+    "तुमचा बोअरवेल सुरू करा",
+
+  readyToDrill:
+    "ड्रिलिंगसाठी तयार आहात?",
+
+  contactDescription:
+    "तुमचे ठिकाण आणि आवश्यक खोली सांगा. पुढील टप्प्यात आम्ही मदत करू.",
+
+  quoteWhatsapp:
+    "WhatsApp वर कोटेशन मिळवा",
+
+  callPhone:
+    "कॉल 70108 94661",
+
+  copyright:
+    "© 2026 श्री वेंकटेश्वर ट्यूबवेल्स",
+
+  footerServices:
+    "बोअरवेल ड्रिलिंग · केसिंग पाईप इंस्टॉलेशन",
+
+  footerStates:
+    "तमिळनाडू · कर्नाटक · महाराष्ट्र · मध्य प्रदेश · राजस्थान"
+
+}
 
 };
 
+
+/* =========================================================
+   LANGUAGE APPLICATION
+========================================================= */
+
+function applyLanguage(lang){
+
+  const t =
+    translations[lang] ||
+    translations.en;
+
+
+  /*
+    Translate normal text elements
+  */
+
+  document
+    .querySelectorAll("[data-i18n]")
+    .forEach(element => {
+
+      const key =
+        element.getAttribute("data-i18n");
+
+
+      if(t[key] !== undefined){
+
+        element.textContent =
+          t[key];
+
+      }
+
+    });
+
+
+  /*
+    Hero title contains HTML
+    because of orange highlighted text.
+  */
+
+  const heroTitle =
+    document.getElementById(
+      "heroTitle"
+    );
+
+
+  if(heroTitle){
+
+    heroTitle.innerHTML =
+      t.title;
+
+  }
+
+
+  /*
+    Hero description
+  */
+
+  const heroDesc =
+    document.getElementById(
+      "heroDesc"
+    );
+
+
+  if(heroDesc){
+
+    heroDesc.textContent =
+      t.desc;
+
+  }
+
+
+  /*
+    Update HTML language
+  */
+
+  document.documentElement.lang =
+    lang;
+
+
+  /*
+    Update page title
+  */
+
+  if(lang === "ta"){
+
+    document.title =
+      "ஸ்ரீ வெங்கடேஸ்வரா டியூப்வெல்ஸ் | போர்வெல் டிரில்லிங்";
+
+  }
+
+  else if(lang === "kn"){
+
+    document.title =
+      "ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಟ್ಯೂಬ್‌ವೆಲ್ಸ್ | ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್";
+
+  }
+
+  else if(lang === "hi"){
+
+    document.title =
+      "श्री वेंकटेश्वर ट्यूबवेल्स | बोरवेल ड्रिलिंग";
+
+  }
+
+  else if(lang === "mr"){
+
+    document.title =
+      "श्री वेंकटेश्वर ट्यूबवेल्स | बोअरवेल ड्रिलिंग";
+
+  }
+
+  else{
+
+    document.title =
+      "Sri Venkateshwara TubeWells | Borewell Drilling & Casing";
+
+  }
+
+
+  /*
+    Recalculate WhatsApp message
+    in selected language.
+  */
+
+  updateDrilling();
+
+}
+
+
+/* =========================================================
+   LANGUAGE DROPDOWN
+========================================================= */
 
 document
   .getElementById("languageSelect")
@@ -2881,28 +4299,9 @@ document
     "change",
     function(){
 
-      const lang =
-        this.value;
-
-      const t =
-        translations[lang] ||
-        translations.en;
-
-
-      document
-        .getElementById("heroTitle")
-        .innerHTML =
-        t.title;
-
-
-      document
-        .getElementById("heroDesc")
-        .textContent =
-        t.desc;
-
-
-      document.documentElement.lang =
-        lang;
+      applyLanguage(
+        this.value
+      );
 
     }
   );
@@ -2911,6 +4310,12 @@ document
 /* =========================================================
    INITIALIZE
 ========================================================= */
+
+slider.min =
+  CONFIG.minimumDepth;
+
+slider.max =
+  CONFIG.maximumDepth;
 
 updateDrilling();
 
