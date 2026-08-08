@@ -1,1762 +1,2321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
-
-  <title>Sri Venkateshwara TubeWells</title>
-
-  <meta
-    name="description"
-    content="Sri Venkateshwara TubeWells - Professional borewell drilling services."
-  />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #071011;
-      --bg2: #11191a;
-      --card: #151d1e;
-      --card2: #1b2324;
-      --orange: #e78625;
-      --orange-light: #ffb15c;
-      --cyan: #27b8c7;
-      --white: #f4f1e8;
-      --muted: #8e9899;
-      --border: rgba(255, 255, 255, 0.12);
-      --green: #45c76f;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(39, 184, 199, 0.07),
-          transparent 30%
-        ),
-        linear-gradient(180deg, #080e0f 0%, #071011 100%);
-
-      color: var(--white);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .header {
-      width: 100%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(8, 12, 13, 0.97);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .header-inner {
-      width: min(1100px, 100%);
-      min-height: 110px;
-      margin: auto;
-
-      padding: 14px 20px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .logo-wrap {
-      width: 72px;
-      height: 72px;
-      min-width: 72px;
-
-      border-radius: 50%;
-      overflow: hidden;
-
-      background: #fff;
-      border: 4px solid #e8a04e;
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Sri Venkateshwara TubeWells</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --bg: #080d0e;
+            --panel: #151b1c;
+            --panel-2: #1b2223;
+            --border: rgba(255, 255, 255, 0.14);
+            --orange: #e78328;
+            --orange-light: #ffb45d;
+            --cyan: #36c4d1;
+            --white: #f7f4ed;
+            --muted: #9aa2a4;
+            --green: #55c878;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(45, 73, 72, 0.20),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    180deg,
+                    #080c0d 0%,
+                    #111718 45%,
+                    #080d0e 100%
+                );
+            color: var(--white);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+            overflow-x: hidden;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            height: 112px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #090b0c 0%,
+                    #111516 50%,
+                    #090b0c 100%
+                );
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+            padding: 0 18px;
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            gap: 14px;
+        }
 
-      box-shadow: 0 0 0 6px rgba(231, 134, 37, 0.08);
-    }
+        .brand {
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .logo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .brand-text {
-      min-width: 0;
-    }
-
-    .brand-name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(19px, 3vw, 28px);
-      font-weight: 800;
-      line-height: 1.05;
-      color: var(--white);
-      white-space: nowrap;
-    }
-
-    .brand-subtitle {
-      margin-top: 5px;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--orange);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    /* FIXED LANGUAGE DROPDOWN */
-
-    .language-select {
-      position: relative;
-      width: 178px;
-      height: 58px;
-    }
-
-    .language-select select {
-      width: 100%;
-      height: 100%;
+        .logo-wrap {
+            width: 76px;
+            height: 76px;
+            flex: 0 0 76px;
 
-      appearance: none;
-      -webkit-appearance: none;
+            border-radius: 50%;
 
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 32px;
+            background: #f5eee3;
 
-      background: #181c1d;
-      color: var(--white);
+            border: 5px solid #e78328;
 
-      padding: 0 48px 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-      font-size: 17px;
-      font-weight: 700;
+            overflow: hidden;
 
-      outline: none;
-      cursor: pointer;
+            box-shadow:
+                0 0 0 5px rgba(231, 131, 40, 0.08),
+                0 4px 18px rgba(0, 0, 0, 0.45);
+        }
 
-      text-align: left;
-      white-space: nowrap;
-    }
+        /*
+          Replace this image URL with your actual logo if needed.
+        */
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-    .language-select::after {
-      content: "⌄";
+        .brand-text {
+            min-width: 0;
+            line-height: 1;
+        }
 
-      position: absolute;
-      right: 20px;
-      top: 50%;
+        .brand-name {
+            font-size: 25px;
+            font-weight: 800;
+            white-space: nowrap;
+            letter-spacing: -0.4px;
+        }
 
-      transform: translateY(-55%);
+        .brand-subtitle {
+            margin-top: 8px;
 
-      color: var(--orange);
-      font-size: 25px;
-      pointer-events: none;
-    }
+            color: var(--orange-light);
 
-    .call-button {
-      width: 58px;
-      height: 58px;
+            font-size: 19px;
+            font-weight: 700;
 
-      border: none;
-      border-radius: 50%;
+            letter-spacing: 0.3px;
+        }
 
-      background: var(--orange);
-      color: #080b0b;
+        .header-actions {
+            flex: 0 0 auto;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      cursor: pointer;
-      text-decoration: none;
-
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .call-button:hover {
-      transform: scale(1.05);
-      background: var(--orange-light);
-    }
+        /* =========================
+           LANGUAGE DROPDOWN
+           Fixed dimensions prevent
+           layout movement when text changes
+        ========================= */
 
-    .call-button svg {
-      width: 26px;
-      height: 26px;
-    }
+        .language-box {
+            position: relative;
 
-    /* =========================
-       MAIN
-    ========================= */
+            width: 184px;
+            height: 58px;
 
-    main {
-      width: 100%;
-    }
+            flex: 0 0 184px;
+        }
 
-    .main-container {
-      width: min(650px, calc(100% - 24px));
-      margin: 0 auto;
-      padding: 24px 0 0;
-    }
+        .language-button {
+            width: 100%;
+            height: 100%;
 
-    /* =========================
-       LIVE BADGE
-    ========================= */
+            border: 1px solid rgba(255, 255, 255, 0.14);
 
-    .live-row {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-
-    .live-button {
-      border: 1px solid rgba(255, 255, 255, 0.13);
-
-      background: rgba(255, 255, 255, 0.04);
-
-      border-radius: 30px;
-
-      padding: 9px 18px;
-
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 800;
-
-      letter-spacing: 1px;
-
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .live-dot {
-      width: 8px;
-      height: 8px;
-
-      border-radius: 50%;
-      background: #35d36b;
-
-      box-shadow: 0 0 10px rgba(53, 211, 107, 0.8);
-
-      animation: livePulse 1.5s infinite;
-    }
-
-    @keyframes livePulse {
-      0% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.45;
-        transform: scale(0.75);
-      }
-
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* =========================
-       DRILLING CARD
-    ========================= */
-
-    .calculator-card {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.035),
-          rgba(255, 255, 255, 0.012)
-        );
+            border-radius: 32px;
 
-      border: 1px solid rgba(255, 255, 255, 0.14);
-
-      border-radius: 34px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #1b2021,
+                    #111617
+                );
 
-      padding: 28px;
+            color: var(--white);
 
-      box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.025);
-    }
-
-    /* =========================
-       WATER / DEPTH VISUAL
-    ========================= */
+            display: flex;
+            align-items: center;
 
-    .depth-visual {
-      height: 330px;
+            padding: 0 18px;
 
-      position: relative;
-      overflow: hidden;
+            cursor: pointer;
 
-      border-radius: 0 0 30px 30px;
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
 
-      border-left: 1px solid rgba(255, 255, 255, 0.08);
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        .language-button:hover {
+            border-color: rgba(231, 131, 40, 0.45);
+        }
 
-      background:
-        radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.16) 1px,
-          transparent 2px
-        ),
-        linear-gradient(
-          180deg,
-          #392d23 0%,
-          #30251e 50%,
-          #1e2424 70%,
-          #075c66 70%,
-          #075c66 100%
-        );
+        .language-name {
+            /*
+              Fixed area ensures English/Tamil/Kannada
+              don't move the arrow.
+            */
+            width: 118px;
+            min-width: 118px;
+            max-width: 118px;
 
-      background-size:
-        70px 70px,
-        100% 100%;
-    }
+            text-align: center;
 
-    .depth-line {
-      position: absolute;
-      left: 0;
-      right: 0;
+            font-size: 18px;
+            font-weight: 700;
 
-      height: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-      background: rgba(255, 255, 255, 0.08);
-    }
+        .language-arrow {
+            width: 20px;
+            min-width: 20px;
 
-    .line-400 {
-      top: 32%;
-    }
+            margin-left: auto;
 
-    .line-600 {
-      top: 61%;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    .line-800 {
-      top: 82%;
-    }
+            color: var(--orange);
 
-    .depth-label {
-      position: absolute;
-      right: 24px;
+            font-size: 24px;
 
-      color: rgba(255, 255, 255, 0.55);
+            transition: transform 0.2s ease;
+        }
 
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
+        .language-box.open .language-arrow {
+            transform: rotate(180deg);
+        }
 
-    .label-400 {
-      top: 27%;
-    }
+        .language-menu {
+            position: absolute;
 
-    .label-600 {
-      top: 56%;
-    }
+            top: calc(100% + 8px);
+            right: 0;
 
-    .label-800 {
-      top: 77%;
-    }
+            width: 184px;
 
-    .water-label {
-      position: absolute;
-      bottom: 22px;
-      left: 26px;
+            background: #171c1d;
 
-      color: #65d5df;
+            border: 1px solid rgba(255, 255, 255, 0.14);
 
-      font-size: 17px;
-      font-weight: 700;
+            border-radius: 18px;
 
-      letter-spacing: 1.8px;
-    }
+            padding: 7px;
 
-    .water-wave {
-      position: absolute;
-      left: -10%;
-      right: -10%;
-      top: 69%;
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.5);
 
-      height: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
 
-      border-top: 2px solid rgba(75, 220, 230, 0.5);
+            transition:
+                opacity 0.18s ease,
+                transform 0.18s ease,
+                visibility 0.18s ease;
+        }
 
-      border-radius: 50%;
-      transform: rotate(-1deg);
-    }
+        .language-box.open .language-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-    .drill-pipe {
-      position: absolute;
+        .language-option {
+            width: 100%;
 
-      left: 50%;
-      top: 0;
+            min-height: 46px;
 
-      transform: translateX(-50%);
+            padding: 0 12px;
 
-      width: 18px;
-      height: 145px;
+            border: 0;
+            border-radius: 12px;
 
-      background:
-        linear-gradient(
-          90deg,
-          #5f6667,
-          #d8dcdb,
-          #7b8282
-        );
+            background: transparent;
 
-      border-radius: 0 0 12px 12px;
+            color: #f4f4f4;
 
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-    }
+            text-align: center;
 
-    .drill-head {
-      position: absolute;
+            cursor: pointer;
 
-      left: 50%;
-      top: 134px;
+            font-size: 16px;
+            font-weight: 600;
+        }
 
-      transform: translateX(-50%);
+        .language-option:hover,
+        .language-option.active {
+            background: rgba(231, 131, 40, 0.15);
+            color: var(--orange-light);
+        }
 
-      width: 0;
-      height: 0;
+        /* =========================
+           PHONE BUTTON
+        ========================= */
 
-      border-left: 24px solid transparent;
-      border-right: 24px solid transparent;
-      border-top: 42px solid var(--orange);
-    }
+        .phone-button {
+            width: 62px;
+            height: 62px;
 
-    .drill-head::after {
-      content: "";
+            flex: 0 0 62px;
 
-      position: absolute;
+            border: none;
+            border-radius: 50%;
 
-      left: -7px;
-      top: -30px;
+            background: var(--orange);
 
-      width: 14px;
-      height: 14px;
+            color: #090b0b;
 
-      border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-      background: #171c1d;
-    }
+            cursor: pointer;
 
-    /* =========================
-       DEPTH CONTROL
-    ========================= */
+            box-shadow:
+                0 7px 18px rgba(231, 131, 40, 0.22);
 
-    .depth-section {
-      margin-top: 30px;
-    }
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
 
-    .depth-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
+        .phone-button:hover {
+            transform: translateY(-2px);
+            background: #f0963b;
+        }
 
-    .depth-title {
-      color: var(--muted);
-      font-size: 20px;
-      font-weight: 500;
-    }
+        .phone-icon {
+            width: 27px;
+            height: 27px;
+        }
 
-    .depth-value {
-      color: var(--white);
-      font-size: clamp(40px, 9vw, 62px);
-      font-weight: 800;
-      line-height: 0.9;
-      white-space: nowrap;
-    }
+        /* =========================
+           MAIN
+        ========================= */
 
-    .depth-unit {
-      color: var(--cyan);
-      font-size: 20px;
-      font-weight: 700;
-      margin-left: 5px;
-    }
+        main {
+            width: 100%;
+            max-width: 1100px;
 
-    .range-wrap {
-      width: 100%;
-      padding: 0 2px;
-    }
+            margin: 0 auto;
 
-    input[type="range"] {
-      width: 100%;
-      height: 8px;
+            padding: 30px 18px 80px;
+        }
 
-      appearance: none;
-      -webkit-appearance: none;
+        /* =========================
+           HERO
+        ========================= */
 
-      border-radius: 10px;
+        .hero {
+            position: relative;
 
-      background:
-        linear-gradient(
-          90deg,
-          var(--orange) 0%,
-          #a69d6d 45%,
-          var(--cyan) 100%
-        );
+            min-height: 420px;
 
-      outline: none;
-      cursor: pointer;
-    }
+            overflow: hidden;
 
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      -webkit-appearance: none;
+            border-radius: 28px;
 
-      width: 34px;
-      height: 34px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
 
-      border-radius: 50%;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(12, 19, 20, 0.45),
+                    rgba(8, 13, 14, 0.92)
+                );
 
-      background: #f8f3e9;
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
+        }
 
-      border: 8px solid var(--orange);
+        .hero-grid {
+            position: absolute;
+            inset: 0;
 
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+            opacity: 0.18;
 
-      cursor: grab;
-    }
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.07) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.07) 1px,
+                    transparent 1px
+                );
 
-    input[type="range"]::-moz-range-thumb {
-      width: 22px;
-      height: 22px;
+            background-size: 70px 70px;
+        }
 
-      border-radius: 50%;
+        .hero-content {
+            position: relative;
+            z-index: 2;
 
-      background: #f8f3e9;
+            min-height: 420px;
 
-      border: 8px solid var(--orange);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-      cursor: grab;
-    }
+            padding: 48px;
+        }
 
-    /* =========================
-       PRICE BOXES
-    ========================= */
+        .live-pill {
+            width: fit-content;
 
-    .price-grid {
-      display: grid;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
 
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+            padding: 9px 15px;
 
-      gap: 16px;
+            border-radius: 999px;
 
-      margin-top: 30px;
-    }
+            background: rgba(10, 15, 16, 0.9);
 
-    .price-box {
-      min-height: 128px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
 
-      border-radius: 20px;
+            color: #fff;
 
-      border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 14px;
+            font-weight: 800;
 
-      background: rgba(255, 255, 255, 0.015);
+            letter-spacing: 1px;
 
-      padding: 25px;
-    }
+            margin-bottom: 20px;
+        }
 
-    .price-label {
-      color: var(--muted);
+        .live-dot {
+            width: 9px;
+            height: 9px;
 
-      font-size: 17px;
-      font-weight: 600;
+            border-radius: 50%;
 
-      letter-spacing: 1.5px;
+            background: #44e875;
 
-      margin-bottom: 15px;
-    }
+            box-shadow: 0 0 12px rgba(68, 232, 117, 0.7);
 
-    .price-value {
-      color: var(--white);
+            animation: livePulse 1.6s infinite;
+        }
 
-      font-size: clamp(27px, 5vw, 34px);
+        @keyframes livePulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
 
-      font-weight: 800;
+            50% {
+                opacity: 0.45;
+                transform: scale(0.75);
+            }
+        }
 
-      white-space: nowrap;
-    }
+        .hero h1 {
+            max-width: 700px;
 
-    /* =========================
-       SERVICE
-    ========================= */
+            font-size: clamp(34px, 6vw, 68px);
 
-    .service-card {
-      margin-top: 18px;
+            line-height: 1.03;
 
-      padding: 28px;
+            letter-spacing: -2px;
 
-      min-height: 150px;
+            margin-bottom: 20px;
+        }
 
-      border-radius: 24px;
+        .hero h1 span {
+            color: var(--orange-light);
+        }
 
-      border: 2px solid rgba(231, 134, 37, 0.7);
+        .hero-description {
+            max-width: 650px;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(231, 134, 37, 0.09),
-          rgba(20, 30, 30, 0.7)
-        );
-    }
+            color: var(--muted);
 
-    .service-title {
-      color: var(--white);
+            font-size: 18px;
+            line-height: 1.65;
+        }
 
-      font-size: 25px;
-      font-weight: 800;
+        /* =========================
+           CALCULATOR
+        ========================= */
 
-      margin-bottom: 10px;
-    }
+        .calculator {
+            position: relative;
 
-    .service-subtitle {
-      color: var(--muted);
+            margin-top: 30px;
 
-      font-size: 17px;
+            border-radius: 30px;
 
-      margin-bottom: 18px;
-    }
+            background:
+                linear-gradient(
+                    145deg,
+                    #171d1e,
+                    #101516
+                );
 
-    .service-price {
-      color: var(--orange-light);
+            border: 1px solid rgba(255, 255, 255, 0.13);
 
-      font-size: 25px;
-      font-weight: 700;
-    }
+            padding: 32px;
 
-    /* =========================
-       TOTAL
-    ========================= */
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.28);
+        }
 
-    .total-card {
-      margin-top: 18px;
+        .depth-visual {
+            position: relative;
 
-      min-height: 120px;
+            height: 410px;
 
-      border-radius: 24px;
+            overflow: hidden;
 
-      border: 1px solid rgba(231, 134, 37, 0.35);
+            border-radius: 26px;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(93, 55, 22, 0.45),
-          rgba(18, 31, 31, 0.8)
-        );
+            background:
+                linear-gradient(
+                    180deg,
+                    #33271e 0%,
+                    #30251e 23%,
+                    #2c241e 50%,
+                    #28221e 70%,
+                    #075a64 70%,
+                    #075a64 100%
+                );
 
-      padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+            margin-bottom: 35px;
+        }
 
-      gap: 15px;
-    }
+        .depth-visual::before {
+            content: "";
 
-    .total-label {
-      color: var(--muted);
+            position: absolute;
+            inset: 0;
 
-      font-size: 20px;
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.25) 1px,
+                    transparent 1.5px
+                );
 
-      flex: 1;
-    }
+            background-size: 80px 55px;
 
-    .total-value {
-      color: var(--orange-light);
+            opacity: 0.35;
+        }
 
-      font-size: clamp(34px, 7vw, 52px);
+        .depth-water {
+            position: absolute;
 
-      font-weight: 900;
+            left: 0;
+            right: 0;
+            bottom: 0;
 
-      white-space: nowrap;
-    }
+            height: 30%;
 
-    /* =========================
-       SERVICE BANNER
-    ========================= */
+            border-top: 1px solid rgba(68, 225, 237, 0.35);
 
-    .service-banner {
-      width: 100%;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(13, 120, 131, 0.8),
+                    rgba(5, 85, 96, 0.96)
+                );
+        }
 
-      margin-top: 70px;
+        .water-line {
+            position: absolute;
 
-      padding: 28px 20px 42px;
+            left: 0;
+            right: 0;
+            top: 14px;
 
-      background:
-        linear-gradient(
-          100deg,
-          #b85b17,
-          #e17822,
-          #c85d17
-        );
+            height: 2px;
 
-      color: #090807;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(94, 224, 233, 0.65),
+                    transparent
+                );
+        }
 
-      text-align: center;
+        .depth-label {
+            position: absolute;
 
-      position: relative;
-    }
+            right: 28px;
+            top: 28px;
 
-    .service-badge {
-      display: inline-flex;
+            color: rgba(255,255,255,0.6);
 
-      padding: 11px 28px;
+            font-size: 16px;
+            font-weight: 600;
+        }
 
-      border-radius: 30px;
+        .depth-label:nth-child(2) {
+            top: 130px;
+        }
 
-      background: #080706;
+        .depth-label:nth-child(3) {
+            top: 245px;
+        }
 
-      color: var(--orange-light);
+        .water-text {
+            position: absolute;
 
-      font-size: 17px;
-      font-weight: 900;
+            left: 26px;
+            bottom: 22px;
 
-      letter-spacing: 1.5px;
+            color: #69d8e0;
 
-      margin-bottom: 16px;
-    }
+            font-size: 17px;
+            font-weight: 600;
 
-    .service-banner-title {
-      max-width: 700px;
-      margin: auto;
+            letter-spacing: 1.2px;
+        }
 
-      font-size: clamp(22px, 4vw, 30px);
+        .drill-line {
+            position: absolute;
 
-      line-height: 1.3;
+            left: 50%;
+            top: -15px;
 
-      font-weight: 900;
-    }
+            transform: translateX(-50%);
 
-    .service-banner-text {
-      max-width: 650px;
+            width: 20px;
+            height: 250px;
 
-      margin: 12px auto 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    #7e8586,
+                    #e8ebeb,
+                    #727879
+                );
 
-      font-size: 18px;
+            border-radius: 0 0 10px 10px;
 
-      line-height: 1.5;
+            box-shadow:
+                0 0 15px rgba(255,255,255,0.18);
+        }
 
-      font-weight: 500;
-    }
+        .drill-head {
+            position: absolute;
 
-    /* =========================
-       WHATSAPP
-    ========================= */
+            left: 50%;
+            top: 205px;
 
-    .whatsapp-button {
-      position: fixed;
+            transform: translateX(-50%);
 
-      right: 22px;
-      bottom: 22px;
+            width: 0;
+            height: 0;
 
-      width: 68px;
-      height: 68px;
+            border-left: 24px solid transparent;
+            border-right: 24px solid transparent;
+            border-top: 38px solid var(--orange);
 
-      border-radius: 50%;
+            filter: drop-shadow(
+                0 4px 8px rgba(0,0,0,0.35)
+            );
+        }
 
-      background: #4bd071;
+        .drill-head::after {
+            content: "";
 
-      color: #071009;
+            position: absolute;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            left: -8px;
+            top: -30px;
 
-      text-decoration: none;
+            width: 16px;
+            height: 16px;
 
-      z-index: 2000;
+            border-radius: 50%;
 
-      box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.35),
-        0 0 0 5px rgba(75, 208, 113, 0.08);
+            background: #222;
+        }
 
-      transition: transform 0.2s ease;
-    }
+        /* =========================
+           DEPTH CONTROLS
+        ========================= */
 
-    .whatsapp-button:hover {
-      transform: scale(1.08);
-    }
+        .depth-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
 
-    .whatsapp-button svg {
-      width: 37px;
-      height: 37px;
-    }
+            gap: 20px;
 
-    /* =========================
-       MOBILE
-    ========================= */
+            margin-bottom: 18px;
+        }
 
-    @media (max-width: 700px) {
-      .header-inner {
-        min-height: 94px;
-        padding: 10px 14px;
-        gap: 10px;
-      }
+        .depth-heading-label {
+            color: var(--muted);
 
-      .logo-wrap {
-        width: 62px;
-        height: 62px;
-        min-width: 62px;
-      }
+            font-size: 21px;
+            font-weight: 600;
+        }
 
-      .brand {
-        gap: 10px;
-      }
+        .depth-value {
+            white-space: nowrap;
 
-      .brand-name {
-        font-size: 19px;
-      }
+            font-size: clamp(44px, 8vw, 64px);
 
-      .brand-subtitle {
-        font-size: 14px;
-        margin-top: 3px;
-      }
+            line-height: 0.9;
 
-      .header-actions {
-        gap: 8px;
-      }
+            font-weight: 800;
 
-      .language-select {
-        width: 128px;
-        height: 50px;
-      }
+            color: var(--white);
 
-      .language-select select {
-        padding: 0 37px 0 15px;
-        font-size: 14px;
-      }
+            letter-spacing: -2px;
+        }
 
-      .language-select::after {
-        right: 13px;
-        font-size: 22px;
-      }
+        .depth-value span {
+            font-size: 22px;
+            color: var(--cyan);
 
-      .call-button {
-        width: 50px;
-        height: 50px;
-      }
+            letter-spacing: 0;
+        }
 
-      .call-button svg {
-        width: 22px;
-        height: 22px;
-      }
+        .range-wrapper {
+            position: relative;
 
-      .main-container {
-        width: min(100% - 16px, 650px);
-        padding-top: 16px;
-      }
+            padding: 5px 0 10px;
+        }
 
-      .calculator-card {
-        padding: 18px;
-        border-radius: 27px;
-      }
+        .range {
+            appearance: none;
+            -webkit-appearance: none;
 
-      .depth-visual {
-        height: 300px;
-        border-radius: 0 0 25px 25px;
-      }
+            width: 100%;
+            height: 12px;
 
-      .depth-section {
-        margin-top: 25px;
-      }
+            border-radius: 999px;
 
-      .depth-title {
-        font-size: 17px;
-      }
+            outline: none;
 
-      .depth-value {
-        font-size: 48px;
-      }
+            background:
+                linear-gradient(
+                    90deg,
+                    #df7924,
+                    #b0a56e,
+                    #1ba5b5
+                );
 
-      .depth-unit {
-        font-size: 17px;
-      }
+            cursor: pointer;
+        }
 
-      .price-grid {
-        gap: 10px;
-        margin-top: 25px;
-      }
+        .range::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
 
-      .price-box {
-        min-height: 112px;
-        padding: 19px;
-        border-radius: 18px;
-      }
+            width: 34px;
+            height: 34px;
 
-      .price-label {
-        font-size: 13px;
-        margin-bottom: 12px;
-      }
+            border-radius: 50%;
 
-      .price-value {
-        font-size: 25px;
-      }
+            background: #fff;
 
-      .service-card {
-        padding: 22px;
-        border-radius: 20px;
-      }
+            border: 8px solid var(--orange);
 
-      .service-title {
-        font-size: 22px;
-      }
+            box-shadow:
+                0 0 0 2px rgba(255,255,255,0.1);
 
-      .service-subtitle {
-        font-size: 15px;
-      }
+            cursor: pointer;
+        }
 
-      .service-price {
-        font-size: 22px;
-      }
+        .range::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
 
-      .total-card {
-        min-height: 105px;
-        padding: 20px;
-        border-radius: 20px;
-      }
+            border-radius: 50%;
 
-      .total-label {
-        font-size: 16px;
-      }
+            background: #fff;
 
-      .total-value {
-        font-size: 34px;
-      }
+            border: 8px solid var(--orange);
 
-      .service-banner {
-        margin-top: 55px;
-        padding: 25px 16px 38px;
-      }
+            cursor: pointer;
+        }
 
-      .service-badge {
-        font-size: 15px;
-        padding: 10px 23px;
-      }
+        /* =========================
+           PRICE CARDS
+        ========================= */
 
-      .service-banner-title {
-        font-size: 21px;
-      }
+        .price-grid {
+            display: grid;
 
-      .service-banner-text {
-        font-size: 16px;
-      }
+            grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      .whatsapp-button {
-        width: 62px;
-        height: 62px;
-        right: 17px;
-        bottom: 18px;
-      }
+            gap: 18px;
 
-      .whatsapp-button svg {
-        width: 34px;
-        height: 34px;
-      }
-    }
+            margin-top: 28px;
+        }
 
-    @media (max-width: 430px) {
-      .brand-name {
-        font-size: 17px;
-      }
+        .price-card {
+            min-height: 125px;
 
-      .brand-subtitle {
-        font-size: 12px;
-      }
+            padding: 24px;
 
-      .logo-wrap {
-        width: 56px;
-        height: 56px;
-        min-width: 56px;
-      }
+            border-radius: 20px;
 
-      .language-select {
-        width: 116px;
-      }
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.025),
+                    rgba(255,255,255,0.01)
+                );
 
-      .language-select select {
-        font-size: 13px;
-      }
+            border: 1px solid var(--border);
 
-      .call-button {
-        width: 48px;
-        height: 48px;
-      }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-      .calculator-card {
-        padding: 15px;
-      }
+        .price-label {
+            color: #8e9799;
 
-      .depth-visual {
-        height: 280px;
-      }
+            font-size: 16px;
 
-      .depth-header {
-        align-items: center;
-      }
+            text-transform: uppercase;
 
-      .depth-value {
-        font-size: 43px;
-      }
+            letter-spacing: 1.4px;
 
-      .price-box {
-        padding: 16px;
-      }
+            margin-bottom: 10px;
+        }
 
-      .price-value {
-        font-size: 22px;
-      }
+        .price-value {
+            color: var(--white);
 
-      .total-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+            font-size: 31px;
 
-      .total-value {
-        align-self: flex-end;
-      }
-    }
+            font-weight: 800;
 
-    /* Tamil font support */
-    [lang="ta"],
-    .tamil {
-      font-family:
-        "Noto Sans Tamil",
-        "Latha",
-        "Tamil Sangam MN",
-        Arial,
-        sans-serif;
-    }
-  </style>
+            letter-spacing: 0.3px;
+        }
+
+        /* =========================
+           TOTAL
+        ========================= */
+
+        .total-card {
+            margin-top: 22px;
+
+            min-height: 125px;
+
+            padding: 25px 30px;
+
+            border-radius: 22px;
+
+            border: 1px solid rgba(231, 131, 40, 0.4);
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(91, 52, 26, 0.55),
+                    rgba(19, 35, 37, 0.65)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .total-label {
+            color: #aab1b3;
+
+            font-size: 21px;
+        }
+
+        .total-value {
+            color: var(--orange-light);
+
+            font-size: clamp(36px, 6vw, 52px);
+
+            font-weight: 900;
+
+            white-space: nowrap;
+
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           SERVICE SECTION
+        ========================= */
+
+        .service-section {
+            margin-top: 30px;
+
+            padding: 40px 25px;
+
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #c96118,
+                    #ed842a,
+                    #d96b1c
+                );
+
+            color: #110c07;
+
+            text-align: center;
+        }
+
+        .service-pill {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 150px;
+            height: 52px;
+
+            padding: 0 25px;
+
+            border-radius: 999px;
+
+            background: #080807;
+
+            color: #ffb05a;
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 18px;
+        }
+
+        .service-title {
+            font-size: clamp(24px, 5vw, 38px);
+
+            line-height: 1.2;
+
+            font-weight: 900;
+
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            max-width: 700px;
+
+            margin: auto;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        .whatsapp-button {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 1100;
+
+            width: 68px;
+            height: 68px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: #55c878;
+
+            color: #06100a;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.35);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.45);
+        }
+
+        .whatsapp-icon {
+            width: 37px;
+            height: 37px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px 18px 100px;
+
+            text-align: center;
+
+            color: #707879;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 760px) {
+
+            .header {
+                height: 104px;
+                padding: 0 12px;
+            }
+
+            .header-inner {
+                gap: 8px;
+            }
+
+            .brand {
+                gap: 9px;
+            }
+
+            .logo-wrap {
+                width: 66px;
+                height: 66px;
+                flex-basis: 66px;
+                border-width: 4px;
+            }
+
+            .brand-name {
+                font-size: 21px;
+            }
+
+            .brand-subtitle {
+                font-size: 16px;
+                margin-top: 6px;
+            }
+
+            .header-actions {
+                gap: 7px;
+            }
+
+            /*
+              Same fixed language dimensions on mobile.
+              This prevents Tamil/Hindi/etc. from
+              changing header alignment.
+            */
+            .language-box {
+                width: 148px;
+                flex-basis: 148px;
+                height: 52px;
+            }
+
+            .language-menu {
+                width: 148px;
+            }
+
+            .language-name {
+                width: 90px;
+                min-width: 90px;
+                max-width: 90px;
+
+                font-size: 16px;
+            }
+
+            .language-button {
+                padding: 0 12px;
+            }
+
+            .phone-button {
+                width: 54px;
+                height: 54px;
+                flex-basis: 54px;
+            }
+
+            .phone-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            main {
+                padding: 18px 10px 60px;
+            }
+
+            .hero {
+                border-radius: 22px;
+            }
+
+            .hero-content {
+                min-height: 360px;
+                padding: 30px 24px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .calculator {
+                padding: 18px;
+                border-radius: 24px;
+            }
+
+            .depth-visual {
+                height: 390px;
+                border-radius: 20px;
+            }
+
+            .depth-heading-label {
+                font-size: 18px;
+            }
+
+            .depth-value {
+                font-size: 48px;
+            }
+
+            .price-grid {
+                gap: 12px;
+            }
+
+            .price-card {
+                min-height: 110px;
+                padding: 18px;
+            }
+
+            .price-label {
+                font-size: 13px;
+            }
+
+            .price-value {
+                font-size: 25px;
+            }
+
+            .total-card {
+                min-height: 110px;
+                padding: 20px;
+            }
+
+            .total-label {
+                font-size: 16px;
+            }
+
+            .total-value {
+                font-size: 34px;
+            }
+
+            .service-section {
+                padding: 32px 18px;
+                border-radius: 20px;
+            }
+
+            .service-title {
+                font-size: 24px;
+            }
+
+            .service-description {
+                font-size: 16px;
+            }
+
+            .whatsapp-button {
+                width: 62px;
+                height: 62px;
+
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+
+        @media (max-width: 470px) {
+
+            .brand-name {
+                font-size: 17px;
+            }
+
+            .brand-subtitle {
+                font-size: 14px;
+            }
+
+            .logo-wrap {
+                width: 58px;
+                height: 58px;
+                flex-basis: 58px;
+            }
+
+            .language-box {
+                width: 128px;
+                flex-basis: 128px;
+            }
+
+            .language-menu {
+                width: 128px;
+            }
+
+            .language-name {
+                width: 74px;
+                min-width: 74px;
+                max-width: 74px;
+
+                font-size: 14px;
+            }
+
+            .language-button {
+                padding: 0 9px;
+            }
+
+            .phone-button {
+                width: 50px;
+                height: 50px;
+                flex-basis: 50px;
+            }
+
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .depth-heading {
+                align-items: center;
+            }
+
+            .depth-heading-label {
+                font-size: 16px;
+            }
+
+            .depth-value {
+                font-size: 42px;
+            }
+
+            .depth-value span {
+                font-size: 18px;
+            }
+
+            .total-card {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .total-value {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-  <header class="header">
-    <div class="header-inner">
+    <header class="header">
 
-      <div class="brand">
+        <div class="header-inner">
 
-        <div class="logo-wrap">
-          <img
-            src="https://i.ibb.co/k2R7hVVS/IMG-3949.png"
-            alt="Sri Venkateshwara TubeWells Logo"
-          />
-        </div>
+            <div class="brand">
 
-        <div class="brand-text">
-          <div class="brand-name" id="brandName">
-            Sri Venkateshwara
-          </div>
+                <div class="logo-wrap">
+                    <!-- Replace with your actual logo path -->
+                    <img
+                        src="logo.png"
+                        alt="Sri Venkateshwara TubeWells"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
 
-          <div class="brand-subtitle" id="brandSubtitle">
-            TubeWells
-          </div>
-        </div>
+                <div class="brand-text">
+                    <div class="brand-name">
+                        Sri Venkateshwara
+                    </div>
 
-      </div>
+                    <div class="brand-subtitle">
+                        TubeWells
+                    </div>
+                </div>
 
-      <div class="header-actions">
-
-        <!-- FIXED LANGUAGE DROPDOWN -->
-        <div class="language-select">
-          <select id="languageSelect" aria-label="Language">
-            <option value="en">English</option>
-            <option value="ta">தமிழ்</option>
-          </select>
-        </div>
-
-        <!-- PHONE -->
-        <a
-          class="call-button"
-          href="tel:+917010894661"
-          aria-label="Call Sri Venkateshwara TubeWells"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2
-              19.79 19.79 0 0 1-8.63-3.07
-              19.5 19.5 0 0 1-6-6
-              A19.79 19.79 0 0 1 2.12 4.18
-              2 2 0 0 1 4.11 2h3
-              a2 2 0 0 1 2 1.72
-              12.84 12.84 0 0 0 .7 2.81
-              2 2 0 0 1-.45 2.11L8.09 9.91
-              a16 16 0 0 0 6 6l1.27-1.27
-              a2 2 0 0 1 2.11-.45
-              12.84 12.84 0 0 0 2.81.7
-              A2 2 0 0 1 22 16.92z"
-            />
-          </svg>
-        </a>
-
-      </div>
-    </div>
-  </header>
-
-
-  <!-- =========================
-       MAIN
-  ========================== -->
-
-  <main>
-
-    <div class="main-container">
-
-      <!-- ONLY LIVE BUTTON -->
-      <div class="live-row">
-        <div class="live-button">
-          <span class="live-dot"></span>
-          <span id="liveText">LIVE</span>
-        </div>
-      </div>
-
-
-      <section class="calculator-card">
-
-        <!-- DEPTH VISUAL -->
-
-        <div class="depth-visual">
-
-          <div class="depth-line line-400"></div>
-          <div class="depth-line line-600"></div>
-          <div class="depth-line line-800"></div>
-
-          <div class="depth-label label-400">
-            400 FT
-          </div>
-
-          <div class="depth-label label-600">
-            600 FT
-          </div>
-
-          <div class="depth-label label-800">
-            800 FT
-          </div>
-
-          <div class="water-wave"></div>
-
-          <div class="water-label" id="waterLabel">
-            UNDERGROUND WATER ZONE
-          </div>
-
-          <div class="drill-pipe"></div>
-          <div class="drill-head"></div>
-
-        </div>
-
-
-        <!-- DEPTH -->
-
-        <div class="depth-section">
-
-          <div class="depth-header">
-
-            <div class="depth-title" id="depthTitle">
-              Required drilling depth
             </div>
 
-            <div>
-              <span class="depth-value" id="depthValue">
-                300
-              </span>
+            <div class="header-actions">
 
-              <span class="depth-unit">
-                FT
-              </span>
+                <!-- LANGUAGE -->
+
+                <div class="language-box" id="languageBox">
+
+                    <button
+                        class="language-button"
+                        id="languageButton"
+                        type="button"
+                        aria-expanded="false"
+                    >
+
+                        <span
+                            class="language-name"
+                            id="selectedLanguage"
+                        >
+                            English
+                        </span>
+
+                        <span class="language-arrow">
+                           ⌄
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="language-menu"
+                        id="languageMenu"
+                    >
+
+                        <button
+                            class="language-option active"
+                            data-lang="en"
+                            type="button"
+                        >
+                            English
+                        </button>
+
+                        <button
+                            class="language-option"
+                            data-lang="ta"
+                            type="button"
+                        >
+                            தமிழ்
+                        </button>
+
+                        <button
+                            class="language-option"
+                            data-lang="kn"
+                            type="button"
+                        >
+                            ಕನ್ನಡ
+                        </button>
+
+                        <button
+                            class="language-option"
+                            data-lang="hi"
+                            type="button"
+                        >
+                            हिन्दी
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- PHONE -->
+
+                <button
+                    class="phone-button"
+                    type="button"
+                    id="phoneButton"
+                    aria-label="Call"
+                >
+
+                    <svg
+                        class="phone-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2
+                            19.79 19.79 0 0 1-8.63-3.07
+                            19.5 19.5 0 0 1-6-6
+                            A19.79 19.79 0 0 1 2.12 4.18
+                            2 2 0 0 1 4.11 2h3
+                            a2 2 0 0 1 2 1.72
+                            c.12.9.33 1.78.62 2.63
+                            a2 2 0 0 1-.45 2.11L8 9.73
+                            a16 16 0 0 0 6 6l1.27-1.27
+                            a2 2 0 0 1 2.11-.45
+                            c.85.29 1.73.5 2.63.62
+                            A2 2 0 0 1 22 16.92z"
+                        />
+                    </svg>
+
+                </button>
+
             </div>
-
-          </div>
-
-          <div class="range-wrap">
-
-            <input
-              id="depthSlider"
-              type="range"
-              min="300"
-              max="1000"
-              step="10"
-              value="300"
-              aria-label="Drilling depth"
-            />
-
-          </div>
 
         </div>
 
+    </header>
 
-        <!-- PRICES -->
 
-        <div class="price-grid">
+    <!-- =========================
+         MAIN
+    ========================== -->
 
-          <div class="price-box">
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-grid"></div>
+
+            <div class="hero-content">
+
+                <!-- ONLY LIVE BUTTON.
+                     No "Drilling Simulation" text. -->
+
+                <div class="live-pill">
+                    <span class="live-dot"></span>
+                    <span data-i18n="live">
+                        LIVE
+                    </span>
+                </div>
+
+                <h1 data-i18n="heroTitle">
+                    Borewell Drilling
+                    <span data-i18n="heroHighlight">
+                        Cost Calculator
+                    </span>
+                </h1>
+
+                <p
+                    class="hero-description"
+                    data-i18n="heroDescription"
+                >
+                    Calculate your estimated borewell drilling
+                    cost based on the required drilling depth.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALCULATOR -->
+
+        <section class="calculator">
+
+            <!-- UNDERGROUND VISUAL -->
+
+            <div class="depth-visual">
+
+                <div class="depth-label">
+                    400 FT
+                </div>
+
+                <div class="depth-label">
+                    600 FT
+                </div>
+
+                <div class="depth-label">
+                    800 FT
+                </div>
+
+                <div class="depth-water">
+                    <div class="water-line"></div>
+
+                    <div
+                        class="water-text"
+                        data-i18n="waterZone"
+                    >
+                        UNDERGROUND WATER ZONE
+                    </div>
+                </div>
+
+                <div class="drill-line"></div>
+                <div class="drill-head"></div>
+
+            </div>
+
+
+            <!-- DEPTH -->
+
+            <div class="depth-heading">
+
+                <div
+                    class="depth-heading-label"
+                    data-i18n="requiredDepth"
+                >
+                    Required drilling depth
+                </div>
+
+                <div class="depth-value">
+                    <span id="depthValue">
+                        300
+                    </span>
+
+                    <span>
+                        FT
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="range-wrapper">
+
+                <input
+                    type="range"
+                    class="range"
+                    id="depthRange"
+                    min="300"
+                    max="1000"
+                    step="10"
+                    value="300"
+                >
+
+            </div>
+
+
+            <!-- PRICE CARDS -->
+
+            <div class="price-grid">
+
+                <div class="price-card">
+
+                    <div
+                        class="price-label"
+                        data-i18n="drilling"
+                    >
+                        DRILLING
+                    </div>
+
+                    <div
+                        class="price-value"
+                        id="drillingPrice"
+                    >
+                        ₹33,000
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div
+                        class="price-label"
+                        data-i18n="travel"
+                    >
+                        TRAVEL
+                    </div>
+
+                    <div
+                        class="price-value"
+                        id="travelPrice"
+                    >
+                        ₹500
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="total-card">
+
+                <div
+                    class="total-label"
+                    data-i18n="estimatedTotal"
+                >
+                    Estimated project total
+                </div>
+
+                <div
+                    class="total-value"
+                    id="totalPrice"
+                >
+                    ₹33,500
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICE -->
+
+        <section class="service-section">
 
             <div
-              class="price-label"
-              id="drillingLabel"
+                class="service-pill"
+                data-i18n="service"
             >
-              DRILLING
+                SERVICE
             </div>
 
-            <div
-              class="price-value"
-              id="drillingPrice"
+            <h2
+                class="service-title"
+                data-i18n="serviceTitle"
             >
-              ₹33,000
-            </div>
+                Borewell drilling service available
+            </h2>
 
-          </div>
-
-
-          <div class="price-box">
-
-            <div
-              class="price-label"
-              id="travelLabel"
+            <p
+                class="service-description"
+                data-i18n="serviceDescription"
             >
-              TRAVEL
-            </div>
+                Contact us for borewell drilling requirements.
+                Final price may vary depending on site conditions.
+            </p>
 
-            <div
-              class="price-value"
-              id="travelPrice"
-            >
-              ₹500
-            </div>
+        </section>
 
-          </div>
-
-        </div>
+    </main>
 
 
-        <!-- DRILLING SERVICE ONLY -->
+    <!-- WHATSAPP -->
 
-        <div class="service-card">
-
-          <div
-            class="service-title"
-            id="serviceTitle"
-          >
-            Borewell Drilling
-          </div>
-
-          <div
-            class="service-subtitle"
-            id="serviceSubtitle"
-          >
-            Drilling work
-          </div>
-
-          <div class="service-price">
-            ₹110 <span>/ FT</span>
-          </div>
-
-        </div>
-
-
-        <!-- TOTAL -->
-
-        <div class="total-card">
-
-          <div
-            class="total-label"
-            id="totalLabel"
-          >
-            Estimated project total
-          </div>
-
-          <div
-            class="total-value"
-            id="totalValue"
-          >
-            ₹33,500
-          </div>
-
-        </div>
-
-      </section>
-
-    </div>
-
-
-    <!-- SERVICE BANNER -->
-
-    <section class="service-banner">
-
-      <div class="service-badge" id="serviceBadge">
-        SERVICE
-      </div>
-
-      <div
-        class="service-banner-title"
-        id="serviceBannerTitle"
-      >
-        Borewell drilling service available
-      </div>
-
-      <div
-        class="service-banner-text"
-        id="serviceBannerText"
-      >
-        Contact us for borewell drilling requirements and project details.
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       WHATSAPP
-  ========================== -->
-
-  <a
-    id="whatsappButton"
-    class="whatsapp-button"
-    href="#"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp Sri Venkateshwara TubeWells"
-  >
-
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+    <button
+        class="whatsapp-button"
+        id="whatsappButton"
+        type="button"
+        aria-label="WhatsApp"
     >
 
-      <path
-        d="M16 3.5
-        C9.1 3.5 3.5 9.1 3.5 16
-        c0 2.2.6 4.3 1.7 6.1
-        L3.5 28.5
-        l6.6-1.7
-        c1.8 1.1 3.8 1.7 5.9 1.7
-        6.9 0 12.5-5.6 12.5-12.5
-        S22.9 3.5 16 3.5z"
-      />
+        <svg
+            class="whatsapp-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+        >
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                -.273-.099-.471-.148-.67.15
+                -.197.297-.767.966-.94 1.164
+                -.173.199-.347.223-.644.075
+                -.297-.15-1.255-.463-2.39-1.475
+                -.883-.788-1.48-1.761-1.653-2.059
+                -.173-.297-.018-.458.13-.606
+                .134-.133.298-.347.446-.52
+                .149-.174.198-.298.298-.497
+                .099-.198.05-.371-.025-.52
+                -.075-.149-.669-1.612-.916-2.207
+                -.242-.579-.487-.5-.67-.51
+                -.173-.008-.371-.01-.57-.01
+                -.198 0-.52.074-.792.372
+                -.272.297-1.04 1.016-1.04 2.479
+                0 1.462 1.065 2.875 1.213 3.074
+                .149.198 2.096 3.2 5.077 4.487
+                .709.306 1.262.489 1.694.625
+                .712.227 1.36.195 1.871.118
+                .571-.085 1.758-.719 2.006-1.413
+                .248-.694.248-1.289.173-1.413
+                -.074-.124-.272-.198-.57-.347
+                m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378
+                l-.361-.214-3.741.982 1-3.648-.235-.374
+                a9.865 9.865 0 0 1-1.51-5.26
+                c.001-5.45 4.436-9.884 9.888-9.884
+                2.64 0 5.122 1.03 6.988 2.898
+                a9.825 9.825 0 0 1 2.893 6.994
+                c-.003 5.45-4.437 9.884-9.887 9.884
+                m8.413-18.297A11.815 11.815 0 0 0 12.05 0
+                C5.495 0 .16 5.335.157 11.892
+                c0 2.096.547 4.142 1.588 5.946L.057 24
+                l6.304-1.654a11.882 11.882 0 0 0 5.683 1.448h.005
+                c6.554 0 11.89-5.335 11.893-11.893
+                a11.821 11.821 0 0 0-3.478-8.413"
+            />
+        </svg>
 
-      <path
-        d="M11.2 10.1
-        c-.4-.1-.8-.1-1.1.2
-        -.4.4-1.3 1.2-1.3 3
-        0 1.8 1.3 3.5 1.5 3.7
-        .2.2 2.6 4.2 6.4 5.7
-        3.2 1.3 3.8 1 4.5.9
-        .7-.1 2.2-.9 2.5-1.8
-        .3-.9.3-1.7.2-1.8
-        -.1-.2-.4-.3-.9-.5
-        -.5-.3-2.2-1.1-2.5-1.2
-        -.3-.1-.5-.2-.8.2
-        -.2.4-.9 1.2-1.1 1.5
-        -.2.3-.4.3-.9.1
-        -.5-.2-1.5-.5-2.8-1.7
-        -1-0.9-1.7-2-1.9-2.4
-        -.2-.4 0-.6.2-.8
-        .2-.2.4-.4.6-.7
-        .2-.2.3-.4.4-.6
-        .1-.3 0-.5 0-.7
-        -.1-.2-.8-1.9-1.1-2.6
-        -.2-.7-.5-.6-.8-.6z"
-      />
+    </button>
 
-    </svg>
 
-  </a>
+    <footer>
+        © <span id="year"></span>
+        Sri Venkateshwara TubeWells
+    </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-  <script>
+    <script>
 
-    /* =========================================
-       CONFIGURATION
-    ========================================= */
+        /* ==========================================
+           CONFIGURATION
+        ========================================== */
 
-    const PHONE_NUMBER = "917010894661";
+        const CONFIG = {
 
-    const DRILLING_RATE = 110;
+            /*
+             * CHANGE THESE VALUES IF YOUR PRICE CHANGES
+             */
 
-    const TRAVEL_CHARGE = 500;
+            drillingRatePerFeet: 110,
 
+            travelCharge: 500,
 
-    /* =========================================
-       ELEMENTS
-    ========================================= */
+            /*
+             * Change this to your actual WhatsApp number.
+             * Country code required.
+             *
+             * Example:
+             * 919876543210
+             */
 
-    const languageSelect =
-      document.getElementById("languageSelect");
+            whatsappNumber: "919999999999",
 
-    const depthSlider =
-      document.getElementById("depthSlider");
+            /*
+             * Change this to your actual phone number.
+             */
 
-    const depthValue =
-      document.getElementById("depthValue");
+            phoneNumber: "919999999999"
 
-    const drillingPrice =
-      document.getElementById("drillingPrice");
+        };
 
-    const totalValue =
-      document.getElementById("totalValue");
 
-    const whatsappButton =
-      document.getElementById("whatsappButton");
+        /* ==========================================
+           TRANSLATIONS
+        ========================================== */
 
+        const translations = {
 
-    /* =========================================
-       TRANSLATIONS
-    ========================================= */
+            en: {
 
-    const translations = {
+                languageName: "English",
 
-      en: {
+                live: "LIVE",
 
-        brandName:
-          "Sri Venkateshwara",
+                heroTitle: "Borewell Drilling",
 
-        brandSubtitle:
-          "TubeWells",
+                heroHighlight: "Cost Calculator",
 
-        liveText:
-          "LIVE",
+                heroDescription:
+                    "Calculate your estimated borewell drilling cost based on the required drilling depth.",
 
-        waterLabel:
-          "UNDERGROUND WATER ZONE",
+                waterZone:
+                    "UNDERGROUND WATER ZONE",
 
-        depthTitle:
-          "Required drilling depth",
+                requiredDepth:
+                    "Required drilling depth",
 
-        drillingLabel:
-          "DRILLING",
+                drilling:
+                    "DRILLING",
 
-        travelLabel:
-          "TRAVEL",
+                travel:
+                    "TRAVEL",
 
-        serviceTitle:
-          "Borewell Drilling",
+                estimatedTotal:
+                    "Estimated project total",
 
-        serviceSubtitle:
-          "Drilling work",
+                service:
+                    "SERVICE",
 
-        totalLabel:
-          "Estimated project total",
+                serviceTitle:
+                    "Borewell drilling service available",
 
-        serviceBadge:
-          "SERVICE",
+                serviceDescription:
+                    "Contact us for borewell drilling requirements. Final price may vary depending on site conditions.",
 
-        serviceBannerTitle:
-          "Borewell drilling service available",
+                whatsappMessage:
+                    "Hello Sri Venkateshwara TubeWells, I am interested in borewell drilling. My required drilling depth is {depth} FT. Estimated drilling cost is ₹{drilling} and travel charge is ₹{travel}. Estimated total is ₹{total}."
 
-        serviceBannerText:
-          "Contact us for borewell drilling requirements and project details.",
+            },
 
-        whatsappMessage:
-          "Hello Sri Venkateshwara TubeWells, I am interested in borewell drilling service. Please provide more details."
 
-      },
+            ta: {
 
+                languageName: "தமிழ்",
 
-      ta: {
+                live: "நேரலை",
 
-        brandName:
-          "ஸ்ரீ வெங்கடேஸ்வரா",
+                heroTitle: "ஆழ்துளை கிணறு",
 
-        brandSubtitle:
-          "டியூப்வெல்ஸ்",
+                heroHighlight: "செலவு கணிப்பான்",
 
-        liveText:
-          "நேரலை",
+                heroDescription:
+                    "தேவையான ஆழத்தின் அடிப்படையில் ஆழ்துளை கிணறு அமைப்பதற்கான மதிப்பிடப்பட்ட செலவை கணக்கிடுங்கள்.",
 
-        waterLabel:
-          "நிலத்தடி நீர் பகுதி",
+                waterZone:
+                    "நிலத்தடி நீர் பகுதி",
 
-        depthTitle:
-          "தேவையான ஆழம்",
+                requiredDepth:
+                    "தேவையான ஆழம்",
 
-        drillingLabel:
-          "துளையிடுதல்",
+                drilling:
+                    "துளையிடுதல்",
 
-        travelLabel:
-          "பயண கட்டணம்",
+                travel:
+                    "பயணக் கட்டணம்",
 
-        serviceTitle:
-          "போர்வெல் துளையிடுதல்",
+                estimatedTotal:
+                    "மதிப்பிடப்பட்ட மொத்த செலவு",
 
-        serviceSubtitle:
-          "துளையிடும் பணி",
+                service:
+                    "சேவை",
 
-        totalLabel:
-          "மதிப்பிடப்பட்ட மொத்த தொகை",
+                serviceTitle:
+                    "ஆழ்துளை கிணறு துளையிடும் சேவை கிடைக்கிறது",
 
-        serviceBadge:
-          "சேவை",
+                serviceDescription:
+                    "ஆழ்துளை கிணறு தொடர்பான தேவைகளுக்கு எங்களை தொடர்பு கொள்ளுங்கள். இறுதி விலை இடத்தின் நிலைமையைப் பொறுத்து மாறலாம்.",
 
-        serviceBannerTitle:
-          "போர்வெல் துளையிடும் சேவை கிடைக்கும்",
+                whatsappMessage:
+                    "வணக்கம் ஸ்ரீ வெங்கடேஸ்வரா டியூப்வெல்ஸ், எனக்கு ஆழ்துளை கிணறு அமைக்க வேண்டும். தேவையான ஆழம் {depth} அடி. மதிப்பிடப்பட்ட துளையிடும் செலவு ₹{drilling}, பயணக் கட்டணம் ₹{travel}. மதிப்பிடப்பட்ட மொத்த செலவு ₹{total}."
 
-        serviceBannerText:
-          "போர்வெல் துளையிடுதல் தொடர்பான தேவைகளுக்கு எங்களை தொடர்பு கொள்ளுங்கள்.",
+            },
 
-        whatsappMessage:
-          "வணக்கம் ஸ்ரீ வெங்கடேஸ்வரா டியூப்வெல்ஸ், எனக்கு போர்வெல் துளையிடும் சேவை தேவை. மேலும் விவரங்களை தெரிவிக்கவும்."
 
-      }
+            kn: {
 
-    };
+                languageName: "ಕನ್ನಡ",
 
+                live: "ಲೈವ್",
 
-    /* =========================================
-       FORMAT CURRENCY
-    ========================================= */
+                heroTitle: "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್",
 
-    function formatCurrency(amount) {
+                heroHighlight: "ವೆಚ್ಚ ಕ್ಯಾಲ್ಕುಲೇಟರ್",
 
-      return new Intl.NumberFormat("en-IN", {
-        maximumFractionDigits: 0
-      }).format(amount);
+                heroDescription:
+                    "ಅಗತ್ಯವಿರುವ ಆಳದ ಆಧಾರದ ಮೇಲೆ ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್‌ನ ಅಂದಾಜು ವೆಚ್ಚವನ್ನು ಲೆಕ್ಕಹಾಕಿ.",
 
-    }
+                waterZone:
+                    "ಭೂಗತ ನೀರಿನ ಪ್ರದೇಶ",
 
+                requiredDepth:
+                    "ಅಗತ್ಯವಿರುವ ಡ್ರಿಲ್ಲಿಂಗ್ ಆಳ",
 
-    /* =========================================
-       UPDATE PRICE
-    ========================================= */
+                drilling:
+                    "ಡ್ರಿಲ್ಲಿಂಗ್",
 
-    function updatePrice() {
+                travel:
+                    "ಪ್ರಯಾಣ",
 
-      const depth =
-        Number(depthSlider.value);
+                estimatedTotal:
+                    "ಅಂದಾಜು ಒಟ್ಟು ವೆಚ್ಚ",
 
-      const drillingAmount =
-        depth * DRILLING_RATE;
+                service:
+                    "ಸೇವೆ",
 
-      const total =
-        drillingAmount + TRAVEL_CHARGE;
+                serviceTitle:
+                    "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ ಸೇವೆ ಲಭ್ಯವಿದೆ",
 
-      depthValue.textContent =
-        depth;
+                serviceDescription:
+                    "ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ ಅಗತ್ಯಗಳಿಗಾಗಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ. ಅಂತಿಮ ಬೆಲೆ ಸ್ಥಳದ ಪರಿಸ್ಥಿತಿಯನ್ನು ಅವಲಂಬಿಸಿ ಬದಲಾಗಬಹುದು.",
 
-      drillingPrice.textContent =
-        "₹" + formatCurrency(drillingAmount);
+                whatsappMessage:
+                    "ನಮಸ್ಕಾರ ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಟ್ಯೂಬ್‌ವೆಲ್ಸ್, ನನಗೆ ಬೋರ್‌ವೆಲ್ ಡ್ರಿಲ್ಲಿಂಗ್ ಅಗತ್ಯವಿದೆ. ಅಗತ್ಯವಿರುವ ಆಳ {depth} FT. ಅಂದಾಜು ಡ್ರಿಲ್ಲಿಂಗ್ ವೆಚ್ಚ ₹{drilling}, ಪ್ರಯಾಣ ವೆಚ್ಚ ₹{travel}. ಅಂದಾಜು ಒಟ್ಟು ₹{total}."
 
-      totalValue.textContent =
-        "₹" + formatCurrency(total);
+            },
 
-      updateWhatsApp();
 
-    }
+            hi: {
 
+                languageName: "हिन्दी",
 
-    /* =========================================
-       APPLY LANGUAGE
-    ========================================= */
+                live: "लाइव",
 
-    function applyLanguage(language) {
+                heroTitle: "बोरवेल ड्रिलिंग",
 
-      const t =
-        translations[language] || translations.en;
+                heroHighlight: "लागत कैलकुलेटर",
 
-      document.documentElement.lang =
-        language;
+                heroDescription:
+                    "आवश्यक ड्रिलिंग गहराई के आधार पर बोरवेल ड्रिलिंग की अनुमानित लागत की गणना करें।",
 
-      document.getElementById("brandName").textContent =
-        t.brandName;
+                waterZone:
+                    "भूमिगत जल क्षेत्र",
 
-      document.getElementById("brandSubtitle").textContent =
-        t.brandSubtitle;
+                requiredDepth:
+                    "आवश्यक ड्रिलिंग गहराई",
 
-      document.getElementById("liveText").textContent =
-        t.liveText;
+                drilling:
+                    "ड्रिलिंग",
 
-      document.getElementById("waterLabel").textContent =
-        t.waterLabel;
+                travel:
+                    "यात्रा",
 
-      document.getElementById("depthTitle").textContent =
-        t.depthTitle;
+                estimatedTotal:
+                    "अनुमानित कुल लागत",
 
-      document.getElementById("drillingLabel").textContent =
-        t.drillingLabel;
+                service:
+                    "सेवा",
 
-      document.getElementById("travelLabel").textContent =
-        t.travelLabel;
+                serviceTitle:
+                    "बोरवेल ड्रिलिंग सेवा उपलब्ध है",
 
-      document.getElementById("serviceTitle").textContent =
-        t.serviceTitle;
+                serviceDescription:
+                    "बोरवेल ड्रिलिंग की आवश्यकता के लिए हमसे संपर्क करें। अंतिम कीमत साइट की स्थिति के अनुसार बदल सकती है।",
 
-      document.getElementById("serviceSubtitle").textContent =
-        t.serviceSubtitle;
+                whatsappMessage:
+                    "नमस्ते श्री वेंकटेश्वर ट्यूबवेल्स, मुझे बोरवेल ड्रिलिंग की आवश्यकता है। आवश्यक गहराई {depth} FT है। अनुमानित ड्रिलिंग लागत ₹{drilling}, यात्रा शुल्क ₹{travel} और अनुमानित कुल ₹{total} है।"
 
-      document.getElementById("totalLabel").textContent =
-        t.totalLabel;
+            }
 
-      document.getElementById("serviceBadge").textContent =
-        t.serviceBadge;
+        };
 
-      document.getElementById("serviceBannerTitle").textContent =
-        t.serviceBannerTitle;
 
-      document.getElementById("serviceBannerText").textContent =
-        t.serviceBannerText;
+        /* ==========================================
+           DOM
+        ========================================== */
 
-      updateWhatsApp();
+        const languageBox =
+            document.getElementById("languageBox");
 
-    }
+        const languageButton =
+            document.getElementById("languageButton");
 
+        const languageMenu =
+            document.getElementById("languageMenu");
 
-    /* =========================================
-       WHATSAPP
-       LANGUAGE-SPECIFIC MESSAGE
-    ========================================= */
+        const selectedLanguage =
+            document.getElementById("selectedLanguage");
 
-    function updateWhatsApp() {
+        const languageOptions =
+            document.querySelectorAll(".language-option");
 
-      const language =
-        languageSelect.value;
+        const depthRange =
+            document.getElementById("depthRange");
 
-      const t =
-        translations[language] || translations.en;
+        const depthValue =
+            document.getElementById("depthValue");
 
-      const depth =
-        Number(depthSlider.value);
+        const drillingPrice =
+            document.getElementById("drillingPrice");
 
-      const drillingAmount =
-        depth * DRILLING_RATE;
+        const travelPrice =
+            document.getElementById("travelPrice");
 
-      const total =
-        drillingAmount + TRAVEL_CHARGE;
+        const totalPrice =
+            document.getElementById("totalPrice");
 
-      let message;
+        const whatsappButton =
+            document.getElementById("whatsappButton");
 
-      if (language === "ta") {
+        const phoneButton =
+            document.getElementById("phoneButton");
 
-        message =
-          `${t.whatsappMessage}
 
-தேவையான ஆழம்: ${depth} அடி
-துளையிடுதல்: ₹${formatCurrency(drillingAmount)}
-பயண கட்டணம்: ₹${formatCurrency(TRAVEL_CHARGE)}
-மொத்த மதிப்பீடு: ₹${formatCurrency(total)}`;
+        /* ==========================================
+           CURRENT LANGUAGE
+        ========================================== */
 
-      } else {
+        let currentLanguage =
+            localStorage.getItem("tubeWellLanguage") || "en";
 
-        message =
-          `${t.whatsappMessage}
+        if (!translations[currentLanguage]) {
+            currentLanguage = "en";
+        }
 
-Required drilling depth: ${depth} FT
-Drilling: ₹${formatCurrency(drillingAmount)}
-Travel: ₹${formatCurrency(TRAVEL_CHARGE)}
-Estimated total: ₹${formatCurrency(total)}`;
 
-      }
+        /* ==========================================
+           FORMAT CURRENCY
+        ========================================== */
 
-      whatsappButton.href =
-        "https://wa.me/" +
-        PHONE_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
+        function formatCurrency(value) {
 
-    }
+            return new Intl.NumberFormat("en-IN", {
+                maximumFractionDigits: 0
+            }).format(value);
 
+        }
 
-    /* =========================================
-       EVENTS
-    ========================================= */
 
-    languageSelect.addEventListener(
-      "change",
-      function () {
+        /* ==========================================
+           CALCULATE PRICE
+        ========================================== */
 
-        applyLanguage(this.value);
+        function calculatePrice() {
 
-      }
-    );
+            const depth =
+                Number(depthRange.value);
 
+            const drilling =
+                depth * CONFIG.drillingRatePerFeet;
 
-    depthSlider.addEventListener(
-      "input",
-      updatePrice
-    );
+            const travel =
+                CONFIG.travelCharge;
 
+            const total =
+                drilling + travel;
 
-    /* =========================================
-       INITIAL LOAD
-    ========================================= */
+            depthValue.textContent =
+                formatCurrency(depth);
 
-    updatePrice();
+            drillingPrice.textContent =
+                "₹" + formatCurrency(drilling);
 
-    applyLanguage(
-      languageSelect.value
-    );
+            travelPrice.textContent =
+                "₹" + formatCurrency(travel);
 
-  </script>
+            totalPrice.textContent =
+                "₹" + formatCurrency(total);
+
+        }
+
+
+        /* ==========================================
+           APPLY LANGUAGE
+        ========================================== */
+
+        function applyLanguage(language) {
+
+            if (!translations[language]) {
+                language = "en";
+            }
+
+            currentLanguage = language;
+
+            localStorage.setItem(
+                "tubeWellLanguage",
+                currentLanguage
+            );
+
+            const dictionary =
+                translations[currentLanguage];
+
+            /*
+             * Update every translated element.
+             */
+
+            document
+                .querySelectorAll("[data-i18n]")
+                .forEach(element => {
+
+                    const key =
+                        element.getAttribute("data-i18n");
+
+                    if (
+                        dictionary[key] !== undefined
+                    ) {
+
+                        element.textContent =
+                            dictionary[key];
+
+                    }
+
+                });
+
+
+            /*
+             * Update dropdown display.
+             *
+             * IMPORTANT:
+             * The parent width is fixed.
+             * Therefore changing language does not
+             * move the phone button.
+             */
+
+            selectedLanguage.textContent =
+                dictionary.languageName;
+
+
+            /*
+             * Active option.
+             */
+
+            languageOptions.forEach(option => {
+
+                option.classList.toggle(
+                    "active",
+                    option.dataset.lang === currentLanguage
+                );
+
+            });
+
+
+            /*
+             * Keep document language correct.
+             */
+
+            document.documentElement.lang =
+                currentLanguage;
+
+
+            /*
+             * Recalculate after language change.
+             */
+
+            calculatePrice();
+
+        }
+
+
+        /* ==========================================
+           LANGUAGE DROPDOWN
+        ========================================== */
+
+        languageButton.addEventListener(
+            "click",
+            function(event) {
+
+                event.stopPropagation();
+
+                const isOpen =
+                    languageBox.classList.contains("open");
+
+                languageBox.classList.toggle(
+                    "open",
+                    !isOpen
+                );
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    String(!isOpen)
+                );
+
+            }
+        );
+
+
+        languageOptions.forEach(option => {
+
+            option.addEventListener(
+                "click",
+                function(event) {
+
+                    event.stopPropagation();
+
+                    applyLanguage(
+                        option.dataset.lang
+                    );
+
+                    languageBox.classList.remove(
+                        "open"
+                    );
+
+                    languageButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        });
+
+
+        /*
+         * Close dropdown when clicking outside.
+         */
+
+        document.addEventListener(
+            "click",
+            function() {
+
+                languageBox.classList.remove(
+                    "open"
+                );
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           DEPTH RANGE
+        ========================================== */
+
+        depthRange.addEventListener(
+            "input",
+            calculatePrice
+        );
+
+
+        /* ==========================================
+           WHATSAPP
+        ========================================== */
+
+        whatsappButton.addEventListener(
+            "click",
+            function() {
+
+                const depth =
+                    Number(depthRange.value);
+
+                const drilling =
+                    depth * CONFIG.drillingRatePerFeet;
+
+                const travel =
+                    CONFIG.travelCharge;
+
+                const total =
+                    drilling + travel;
+
+                let message =
+                    translations[currentLanguage]
+                        .whatsappMessage;
+
+                message =
+                    message.replace(
+                        "{depth}",
+                        formatCurrency(depth)
+                    );
+
+                message =
+                    message.replace(
+                        "{drilling}",
+                        formatCurrency(drilling)
+                    );
+
+                message =
+                    message.replace(
+                        "{travel}",
+                        formatCurrency(travel)
+                    );
+
+                message =
+                    message.replace(
+                        "{total}",
+                        formatCurrency(total)
+                    );
+
+                /*
+                 * IMPORTANT:
+                 * Message is generated using the
+                 * CURRENTLY selected language.
+                 */
+
+                const whatsappURL =
+                    "https://wa.me/" +
+                    CONFIG.whatsappNumber +
+                    "?text=" +
+                    encodeURIComponent(message);
+
+                window.open(
+                    whatsappURL,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           PHONE BUTTON
+        ========================================== */
+
+        phoneButton.addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "tel:+" + CONFIG.phoneNumber;
+
+            }
+        );
+
+
+        /* ==========================================
+           YEAR
+        ========================================== */
+
+        document.getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+        /* ==========================================
+           INITIALIZE
+        ========================================== */
+
+        applyLanguage(currentLanguage);
+
+        calculatePrice();
+
+    </script>
 
 </body>
 </html>
