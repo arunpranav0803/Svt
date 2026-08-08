@@ -2,44 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Sri Venkateshwara TubeWells</title>
+<title>Sri Venkateshwara TubeWells | Borewell Drilling Services</title>
+
+<meta name="description" content="Sri Venkateshwara TubeWells provides professional borewell drilling services across Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Kannada:wght@400;500;700&family=Noto+Sans+Tamil:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-  --ink:#171512;
-  --ink-soft:#201d19;
-  --rock:#29251f;
-  --rock-2:#353028;
+  --bg:#070b10;
+  --bg2:#0c1219;
+  --surface:#101820;
+  --surface2:#151f28;
 
-  --rust:#c66b20;
-  --rust-light:#e49a55;
-  --rust-dark:#8f4615;
+  --gold:#d79a3d;
+  --gold2:#f2c36b;
+  --gold3:#ffdf9b;
 
-  --water:#2f7f87;
-  --water-light:#55adb5;
+  --water:#1596a7;
+  --water2:#4dd4e4;
 
-  --sand:#f2ead9;
-  --sand-dim:#c9c0ae;
+  --green:#49b675;
+  --green2:#75dc9b;
 
-  --steel:#958d80;
-  --moss:#718f70;
+  --text:#f5f1e8;
+  --muted:#a8b0b8;
+  --muted2:#737e88;
 
-  --line:rgba(242,234,217,0.14);
+  --line:rgba(255,255,255,.09);
 
-  --radius:12px;
-  --maxw:1160px;
+  --shadow:
+    0 25px 70px rgba(0,0,0,.45);
+
+  --max:1180px;
+  --radius:24px;
 }
 
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
@@ -47,515 +59,611 @@ html{
 }
 
 body{
-  margin:0;
   background:
-    radial-gradient(circle at 80% 10%,rgba(198,107,32,.08),transparent 28%),
-    var(--ink);
-  color:var(--sand);
-  font-family:
-    "Noto Sans",
-    "Noto Sans Devanagari",
-    "Noto Sans Kannada",
-    "Noto Sans Tamil",
-    sans-serif;
+    radial-gradient(circle at 15% 10%,rgba(21,150,167,.12),transparent 28%),
+    radial-gradient(circle at 85% 15%,rgba(215,154,61,.10),transparent 25%),
+    var(--bg);
+
+  color:var(--text);
+  font-family:"Inter",sans-serif;
   line-height:1.55;
+
+  overflow-x:hidden;
+
   -webkit-font-smoothing:antialiased;
-}
-
-h1,h2,h3,.display{
-  font-family:
-    "Oswald",
-    "Noto Sans Devanagari",
-    "Noto Sans Kannada",
-    "Noto Sans Tamil",
-    sans-serif;
-
-  font-weight:600;
-  letter-spacing:.01em;
-  margin:0;
-}
-
-.mono{
-  font-family:"JetBrains Mono",monospace;
 }
 
 a{
   color:inherit;
+  text-decoration:none;
 }
 
 button,
-select{
-  font-family:inherit;
+input{
+  font:inherit;
 }
 
-img,
-svg{
-  display:block;
+img{
   max-width:100%;
+  display:block;
 }
 
-.wrap{
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:0 20px;
+.container{
+  width:min(var(--max),calc(100% - 40px));
+  margin:auto;
 }
 
 .section{
-  padding:68px 0;
+  padding:90px 0;
 }
 
-.section-tight{
-  padding:42px 0;
+.display{
+  font-family:"Oswald",sans-serif;
 }
 
 .eyebrow{
+  color:var(--gold2);
   text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:.14em;
-  color:var(--rust-light);
-  font-weight:700;
-  margin-bottom:12px;
+  letter-spacing:.16em;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:14px;
 }
 
-.divider{
-  height:1px;
-  background:var(--line);
-  border:none;
-  margin:0;
+.section-title{
+  font-family:"Oswald",sans-serif;
+  font-size:42px;
+  line-height:1.08;
+  letter-spacing:.01em;
 }
 
+.section-subtitle{
+  color:var(--muted);
+  max-width:620px;
+  margin-top:14px;
+}
 
 /* =========================================================
-   NAVIGATION
+   BACKGROUND 3D GRID
 ========================================================= */
 
-header.nav{
+.grid-bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+
+  background-size:50px 50px;
+
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+
+.orb{
+  position:fixed;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.16;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.orb.one{
+  background:var(--water);
+  top:15%;
+  left:-150px;
+}
+
+.orb.two{
+  background:var(--gold);
+  right:-150px;
+  top:45%;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
   position:sticky;
   top:0;
-  z-index:50;
+  z-index:1000;
 
-  background:rgba(23,21,18,.94);
-  backdrop-filter:blur(12px);
+  background:rgba(7,11,16,.82);
+  backdrop-filter:blur(18px);
 
   border-bottom:1px solid var(--line);
 }
 
-.nav-inner{
-  max-width:var(--maxw);
-  margin:0 auto;
-
-  min-height:70px;
-  padding:10px 20px;
+.nav{
+  min-height:76px;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  gap:16px;
+  gap:18px;
 }
 
-
-/* BRAND */
+/* LOGO */
 
 .brand{
   display:flex;
   align-items:center;
-  gap:11px;
-
+  gap:12px;
   min-width:0;
-  text-decoration:none;
 }
 
-.brand-logo{
-  width:44px;
-  height:44px;
+.logo-wrap{
+  width:48px;
+  height:48px;
+  border-radius:14px;
 
-  object-fit:contain;
-  object-position:center;
+  background:
+    linear-gradient(145deg,#202b34,#0b1117);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.08),
+    0 10px 30px rgba(0,0,0,.35);
+
+  display:grid;
+  place-items:center;
+
+  overflow:hidden;
 
   flex:none;
+}
 
-  border-radius:8px;
-  background:#fff;
-
-  padding:2px;
+.logo-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .brand-text{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-
   min-width:0;
-
-  line-height:1.02;
 }
 
-.brand-line-1,
-.brand-line-2{
+.brand-main{
   font-family:"Oswald",sans-serif;
-  font-weight:600;
-  color:var(--sand);
-
+  font-size:18px;
+  line-height:1.05;
+  font-weight:700;
   white-space:nowrap;
 }
 
-.brand-line-1{
-  font-size:16px;
+.brand-sub{
+  color:var(--gold2);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-top:3px;
 }
 
-.brand-line-2{
-  font-size:16px;
-  color:var(--rust-light);
-}
+/* NAV RIGHT */
 
-
-/* NAV ACTIONS */
-
-.nav-actions{
+.nav-right{
   display:flex;
   align-items:center;
-  justify-content:flex-end;
-
-  gap:9px;
-  flex:none;
+  gap:10px;
 }
 
+.language{
+  position:relative;
+}
 
-/* DESKTOP LANGUAGE BUTTONS */
+.language-select{
+  appearance:none;
 
-.lang-group{
-  display:flex;
-  gap:3px;
+  min-width:110px;
 
-  background:var(--rock);
+  padding:10px 34px 10px 14px;
 
+  border-radius:999px;
+
+  background:#111920;
   border:1px solid var(--line);
-  border-radius:999px;
 
-  padding:3px;
-}
-
-.lang-btn{
-  border:none;
-  background:transparent;
-
-  color:var(--steel);
-
-  padding:6px 10px;
-
-  border-radius:999px;
+  color:var(--text);
 
   font-size:12px;
   font-weight:700;
 
   cursor:pointer;
 
-  transition:
-    background .15s ease,
-    color .15s ease;
-}
-
-.lang-btn:hover{
-  color:var(--sand);
-}
-
-.lang-btn.active{
-  background:var(--rust);
-  color:#1c1006;
-}
-
-
-/* MOBILE LANGUAGE DROPDOWN */
-
-.lang-select{
-  display:none;
-
-  height:36px;
-
-  background:var(--rock);
-  color:var(--sand);
-
-  border:1px solid var(--line);
-  border-radius:8px;
-
-  padding:0 28px 0 10px;
-
-  font-size:12px;
-  font-weight:700;
-
   outline:none;
-
-  max-width:92px;
-
-  appearance:auto;
 }
 
+.language::after{
+  content:"⌄";
 
-/* CALL */
+  position:absolute;
+  right:13px;
+  top:7px;
 
-.call-chip{
+  color:var(--gold2);
+
+  pointer-events:none;
+}
+
+.call-btn{
   display:flex;
   align-items:center;
-  justify-content:center;
+  gap:7px;
 
-  gap:6px;
-
-  border:1px solid var(--line);
-
-  color:var(--sand);
-
-  padding:8px 12px;
+  padding:10px 15px;
 
   border-radius:999px;
 
+  background:linear-gradient(145deg,var(--gold2),var(--gold));
+
+  color:#15100a;
+
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
 
-  text-decoration:none;
-
-  white-space:nowrap;
+  box-shadow:
+    0 8px 25px rgba(215,154,61,.2);
 }
 
-.call-chip:hover{
-  border-color:var(--rust);
-  color:var(--rust-light);
+.call-btn svg{
+  width:15px;
+  height:15px;
 }
-
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
-  padding:58px 0 62px;
-
-  background:
-    radial-gradient(
-      circle at 85% 45%,
-      rgba(47,127,135,.12),
-      transparent 30%
-    );
+  position:relative;
+  padding:70px 0 85px;
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:44px;
+  grid-template-columns:1.02fr .98fr;
+  gap:55px;
   align-items:center;
 }
 
 .hero h1{
-  font-size:38px;
-  line-height:1.15;
-  color:var(--sand);
+  font-family:"Oswald",sans-serif;
+  font-size:68px;
+  line-height:1.01;
+  letter-spacing:-.015em;
 }
 
-.hero h1 .accent{
-  color:var(--rust-light);
+.hero h1 span{
+  background:
+    linear-gradient(110deg,var(--gold3),var(--gold),#fff2ca);
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.hero p.sub{
-  color:var(--sand-dim);
+.hero-description{
+  margin-top:22px;
+
+  max-width:620px;
+
+  color:var(--muted);
+
   font-size:16px;
-  margin-top:17px;
-  max-width:50ch;
 }
 
-.cta-row{
+.hero-buttons{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
-  margin-top:27px;
+
+  margin-top:30px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  gap:9px;
 
-  padding:13px 20px;
+  min-height:50px;
 
-  border-radius:8px;
+  padding:0 21px;
 
-  font-weight:700;
-  font-size:14px;
+  border-radius:13px;
 
-  text-decoration:none;
-
-  cursor:pointer;
-
-  border:1px solid transparent;
+  font-size:13px;
+  font-weight:800;
 
   transition:
-    transform .12s ease,
-    box-shadow .15s ease,
-    background .15s ease;
+    transform .2s ease,
+    box-shadow .2s ease;
 }
 
 .btn:hover{
-  box-shadow:0 7px 20px rgba(0,0,0,.22);
-}
-
-.btn:active{
-  transform:scale(.98);
+  transform:translateY(-3px);
 }
 
 .btn-primary{
-  background:var(--moss);
-  color:#0d180f;
+  background:
+    linear-gradient(135deg,var(--gold2),var(--gold));
+
+  color:#171109;
+
+  box-shadow:
+    0 15px 35px rgba(215,154,61,.2);
 }
 
-.btn-primary:hover{
-  background:#82a281;
+.btn-secondary{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  color:var(--text);
 }
 
-.btn-ghost{
-  background:transparent;
-  border-color:var(--line);
-  color:var(--sand);
-}
-
-.btn-ghost:hover{
-  border-color:var(--rust);
-}
-
-
-/* HERO STATS */
-
-.badges-row{
+.hero-stats{
   display:flex;
   flex-wrap:wrap;
-  gap:28px;
-  margin-top:32px;
+  gap:30px;
+
+  margin-top:38px;
 }
 
-.badge-stat{
-  display:flex;
-  flex-direction:column;
-}
+.stat strong{
+  display:block;
 
-.badge-stat .n{
   font-family:"Oswald",sans-serif;
-  font-size:21px;
-  color:var(--water-light);
-  font-weight:600;
+
+  font-size:24px;
+
+  color:var(--water2);
 }
 
-.badge-stat .l{
-  font-size:11px;
-  color:var(--steel);
+.stat span{
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--muted2);
+
+  font-size:10px;
+
   text-transform:uppercase;
-  letter-spacing:.06em;
-}
 
+  letter-spacing:.12em;
+}
 
 /* =========================================================
-   CALCULATOR
+   3D DRILLING CARD
 ========================================================= */
 
-.gauge-card{
+.drill-scene{
+  position:relative;
+
+  min-height:520px;
+
+  perspective:1200px;
+}
+
+.drill-card{
+  position:absolute;
+  inset:15px 0 0;
+
+  border-radius:30px;
+
+  padding:25px;
+
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.025),
-      rgba(255,255,255,0)
-    ),
-    var(--rock);
+      rgba(255,255,255,.09),
+      rgba(255,255,255,.025)
+    );
 
-  border:1px solid var(--line);
-  border-radius:15px;
+  border:1px solid rgba(255,255,255,.11);
 
-  padding:24px;
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.5),
+    inset 0 1px rgba(255,255,255,.1);
 
-  box-shadow:0 15px 40px rgba(0,0,0,.18);
+  transform:
+    rotateY(-7deg)
+    rotateX(3deg);
+
+  transition:transform .5s ease;
+
+  overflow:hidden;
 }
 
-.gauge-title{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  color:var(--steel);
-  font-weight:700;
-  margin-bottom:17px;
+.drill-card:hover{
+  transform:
+    rotateY(-2deg)
+    rotateX(1deg)
+    translateY(-5px);
 }
 
-.gauge-body{
-  display:grid;
-  grid-template-columns:64px 1fr;
-  gap:17px;
+.card-glow{
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  background:var(--water);
+
+  filter:blur(100px);
+
+  opacity:.17;
+
+  right:-70px;
+  top:-70px;
 }
 
-.strata{
+/* MACHINE */
+
+.machine{
   position:relative;
 
-  border-radius:8px;
-  overflow:hidden;
+  height:245px;
 
-  height:225px;
-
-  background:var(--rock-2);
-}
-
-.strata-band{
-  position:absolute;
-  left:0;
-  right:0;
-}
-
-.b1{
-  top:0;
-  height:18%;
-  background:#665137;
-}
-
-.b2{
-  top:18%;
-  height:27%;
-  background:#4c3b29;
-}
-
-.b3{
-  top:45%;
-  height:35%;
-  background:#32291f;
-}
-
-.b4{
-  top:80%;
-  height:20%;
-  background:#193137;
-}
-
-.b4::after{
-  content:"";
-  position:absolute;
-  inset:0;
+  border-radius:22px;
 
   background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(79,163,171,.35) 0 2px,
-      transparent 2px 8px
-    );
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(21,150,167,.3),
+      transparent 35%
+    ),
+    linear-gradient(180deg,#17232c,#080d12);
+
+  border:1px solid rgba(255,255,255,.07);
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.drillbit{
+.machine::before{
+  content:"";
+
   position:absolute;
-  left:50%;
-  top:0;
+  bottom:-95px;
 
-  transform:translate(-50%,0);
+  width:310px;
+  height:180px;
 
-  width:20px;
-  height:20px;
+  border-radius:50%;
 
-  transition:top .35s ease;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(21,150,167,.45),
+      transparent 65%
+    );
+
+  filter:blur(15px);
 }
 
-.drillbit svg{
-  animation:spin 1.1s linear infinite;
+.rig{
+  position:relative;
+
+  width:180px;
+  height:150px;
+
+  transform:translateY(-18px);
+
+  filter:drop-shadow(0 20px 20px rgba(0,0,0,.5));
+}
+
+.rig-body{
+  position:absolute;
+
+  width:105px;
+  height:55px;
+
+  left:38px;
+  bottom:22px;
+
+  border-radius:9px;
+
+  background:
+    linear-gradient(145deg,#d49a3c,#8d5a1d);
+
+  box-shadow:
+    inset 0 3px rgba(255,255,255,.25);
+}
+
+.rig-cabin{
+  position:absolute;
+
+  width:42px;
+  height:42px;
+
+  left:95px;
+  bottom:58px;
+
+  border-radius:6px;
+
+  background:
+    linear-gradient(145deg,#40505b,#151e25);
+
+  border:2px solid #bd812c;
+}
+
+.rig-wheel{
+  position:absolute;
+
+  width:31px;
+  height:31px;
+
+  bottom:6px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(circle,#56636b 0 20%,#111 22% 62%,#252c30 64%);
+
+  border:3px solid #080b0e;
+}
+
+.rig-wheel.w1{
+  left:42px;
+}
+
+.rig-wheel.w2{
+  right:28px;
+}
+
+.drill-arm{
+  position:absolute;
+
+  width:15px;
+  height:115px;
+
+  left:79px;
+  top:-25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6b7071,
+      #d5d7d7,
+      #626668
+    );
+
+  transform:rotate(5deg);
+
+  border-radius:4px;
+}
+
+.drill-bit{
+  position:absolute;
+
+  width:24px;
+  height:24px;
+
+  left:74px;
+  top:83px;
+
+  border-radius:50%;
+
+  background:
+    conic-gradient(
+      #d9a244,
+      #555,
+      #d9a244,
+      #555,
+      #d9a244
+    );
+
+  animation:spin 1.8s linear infinite;
 }
 
 @keyframes spin{
@@ -564,528 +672,672 @@ header.nav{
   }
 }
 
-.depth-scale{
+/* WATER WAVES */
+
+.water{
   position:absolute;
 
-  right:4px;
-  top:0;
   bottom:0;
+  left:0;
+  right:0;
 
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  height:70px;
 
-  padding:4px 0;
+  background:
+    repeating-radial-gradient(
+      ellipse at center,
+      transparent 0 7px,
+      rgba(77,212,228,.18) 8px 10px,
+      transparent 11px 18px
+    );
+
+  opacity:.55;
+
+  animation:waterMove 5s linear infinite;
 }
 
-.depth-scale span{
-  font-size:9px;
-  color:var(--sand-dim);
-  opacity:.65;
+@keyframes waterMove{
+  from{
+    transform:translateX(-20px);
+  }
+  to{
+    transform:translateX(20px);
+  }
 }
 
-.gauge-controls label{
-  display:block;
+/* CALCULATOR */
 
-  font-size:12.5px;
+.calculator{
+  margin-top:20px;
 
-  color:var(--sand-dim);
-
-  margin-bottom:8px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
-input[type="range"]{
-  width:100%;
-  accent-color:var(--rust);
-  height:4px;
+.calc-title{
+  font-family:"Oswald",sans-serif;
+  font-size:20px;
 }
 
-.depth-readout{
+.calc-label{
+  color:var(--muted);
+
+  font-size:11px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.1em;
+}
+
+.depth-number{
   display:flex;
   align-items:baseline;
+  gap:5px;
 
-  gap:6px;
-
-  margin:10px 0 18px;
+  margin:10px 0;
 }
 
-.depth-readout .val{
+.depth-number strong{
   font-family:"Oswald",sans-serif;
 
-  font-size:30px;
-
-  color:var(--sand);
-
-  font-weight:600;
+  font-size:42px;
 }
 
-.depth-readout .unit{
-  font-size:13px;
-  color:var(--steel);
+.depth-number span{
+  color:var(--muted);
 }
 
-.price-lines{
-  border-top:1px solid var(--line);
-  padding-top:14px;
+input[type=range]{
+  width:100%;
+
+  accent-color:var(--gold);
+
+  cursor:pointer;
 }
 
-.price-line{
+.price-box{
+  margin-top:14px;
+
+  padding:15px;
+
+  border-radius:15px;
+
+  background:rgba(0,0,0,.25);
+
+  border:1px solid var(--line);
+}
+
+.price-row{
   display:flex;
   justify-content:space-between;
 
-  font-size:13px;
+  padding:5px 0;
 
-  color:var(--sand-dim);
+  color:var(--muted);
 
-  padding:4px 0;
+  font-size:12px;
 }
 
-.price-line .amt{
-  font-family:"JetBrains Mono",monospace;
-  color:var(--sand);
+.price-row strong{
+  color:var(--text);
 }
 
-.price-total{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-
-  margin-top:10px;
-
-  padding-top:12px;
+.total{
+  margin-top:8px;
+  padding-top:10px;
 
   border-top:1px dashed var(--line);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.price-total .lab{
-  font-size:13px;
-  color:var(--sand-dim);
-  font-weight:700;
+.total span{
+  color:var(--muted);
+  font-size:12px;
 }
 
-.price-total .amt{
-  font-family:"JetBrains Mono",monospace;
+.total strong{
+  font-family:"Oswald",sans-serif;
 
-  font-size:24px;
+  font-size:25px;
 
-  color:var(--water-light);
-
-  font-weight:600;
+  color:var(--water2);
 }
 
-.disclaimer{
-  font-size:11.5px;
-  color:var(--steel);
+.calc-note{
+  color:var(--muted2);
 
-  margin-top:12px;
+  font-size:10px;
+
+  margin-top:10px;
 }
-
-.gauge-cta{
-  margin-top:16px;
-}
-
 
 /* =========================================================
    OFFER
 ========================================================= */
 
-.offer-strip{
+.offer{
+  border-top:1px solid rgba(215,154,61,.18);
+  border-bottom:1px solid rgba(215,154,61,.18);
+
   background:
     linear-gradient(
       90deg,
-      var(--rust-dark),
-      var(--rust),
-      var(--rust-dark)
+      rgba(215,154,61,.12),
+      rgba(21,150,167,.07),
+      rgba(215,154,61,.12)
     );
-
-  color:#1c1006;
 }
 
 .offer-inner{
-  max-width:var(--maxw);
-  margin:0 auto;
-
-  padding:14px 20px;
-
-  display:flex;
-  flex-wrap:wrap;
-
-  align-items:center;
-
-  gap:10px 16px;
-}
-
-.offer-badge{
-  background:#1c1006;
-
-  color:var(--rust-light);
-
-  font-size:11px;
-  font-weight:800;
-
-  padding:4px 10px;
-
-  border-radius:999px;
-
-  text-transform:uppercase;
-  letter-spacing:.05em;
-}
-
-.offer-title{
-  font-weight:700;
-  font-size:14px;
-}
-
-.offer-text{
-  font-size:13px;
-  opacity:.85;
-}
-
-
-/* =========================================================
-   SCOPE
-========================================================= */
-
-.scope-grid{
-  display:grid;
-  grid-template-columns:1fr;
-
-  gap:16px;
-
-  margin-top:28px;
-}
-
-.scope-card{
-  background:var(--rock);
-
-  border:1px solid var(--line);
-
-  border-radius:12px;
-
-  padding:21px;
-
-  display:flex;
-
-  gap:14px;
-
-  align-items:flex-start;
-}
-
-.scope-icon{
-  width:38px;
-  height:38px;
-
-  flex:none;
-
-  border-radius:8px;
+  min-height:62px;
 
   display:flex;
   align-items:center;
   justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:10px 16px;
+
+  text-align:center;
 }
 
-.scope-icon.yes{
-  background:rgba(107,143,113,.18);
+.offer-badge{
+  padding:5px 10px;
+
+  border-radius:999px;
+
+  background:var(--gold);
+
+  color:#171109;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
 }
 
-.scope-icon.no{
-  background:rgba(181,101,29,.18);
+.offer-title{
+  font-size:13px;
+  font-weight:800;
 }
 
-.scope-card h3{
-  font-size:16px;
-  color:var(--sand);
+.offer-text{
+  color:var(--muted);
 
-  margin-bottom:6px;
+  font-size:12px;
 }
 
-.scope-card p{
-  font-size:13.5px;
-  color:var(--sand-dim);
+/* =========================================================
+   SERVICES
+========================================================= */
 
-  margin:0;
+.service-grid{
+  margin-top:35px;
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:18px;
 }
 
+.service-card{
+  position:relative;
+
+  min-height:210px;
+
+  padding:25px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.015)
+    );
+
+  border:1px solid var(--line);
+
+  box-shadow:var(--shadow);
+
+  overflow:hidden;
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease;
+}
+
+.service-card:hover{
+  transform:translateY(-8px) rotateX(2deg);
+
+  border-color:rgba(215,154,61,.3);
+}
+
+.service-number{
+  position:absolute;
+
+  right:18px;
+  top:10px;
+
+  font-family:"Oswald",sans-serif;
+
+  font-size:70px;
+
+  color:rgba(255,255,255,.025);
+}
+
+.icon{
+  width:48px;
+  height:48px;
+
+  border-radius:14px;
+
+  display:grid;
+  place-items:center;
+
+  background:rgba(21,150,167,.12);
+
+  color:var(--water2);
+
+  margin-bottom:20px;
+}
+
+.service-card h3{
+  font-family:"Oswald",sans-serif;
+
+  font-size:22px;
+}
+
+.service-card p{
+  color:var(--muted);
+
+  font-size:13px;
+
+  margin-top:8px;
+
+  max-width:390px;
+}
 
 /* =========================================================
    COVERAGE
 ========================================================= */
 
-.areas-row{
+.coverage{
+  position:relative;
+
+  padding:45px;
+
+  border-radius:28px;
+
+  background:
+    radial-gradient(circle at 80% 20%,rgba(21,150,167,.15),transparent 35%),
+    linear-gradient(145deg,#111a22,#0a1016);
+
+  border:1px solid var(--line);
+
+  overflow:hidden;
+}
+
+.coverage-grid{
+  display:grid;
+
+  grid-template-columns:.8fr 1.2fr;
+
+  gap:50px;
+
+  align-items:center;
+}
+
+.area-list{
   display:flex;
+
   flex-wrap:wrap;
 
   gap:10px;
 
-  margin-top:20px;
+  margin-top:25px;
 }
 
-.area-chip{
-  border:1px solid var(--line);
-
-  padding:8px 16px;
+.area{
+  padding:10px 16px;
 
   border-radius:999px;
 
-  font-size:13px;
-  font-weight:600;
-
-  color:var(--sand);
-
-  background:rgba(255,255,255,.015);
-}
-
-.area-chip:hover{
-  border-color:var(--rust);
-  color:var(--rust-light);
-}
-
-.avail-note{
-  display:flex;
-  align-items:center;
-
-  gap:10px;
-
-  margin-top:20px;
-
-  background:var(--rock);
+  background:rgba(255,255,255,.045);
 
   border:1px solid var(--line);
 
-  border-radius:10px;
+  font-size:12px;
 
-  padding:14px 16px;
-
-  font-size:13.5px;
-
-  color:var(--sand-dim);
+  font-weight:700;
 }
 
-.avail-dot{
+.availability{
+  margin-top:20px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:var(--muted);
+
+  font-size:12px;
+}
+
+.dot{
   width:9px;
   height:9px;
 
   border-radius:50%;
 
-  background:var(--moss);
+  background:var(--green2);
 
-  flex:none;
-
-  box-shadow:0 0 0 4px rgba(113,143,112,.12);
+  box-shadow:0 0 15px var(--green2);
 }
 
+/* MAP STYLE */
+
+.map{
+  height:300px;
+
+  position:relative;
+
+  border-radius:22px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(21,150,167,.18),
+      transparent 60%
+    );
+
+  border:1px solid var(--line);
+
+  overflow:hidden;
+}
+
+.map::before,
+.map::after{
+  content:"";
+
+  position:absolute;
+
+  inset:20%;
+
+  border:1px dashed rgba(77,212,228,.18);
+
+  border-radius:50%;
+
+  transform:rotate(-25deg) scaleX(.75);
+}
+
+.map::after{
+  inset:30% 10%;
+
+  transform:rotate(30deg) scaleX(.6);
+}
+
+.pin{
+  position:absolute;
+
+  width:13px;
+  height:13px;
+
+  border-radius:50%;
+
+  background:var(--gold2);
+
+  box-shadow:
+    0 0 0 6px rgba(242,195,107,.12),
+    0 0 25px var(--gold);
+
+  animation:pulse 2s infinite;
+}
+
+.pin.p1{left:32%;top:25%;}
+.pin.p2{left:48%;top:43%;}
+.pin.p3{left:64%;top:52%;}
+.pin.p4{left:43%;top:67%;}
+.pin.p5{left:70%;top:76%;}
+
+@keyframes pulse{
+  50%{
+    box-shadow:
+      0 0 0 12px rgba(242,195,107,.04),
+      0 0 30px var(--gold);
+  }
+}
 
 /* =========================================================
    WHY US
 ========================================================= */
 
 .why-grid{
+  margin-top:35px;
+
   display:grid;
-  grid-template-columns:1fr;
 
-  gap:16px;
+  grid-template-columns:repeat(4,1fr);
 
-  margin-top:28px;
-}
+  gap:1px;
 
-.why-card{
-  padding:20px 0;
-
-  border-top:1px solid var(--line);
-}
-
-.why-card:first-child{
-  border-top:none;
-}
-
-.why-card h3{
-  font-size:16px;
-
-  color:var(--sand);
-
-  margin-bottom:6px;
-}
-
-.why-card p{
-  font-size:13.5px;
-
-  color:var(--sand-dim);
-
-  margin:0;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-band{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(198,107,32,.08),
-      rgba(47,127,135,.06)
-    ),
-    var(--rock);
+  background:var(--line);
 
   border:1px solid var(--line);
 
-  border-radius:16px;
+  border-radius:22px;
 
-  padding:38px 24px;
+  overflow:hidden;
+}
+
+.why-card{
+  padding:28px;
+
+  background:var(--surface);
+}
+
+.why-card h3{
+  font-family:"Oswald",sans-serif;
+
+  font-size:21px;
+}
+
+.why-card p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  margin-top:9px;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.final-cta{
+  position:relative;
+
+  padding:55px 35px;
+
+  border-radius:28px;
 
   text-align:center;
 
-  margin-top:8px;
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(215,154,61,.24),
+      transparent 50%
+    ),
+    linear-gradient(145deg,#131d25,#0a1016);
+
+  border:1px solid var(--line);
+
+  box-shadow:var(--shadow);
+
+  overflow:hidden;
 }
 
-.contact-band h2{
-  font-size:26px;
+.final-cta h2{
+  font-family:"Oswald",sans-serif;
 
-  color:var(--sand);
-
-  margin-bottom:8px;
+  font-size:42px;
 }
 
-.contact-band p{
-  color:var(--sand-dim);
+.final-cta p{
+  color:var(--muted);
 
-  font-size:14px;
+  font-size:13px;
 
-  margin-bottom:22px;
+  margin:10px auto 25px;
+
+  max-width:600px;
 }
 
-.contact-btns{
+.cta-actions{
   display:flex;
+
+  justify-content:center;
 
   flex-wrap:wrap;
 
   gap:12px;
-
-  justify-content:center;
 }
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
+  padding:30px 0;
+
   border-top:1px solid var(--line);
 
-  padding:27px 0;
+  color:var(--muted2);
+
+  font-size:11px;
 }
 
-footer .wrap{
+.footer-inner{
   display:flex;
-
-  flex-wrap:wrap;
 
   justify-content:space-between;
 
-  gap:8px;
+  flex-wrap:wrap;
 
-  font-size:12.5px;
-
-  color:var(--steel);
+  gap:10px;
 }
 
-
 /* =========================================================
-   WHATSAPP FLOAT
+   FLOAT WHATSAPP
 ========================================================= */
 
-.wa-float{
+.whatsapp{
   position:fixed;
 
-  right:18px;
-  bottom:18px;
+  right:20px;
+  bottom:20px;
 
-  z-index:60;
+  width:58px;
+  height:58px;
 
-  width:52px;
-  height:52px;
+  border-radius:18px;
 
-  border-radius:50%;
+  display:grid;
+  place-items:center;
 
-  background:var(--moss);
+  background:
+    linear-gradient(145deg,var(--green2),var(--green));
 
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  text-decoration:none;
+  color:#07130b;
 
   box-shadow:
-    0 6px 18px rgba(0,0,0,.35),
-    0 0 0 5px rgba(113,143,112,.10);
+    0 15px 35px rgba(0,0,0,.4),
+    0 0 25px rgba(73,182,117,.18);
+
+  z-index:999;
+
+  transition:transform .2s ease;
 }
 
+.whatsapp:hover{
+  transform:translateY(-5px) scale(1.04);
+}
 
 /* =========================================================
-   DESKTOP
+   MOBILE
 ========================================================= */
 
-@media(min-width:800px){
+@media(max-width:900px){
+
+  .container{
+    width:min(var(--max),calc(100% - 28px));
+  }
+
+  .section{
+    padding:65px 0;
+  }
+
+  .hero{
+    padding:45px 0 60px;
+  }
 
   .hero-grid{
-    grid-template-columns:1.05fr .95fr;
+    grid-template-columns:1fr;
+    gap:30px;
   }
 
   .hero h1{
-    font-size:46px;
+    font-size:52px;
   }
 
-  .scope-grid{
-    grid-template-columns:1fr 1fr;
+  .drill-scene{
+    min-height:550px;
+  }
+
+  .drill-card{
+    transform:none;
+  }
+
+  .coverage-grid{
+    grid-template-columns:1fr;
   }
 
   .why-grid{
-    grid-template-columns:repeat(4,1fr);
-
-    gap:0;
-  }
-
-  .why-card{
-    border-top:none;
-
-    border-left:1px solid var(--line);
-
-    padding:0 20px;
-  }
-
-  .why-card:first-child{
-    border-left:none;
-
-    padding-left:0;
-  }
-
-  .brand-line-1,
-  .brand-line-2{
-    font-size:17px;
+    grid-template-columns:1fr 1fr;
   }
 
 }
 
-
 /* =========================================================
-   MOBILE NAVIGATION
+   MOBILE PORTRAIT HEADER
 ========================================================= */
 
-@media(max-width:799px){
+@media(max-width:600px){
 
-  header.nav{
+  header{
     position:sticky;
   }
 
-  .nav-inner{
-    min-height:64px;
+  .nav{
+    min-height:68px;
 
-    padding:
-      8px 12px;
+    gap:8px;
+  }
 
-    gap:7px;
+  .container{
+    width:calc(100% - 20px);
   }
 
   .brand{
@@ -1095,177 +1347,195 @@ footer .wrap{
     min-width:0;
   }
 
-  .brand-logo{
-    width:40px;
-    height:40px;
+  .logo-wrap{
+    width:42px;
+    height:42px;
+
+    border-radius:12px;
   }
 
-  .brand-text{
-    min-width:0;
+  .brand-main{
+    font-size:15px;
+
+    white-space:normal;
+
+    line-height:1.02;
   }
 
-  .brand-line-1,
-  .brand-line-2{
-    font-size:14px;
-
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-
-  .nav-actions{
-    gap:6px;
-  }
-
-  /* Hide desktop language pills */
-  .lang-group{
+  .brand-sub{
     display:none;
   }
 
-  /* Show mobile dropdown */
-  .lang-select{
-    display:block;
+  .nav-right{
+    gap:6px;
   }
 
-  .call-chip{
-    height:36px;
+  .language-select{
+    min-width:94px;
 
-    padding:0 10px;
+    max-width:94px;
 
-    border-radius:8px;
+    padding:9px 28px 9px 10px;
 
-    font-size:11.5px;
+    font-size:11px;
   }
 
-  .call-chip svg{
-    width:13px;
-    height:13px;
+  .call-btn{
+    width:42px;
+    height:42px;
+
+    padding:0;
+
+    justify-content:center;
+
+    border-radius:13px;
+  }
+
+  .call-btn span{
+    display:none;
   }
 
   .hero{
-    padding:42px 0 50px;
+    padding-top:38px;
   }
 
   .hero h1{
+    font-size:44px;
+  }
+
+  .hero-description{
+    font-size:14px;
+  }
+
+  .hero-buttons{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+  }
+
+  .btn{
+    min-height:48px;
+
+    padding:0 12px;
+
+    font-size:11px;
+  }
+
+  .hero-stats{
+    gap:20px;
+  }
+
+  .stat strong{
+    font-size:20px;
+  }
+
+  .drill-scene{
+    min-height:auto;
+  }
+
+  .drill-card{
+    position:relative;
+
+    inset:auto;
+
+    padding:16px;
+
+    border-radius:22px;
+  }
+
+  .machine{
+    height:190px;
+  }
+
+  .calculator{
+    grid-template-columns:1fr;
+
+    gap:15px;
+  }
+
+  .depth-number strong{
+    font-size:35px;
+  }
+
+  .section-title{
     font-size:34px;
   }
 
-  .hero p.sub{
-    font-size:15px;
+  .service-grid{
+    grid-template-columns:1fr;
   }
 
-  .gauge-card{
-    padding:18px;
+  .service-card{
+    min-height:180px;
   }
 
-  .section{
-    padding:55px 0;
+  .coverage{
+    padding:25px 18px;
+  }
+
+  .map{
+    height:240px;
+  }
+
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  .final-cta{
+    padding:40px 20px;
+  }
+
+  .final-cta h2{
+    font-size:34px;
+  }
+
+  .offer-inner{
+    padding:12px 8px;
+  }
+
+  .offer-text{
+    width:100%;
+  }
+
+  .whatsapp{
+    width:52px;
+    height:52px;
+
+    right:15px;
+    bottom:15px;
   }
 
 }
 
+/* VERY SMALL PHONES */
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+@media(max-width:380px){
 
-@media(max-width:430px){
-
-  .nav-inner{
-    padding-left:10px;
-    padding-right:10px;
+  .brand-main{
+    font-size:13px;
   }
 
-  .brand-logo{
+  .logo-wrap{
     width:38px;
     height:38px;
   }
 
-  .brand-line-1,
-  .brand-line-2{
-    font-size:13px;
-  }
+  .language-select{
+    min-width:82px;
+    max-width:82px;
 
-  .lang-select{
-    max-width:86px;
-
-    font-size:11px;
-
-    padding-left:8px;
-    padding-right:20px;
-  }
-
-  .call-chip{
-    padding:0 8px;
-  }
-
-  .call-chip span{
-    display:inline;
+    font-size:10px;
   }
 
   .hero h1{
-    font-size:32px;
+    font-size:38px;
   }
 
-  .cta-row{
-    flex-direction:column;
-  }
-
-  .cta-row .btn{
-    width:100%;
-  }
-
-  .gauge-body{
-    grid-template-columns:55px 1fr;
-    gap:12px;
-  }
-
-  .strata{
-    height:205px;
-  }
-
-  .price-total .amt{
-    font-size:20px;
+  .hero-buttons{
+    grid-template-columns:1fr;
   }
 
 }
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media(max-width:360px){
-
-  .brand-logo{
-    width:35px;
-    height:35px;
-  }
-
-  .brand-line-1,
-  .brand-line-2{
-    font-size:12px;
-  }
-
-  .lang-select{
-    max-width:78px;
-
-    font-size:10.5px;
-  }
-
-  .call-chip{
-    padding:0 7px;
-  }
-
-  .call-chip span{
-    display:none;
-  }
-
-  .hero h1{
-    font-size:29px;
-  }
-
-}
-
 
 /* =========================================================
    REDUCED MOTION
@@ -1273,17 +1543,11 @@ footer .wrap{
 
 @media(prefers-reduced-motion:reduce){
 
-  html{
-    scroll-behavior:auto;
-  }
-
-  .drillbit svg{
-    animation:none;
-  }
-
-  .drillbit,
-  .btn{
-    transition:none;
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
   }
 
 }
@@ -1291,2117 +1555,1507 @@ footer .wrap{
 </style>
 </head>
 
-
 <body>
 
+<div class="grid-bg"></div>
+<div class="orb one"></div>
+<div class="orb two"></div>
 
-<!-- ========================================================
-     NAVIGATION
-========================================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<header class="nav">
+<header>
 
-  <div class="nav-inner">
+<div class="container nav">
 
-    <a class="brand" href="#top">
+  <a href="#" class="brand">
 
+    <div class="logo-wrap">
       <img
-        class="brand-logo"
         src="https://i.ibb.co/k2R7hVVS/IMG-3949.png"
         alt="Sri Venkateshwara TubeWells Logo"
       >
+    </div>
 
-      <div class="brand-text">
-
-        <span class="brand-line-1">
-          Sri Venkateshwara
-        </span>
-
-        <span class="brand-line-2">
-          TubeWells
-        </span>
-
+    <div class="brand-text">
+      <div class="brand-main">
+        Sri Venkateshwara<br class="mobile-break">
+        TubeWells
       </div>
 
-    </a>
-
-
-    <div class="nav-actions">
-
-
-      <!-- DESKTOP LANGUAGE BUTTONS -->
-
-      <div class="lang-group" id="langGroup">
-
-        <button class="lang-btn active" data-lang="en">
-          EN
-        </button>
-
-        <button class="lang-btn" data-lang="kn">
-          KN
-        </button>
-
-        <button class="lang-btn" data-lang="mr">
-          MR
-        </button>
-
-        <button class="lang-btn" data-lang="ta">
-          TA
-        </button>
-
-        <button class="lang-btn" data-lang="hi">
-          HI
-        </button>
-
+      <div class="brand-sub">
+        Borewell Drilling
       </div>
+    </div>
 
+  </a>
 
-      <!-- MOBILE LANGUAGE DROPDOWN -->
+  <div class="nav-right">
+
+    <div class="language">
 
       <select
-        class="lang-select"
-        id="langSelect"
-        aria-label="Select language"
+        id="languageSelect"
+        class="language-select"
+        aria-label="Language"
       >
-
         <option value="en">English</option>
+        <option value="ta">தமிழ்</option>
         <option value="kn">ಕನ್ನಡ</option>
         <option value="mr">मराठी</option>
-        <option value="ta">தமிழ்</option>
         <option value="hi">हिन्दी</option>
-
       </select>
 
-
-      <!-- CALL BUTTON -->
-
-      <a
-        class="call-chip"
-        id="navCall"
-        href="tel:+917010894661"
-      >
-
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-
-          <path
-            d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"
-            stroke="currentColor"
-            stroke-width="1.6"
-            stroke-linejoin="round"
-          />
-
-        </svg>
-
-        <span id="navCallLabel">
-          Call
-        </span>
-
-      </a>
-
     </div>
 
-  </div>
-
-</header>
-
-
-<!-- ========================================================
-     HERO
-========================================================= -->
-
-<section class="hero" id="top">
-
-  <div class="wrap hero-grid">
-
-
-    <div>
-
-      <div
-        class="eyebrow"
-        id="txt-eyebrow"
-      >
-        Tamil Nadu + Karnataka + Maharashtra + Madhya Pradesh + Rajasthan
-        · Vehicle-based service
-      </div>
-
-
-      <h1 id="txt-h1">
-
-        Borewell drilling,
-        <span class="accent">
-          done right
-        </span>
-        — with a price you can see before we arrive.
-
-      </h1>
-
-
-      <p
-        class="sub"
-        id="txt-sub"
-      >
-        Tell us the depth. We show you the cost.
-        No pump installation — borewell drilling only.
-      </p>
-
-
-      <div class="cta-row">
-
-
-        <a
-          class="btn btn-primary"
-          id="ctaWhatsapp"
-          href="#"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-
-            <path
-              d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"
-              stroke="currentColor"
-              stroke-width="1.6"
-            />
-
-            <path
-              d="M8.5 8.7c.3-.7 1-.6 1.5-.6.3 0 .5.2.6.5l.6 1.6c.1.2 0 .5-.1.6l-.6.7c-.2.2-.2.4-.1.6.6 1.2 1.6 2.2 2.8 2.8.2.1.4.1.6-.1l.7-.6c.2-.2.4-.2.6-.1l1.6.6c.3.1.5.3.5.6 0 .5.1 1.2-.6 1.5-1.6.7-3.6.3-5.6-1.7s-2.4-4-1.6-5.6z"
-              fill="currentColor"
-            />
-
-          </svg>
-
-          <span id="txt-cta">
-            Get instant quote on WhatsApp
-          </span>
-
-        </a>
-
-
-        <a
-          class="btn btn-ghost"
-          id="ctaCall"
-          href="tel:+917010894661"
-        >
-
-          <span id="txt-call">
-            Call now
-          </span>
-
-        </a>
-
-      </div>
-
-
-      <div class="badges-row">
-
-
-        <div class="badge-stat">
-
-          <span
-            class="n"
-            id="statRate"
-          >
-            ₹110/ft
-          </span>
-
-          <span
-            class="l"
-            id="txt-statRateLabel"
-          >
-            Drilling rate
-          </span>
-
-        </div>
-
-
-        <div class="badge-stat">
-
-          <span
-            class="n"
-            id="statAreas"
-          >
-            5 states
-          </span>
-
-          <span
-            class="l"
-            id="txt-statAreasLabel"
-          >
-            Coverage
-          </span>
-
-        </div>
-
-
-        <div class="badge-stat">
-
-          <span class="n">
-            5
-          </span>
-
-          <span
-            class="l"
-            id="txt-statLangLabel"
-          >
-            Languages
-          </span>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-
-    <!-- CALCULATOR -->
-
-    <div class="gauge-card">
-
-      <div
-        class="gauge-title"
-        id="txt-calcTitle"
-      >
-        Estimate your borewell
-      </div>
-
-
-      <div class="gauge-body">
-
-
-        <div
-          class="strata"
-          id="strata"
-        >
-
-          <div class="strata-band b1"></div>
-          <div class="strata-band b2"></div>
-          <div class="strata-band b3"></div>
-          <div class="strata-band b4"></div>
-
-
-          <div
-            class="drillbit"
-            id="drillbit"
-            style="top:0%"
-          >
-
-            <svg
-              viewBox="0 0 20 20"
-              width="20"
-              height="20"
-            >
-
-              <polygon
-                points="10,2 15,8 12,8 12,17 8,17 8,8 5,8"
-                fill="#c66b20"
-                stroke="#171512"
-                stroke-width=".8"
-              />
-
-            </svg>
-
-          </div>
-
-
-          <div class="depth-scale">
-
-            <span>0</span>
-            <span>500</span>
-            <span>1000ft</span>
-
-          </div>
-
-        </div>
-
-
-        <div class="gauge-controls">
-
-
-          <label id="txt-depthLabel">
-            Depth required (feet)
-          </label>
-
-
-          <input
-            type="range"
-            id="depthSlider"
-            min="100"
-            max="1000"
-            step="10"
-            value="300"
-          >
-
-
-          <div class="depth-readout">
-
-            <span
-              class="val mono"
-              id="depthVal"
-            >
-              300
-            </span>
-
-            <span
-              class="unit"
-              id="depthUnit"
-            >
-              ft
-            </span>
-
-          </div>
-
-
-          <div class="price-lines">
-
-
-            <div class="price-line">
-
-              <span id="txt-rateLine">
-                Rate ₹110/ft
-              </span>
-
-              <span
-                class="amt"
-                id="lineRateAmt"
-              >
-                ₹33,000
-              </span>
-
-            </div>
-
-
-            <div
-              class="price-line"
-              id="rowTravel"
-            >
-
-              <span id="txt-travelLine">
-                Travel charge
-              </span>
-
-              <span
-                class="amt"
-                id="lineTravelAmt"
-              >
-                ₹500
-              </span>
-
-            </div>
-
-
-            <div
-              class="price-line"
-              id="rowOther"
-              style="display:none;"
-            >
-
-              <span id="txt-otherLine">
-                Other charge
-              </span>
-
-              <span
-                class="amt"
-                id="lineOtherAmt"
-              >
-                ₹0
-              </span>
-
-            </div>
-
-
-            <div class="price-total">
-
-              <span
-                class="lab"
-                id="txt-totalLabel"
-              >
-                Estimated total
-              </span>
-
-              <span
-                class="amt"
-                id="totalAmt"
-              >
-                ₹33,500
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div
-            class="disclaimer"
-            id="txt-disclaimer"
-          >
-            Final price confirmed after site visit.
-            Minimum depth 200 ft.
-          </div>
-
-
-          <div class="gauge-cta">
-
-            <a
-              class="btn btn-primary"
-              id="ctaWhatsapp2"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              style="width:100%;"
-            >
-
-              <span id="txt-cta2">
-                Get instant quote on WhatsApp
-              </span>
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ========================================================
-     OFFER
-========================================================= -->
-
-<div
-  class="offer-strip"
-  id="offerStrip"
->
-
-  <div class="offer-inner">
-
-    <span
-      class="offer-badge"
-      id="offerBadge"
+    <a
+      class="call-btn"
+      href="tel:+917010894661"
     >
-      Monsoon offer
-    </span>
 
-    <span
-      class="offer-title"
-      id="offerTitle"
-    >
-      Book before the rains set in
-    </span>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          d="M22 16.9v3a2 2 0 0 1-2.2 2
+          19.8 19.8 0 0 1-8.6-3.1
+          19.5 19.5 0 0 1-6-6
+          A19.8 19.8 0 0 1 2.1 4.2
+          2 2 0 0 1 4.1 2h3
+          a2 2 0 0 1 2 1.7
+          c.1 1 .4 2 .7 2.9
+          a2 2 0 0 1-.5 2.1
+          L8 10
+          a16 16 0 0 0 6 6
+          l1.3-1.3
+          a2 2 0 0 1 2.1-.5
+          c.9.3 1.9.6 2.9.7
+          A2 2 0 0 1 22 16.9z"
+        />
+      </svg>
 
-    <span
-      class="offer-text"
-      id="offerText"
-    >
-      Free site survey included on all bookings this month.
-    </span>
+      <span id="callLabel">
+        Call
+      </span>
+
+    </a>
 
   </div>
 
 </div>
 
+</header>
 
-<!-- ========================================================
-     SCOPE
-========================================================= -->
 
-<section class="section">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-  <div class="wrap">
+<main>
 
-    <div
-      class="eyebrow"
-      id="txt-scopeEyebrow"
-    >
-      Scope of work
-    </div>
+<section class="hero">
 
-    <h2
-      id="txt-scopeTitle"
-      style="font-size:26px;color:var(--sand);"
-    >
-      What we drill — and what we don't
-    </h2>
+<div class="container hero-grid">
 
+<div>
 
-    <div class="scope-grid">
+<div class="eyebrow" id="heroEyebrow">
+  Professional Borewell Drilling
+</div>
 
+<h1 id="heroTitle">
+  Drill deeper.<br>
+  <span>Build with confidence.</span>
+</h1>
 
-      <div class="scope-card">
+<p
+  class="hero-description"
+  id="heroDescription"
+>
+  Professional borewell drilling services with transparent pricing,
+  experienced crews and vehicle-based drilling operations across
+  Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan.
+</p>
 
-        <div class="scope-icon yes">
+<div class="hero-buttons">
 
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
+<a
+  href="#"
+  class="btn btn-primary"
+  id="whatsappHero"
+  target="_blank"
+>
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7c1.8 1 3.6 1.5 5.6 1.5h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.3-6.2-3.5-8.4z"/>
+  </svg>
 
-            <path
-              d="M5 13l4 4L19 7"
-              stroke="#6b8f71"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+  <span id="whatsappHeroText">
+    Get Quote on WhatsApp
+  </span>
 
-          </svg>
+</a>
 
-        </div>
+<a
+  href="tel:+917010894661"
+  class="btn btn-secondary"
+>
+  <span id="callHeroText">
+    Call 70108 94661
+  </span>
+</a>
 
+</div>
 
-        <div>
+<div class="hero-stats">
 
-          <h3 id="txt-scope1Title">
-            Borewell drilling only
-          </h3>
+<div class="stat">
+<strong>₹110/ft</strong>
+<span>Drilling Rate</span>
+</div>
 
-          <p id="txt-scope1Desc">
-            We drill and case the borewell.
-            That's the job, and we do it well.
-          </p>
+<div class="stat">
+<strong>5 States</strong>
+<span>Coverage</span>
+</div>
 
-        </div>
+<div class="stat">
+<strong>5</strong>
+<span>Languages</span>
+</div>
 
-      </div>
+</div>
 
+</div>
 
-      <div class="scope-card">
 
-        <div class="scope-icon no">
+<!-- 3D CARD -->
 
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
+<div class="drill-scene">
 
-            <path
-              d="M6 6l12 12M18 6L6 18"
-              stroke="#b5651d"
-              stroke-width="2.4"
-              stroke-linecap="round"
-            />
+<div class="drill-card">
 
-          </svg>
+<div class="card-glow"></div>
 
-        </div>
+<div class="machine">
 
+<div class="rig">
 
-        <div>
+<div class="drill-arm"></div>
 
-          <h3 id="txt-scope2Title">
-            No pump installation
-          </h3>
+<div class="drill-bit"></div>
 
-          <p id="txt-scope2Desc">
-            We don't sell or fit pumps.
-            Ask us and we'll point you to someone who does.
-          </p>
+<div class="rig-cabin"></div>
 
-        </div>
+<div class="rig-body"></div>
 
-      </div>
+<div class="rig-wheel w1"></div>
 
+<div class="rig-wheel w2"></div>
 
-    </div>
+</div>
 
-  </div>
+<div class="water"></div>
 
-</section>
+</div>
 
 
-<hr class="divider">
+<div class="calculator">
 
+<div>
 
-<!-- ========================================================
-     COVERAGE
-========================================================= -->
+<div
+  class="calc-title"
+  id="calcTitle"
+>
+  Borewell Estimator
+</div>
 
-<section class="section">
+<div
+  class="calc-label"
+  id="depthLabel"
+>
+  Required Depth
+</div>
 
-  <div class="wrap">
+<div class="depth-number">
 
-    <div
-      class="eyebrow"
-      id="txt-coverageEyebrow"
-    >
-      Coverage
-    </div>
+<strong id="depthValue">
+300
+</strong>
 
-    <h2
-      id="txt-coverageTitle"
-      style="font-size:26px;color:var(--sand);"
-    >
-      Where we work
-    </h2>
+<span>
+ft
+</span>
 
+</div>
 
-    <div
-      class="areas-row"
-      id="areasRow"
-    ></div>
-
-
-    <div class="avail-note">
-
-      <span class="avail-dot"></span>
-
-      <span id="txt-availNote">
-        Vehicle availability confirmed on call
-      </span>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<hr class="divider">
-
-
-<!-- ========================================================
-     WHY US
-========================================================= -->
-
-<section class="section">
-
-  <div class="wrap">
-
-    <div
-      class="eyebrow"
-      id="txt-whyEyebrow"
-    >
-      Why us
-    </div>
-
-    <h2
-      id="txt-whyTitle"
-      style="font-size:26px;color:var(--sand);margin-bottom:10px;"
-    >
-      Why people call us back
-    </h2>
-
-
-    <div class="why-grid">
-
-
-      <div class="why-card">
-
-        <h3 id="txt-card1Title">
-          Transparent pricing
-        </h3>
-
-        <p id="txt-card1Desc">
-          See the estimate before we start drilling —
-          no surprises at the site.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <h3 id="txt-card2Title">
-          Experienced crew
-        </h3>
-
-        <p id="txt-card2Desc">
-          Years of experience across multiple regions
-          and different soil and rock conditions.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <h3 id="txt-card3Title">
-          Vehicle-ready
-        </h3>
-
-        <p id="txt-card3Desc">
-          Drilling rigs on standby,
-          subject to availability in your area.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <h3 id="txt-card4Title">
-          5 languages, one crew
-        </h3>
-
-        <p id="txt-card4Desc">
-          Talk to us in the language you're most comfortable in.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ========================================================
-     CONTACT
-========================================================= -->
-
-<section
-  class="section"
-  style="padding-top:8px;"
+<input
+  type="range"
+  id="depthSlider"
+  min="200"
+  max="1000"
+  value="300"
+  step="10"
 >
 
-  <div class="wrap">
-
-    <div class="contact-band">
+</div>
 
 
-      <h2 id="txt-contactTitle">
-        Ready to drill?
-      </h2>
+<div>
 
+<div class="price-box">
 
-      <p id="txt-contactSub">
-        Sri Venkateshwara TubeWells ·
-        Tamil Nadu, Karnataka, Maharashtra,
-        Madhya Pradesh, Rajasthan
-      </p>
+<div class="price-row">
 
+<span id="rateLabel">
+Drilling
+</span>
 
-      <div class="contact-btns">
+<strong id="drillingAmount">
+₹33,000
+</strong>
 
+</div>
 
-        <a
-          class="btn btn-primary"
-          id="ctaWhatsapp3"
-          href="#"
-          target="_blank"
-          rel="noopener"
-        >
+<div class="price-row">
 
-          <span id="txt-whatsappBtn">
-            Enquire on WhatsApp
-          </span>
+<span id="travelLabel">
+Travel
+</span>
 
-        </a>
+<strong id="travelAmount">
+₹500
+</strong>
 
+</div>
 
-        <a
-          class="btn btn-ghost"
-          id="ctaCall2"
-          href="tel:+917010894661"
-        >
+<div class="total">
 
-          <span id="txt-callBtn">
-            Call +91 70108 94661
-          </span>
+<span id="totalLabel">
+Estimated Total
+</span>
 
-        </a>
+<strong id="totalAmount">
+₹33,500
+</strong>
 
+</div>
 
-      </div>
+</div>
 
-    </div>
+<div
+  class="calc-note"
+  id="calcNote"
+>
+  Final price confirmed after site visit.
+</div>
 
-  </div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ========================================================
+<!-- =====================================================
+     OFFER
+===================================================== -->
+
+<section class="offer">
+
+<div class="container offer-inner">
+
+<span class="offer-badge">
+Special
+</span>
+
+<strong class="offer-title" id="offerTitle">
+Free site survey available
+</strong>
+
+<span class="offer-text" id="offerText">
+Call us to confirm vehicle availability in your area.
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="eyebrow" id="servicesEyebrow">
+  Our Service
+</div>
+
+<h2
+  class="section-title"
+  id="servicesTitle"
+>
+  Focused on drilling.<br>
+  Built for the ground.
+</h2>
+
+<p
+  class="section-subtitle"
+  id="servicesSubtitle"
+>
+  We keep our service simple — professional borewell drilling,
+  proper casing and transparent communication.
+</p>
+
+
+<div class="service-grid">
+
+<div class="service-card">
+
+<span class="service-number">
+01
+</span>
+
+<div class="icon">
+
+<svg width="24" height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.8">
+
+<path d="M12 3v18"/>
+<path d="M8 7l4-4 4 4"/>
+<path d="M7 17h10"/>
+<path d="M6 21h12"/>
+
+</svg>
+
+</div>
+
+<h3 id="service1Title">
+Borewell Drilling
+</h3>
+
+<p id="service1Text">
+Professional borewell drilling using vehicle-mounted
+drilling equipment.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<span class="service-number">
+02
+</span>
+
+<div class="icon">
+
+<svg width="24" height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.8">
+
+<circle cx="12" cy="12" r="8"/>
+<path d="M12 4v16"/>
+<path d="M4 12h16"/>
+
+</svg>
+
+</div>
+
+<h3 id="service2Title">
+Transparent Pricing
+</h3>
+
+<p id="service2Text">
+Use our depth estimator to get a quick drilling estimate
+before contacting us.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<span class="service-number">
+03
+</span>
+
+<div class="icon">
+
+<svg width="24" height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.8">
+
+<path d="M3 17l9-14 9 14"/>
+<path d="M6 17v4h12v-4"/>
+
+</svg>
+
+</div>
+
+<h3 id="service3Title">
+Experienced Crew
+</h3>
+
+<p id="service3Text">
+Ground conditions vary. Our crew works with experience
+across multiple states and terrains.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<span class="service-number">
+04
+</span>
+
+<div class="icon">
+
+<svg width="24" height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.8">
+
+<rect x="3" y="6" width="18" height="12" rx="2"/>
+<circle cx="8" cy="18" r="2"/>
+<circle cx="16" cy="18" r="2"/>
+
+</svg>
+
+</div>
+
+<h3 id="service4Title">
+Vehicle Ready
+</h3>
+
+<p id="service4Text">
+Vehicle-based drilling operations subject to availability
+in your location.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COVERAGE
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="coverage">
+
+<div class="coverage-grid">
+
+<div>
+
+<div class="eyebrow">
+Coverage
+</div>
+
+<h2
+  class="section-title"
+  id="coverageTitle"
+>
+  Five states.<br>
+  One drilling team.
+</h2>
+
+<p
+  class="section-subtitle"
+  id="coverageText"
+>
+  We provide borewell drilling services across
+  Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh
+  and Rajasthan.
+</p>
+
+<div class="area-list">
+
+<span class="area">Tamil Nadu</span>
+<span class="area">Karnataka</span>
+<span class="area">Maharashtra</span>
+<span class="area">Madhya Pradesh</span>
+<span class="area">Rajasthan</span>
+
+</div>
+
+<div class="availability">
+
+<span class="dot"></span>
+
+<span id="availabilityText">
+Vehicle availability confirmed on call
+</span>
+
+</div>
+
+</div>
+
+
+<div class="map">
+
+<div class="pin p1"></div>
+<div class="pin p2"></div>
+<div class="pin p3"></div>
+<div class="pin p4"></div>
+<div class="pin p5"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY US
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="eyebrow">
+Why Choose Us
+</div>
+
+<h2
+  class="section-title"
+  id="whyTitle"
+>
+  Simple service.<br>
+  Serious drilling.
+</h2>
+
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<h3 id="why1Title">
+Transparent
+</h3>
+
+<p id="why1Text">
+Clear estimate before drilling with no unnecessary
+service additions.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<h3 id="why2Title">
+Professional
+</h3>
+
+<p id="why2Text">
+Experienced drilling crew and vehicle-based operations.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<h3 id="why3Title">
+Multi-State
+</h3>
+
+<p id="why3Text">
+Service coverage across five states.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<h3 id="why4Title">
+5 Languages
+</h3>
+
+<p id="why4Text">
+Communicate comfortably in English, Tamil, Kannada,
+Marathi or Hindi.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="final-cta">
+
+<div class="eyebrow">
+Sri Venkateshwara TubeWells
+</div>
+
+<h2 id="finalTitle">
+Ready to drill?
+</h2>
+
+<p id="finalText">
+Tell us your required borewell depth and location.
+We'll help you understand the estimated drilling cost
+and availability.
+</p>
+
+<div class="cta-actions">
+
+<a
+  class="btn btn-primary"
+  id="whatsappFinal"
+  href="#"
+  target="_blank"
+>
+  Get Quote on WhatsApp
+</a>
+
+<a
+  class="btn btn-secondary"
+  href="tel:+917010894661"
+>
+  Call 70108 94661
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer>
 
-  <div class="wrap">
+<div class="container footer-inner">
 
-    <span id="footerLine">
-      Sri Venkateshwara TubeWells ·
-      Borewell drilling services ·
-      Tamil Nadu, Karnataka, Maharashtra,
-      Madhya Pradesh, Rajasthan
-    </span>
+<span>
+© <span id="year"></span>
+Sri Venkateshwara TubeWells
+</span>
 
-  </div>
+<span>
+Borewell Drilling · Tamil Nadu · Karnataka · Maharashtra · Madhya Pradesh · Rajasthan
+</span>
+
+</div>
 
 </footer>
 
 
-<!-- ========================================================
-     FLOATING WHATSAPP
-========================================================= -->
+<!-- WHATSAPP FLOAT -->
 
 <a
-  class="wa-float"
-  id="waFloat"
+  class="whatsapp"
+  id="whatsappFloat"
   href="#"
   target="_blank"
-  rel="noopener"
   aria-label="WhatsApp"
 >
 
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-
-    <path
-      d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"
-      stroke="#0e1a10"
-      stroke-width="1.6"
-    />
-
-    <path
-      d="M8.5 8.7c.3-.7 1-.6 1.5-.6.3 0 .5.2.6.5l.6 1.6c.1.2 0 .5-.1.6l-.6.7c-.2.2-.2.4-.1.6.6 1.2 1.6 2.2 2.8 2.8.2.1.4.1.6-.1l.7-.6c.2-.2.4-.2.6-.1l1.6.6c.3.1.5.3.5.6 0 .5.1 1.2-.6 1.5-1.6.7-3.6.3-5.6-1.7s-2.4-4-1.6-5.6z"
-      fill="#0e1a10"
-    />
-
-  </svg>
+<svg
+width="27"
+height="27"
+viewBox="0 0 24 24"
+fill="currentColor"
+>
+<path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7c1.8 1 3.6 1.5 5.6 1.5h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.3-6.2-3.5-8.4z"/>
+</svg>
 
 </a>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
 /* =========================================================
-   MAIN CONFIGURATION
+   CONFIG
 ========================================================= */
 
 const CONFIG = {
 
-  COMPANY_NAME: "Sri Venkateshwara TubeWells",
+  COMPANY_NAME:
+    "Sri Venkateshwara TubeWells",
 
-  PHONE: "+91 70108 94661",
+  PHONE:
+    "+91 70108 94661",
 
-  WHATSAPP: "917010894661",
+  WHATSAPP:
+    "917010894661",
 
-  DRILLING_RATE_PER_FOOT: 110,
+  DRILLING_RATE:
+    110,
 
-  MIN_DEPTH: 200,
+  MIN_DEPTH:
+    200,
 
-  TRAVEL_CHARGE: 500,
+  TRAVEL_CHARGE:
+    500,
 
-  OTHER_CHARGE: 0,
-
-  OFFER_BADGE: "Monsoon offer",
-
-  OFFER_TITLE: "Book before the rains set in",
-
-  OFFER_TEXT:
-    "Free site survey included on all bookings this month.",
-
-  SERVICE_AREAS:
-    "Tamil Nadu,Karnataka,Maharashtra,Madhya Pradesh,Rajasthan",
-
-  AVAILABILITY_NOTE:
-    "Vehicle availability confirmed on call",
-
-  DEFAULT_LANGUAGE: "en"
+  AREAS:[
+    "Tamil Nadu",
+    "Karnataka",
+    "Maharashtra",
+    "Madhya Pradesh",
+    "Rajasthan"
+  ]
 
 };
 
 
 /* =========================================================
-   LANGUAGES
+   LANGUAGE DATA
 ========================================================= */
 
-const LANGS = {
+const LANG = {
 
+en:{
 
-  en: {
+heroEyebrow:"Professional Borewell Drilling",
 
-    eyebrow:
-      "Tamil Nadu + Karnataka + Maharashtra + Madhya Pradesh + Rajasthan · Vehicle-based service",
+heroTitle:
+`Drill deeper.<br><span>Build with confidence.</span>`,
 
-    h1_pre:
-      "Borewell drilling, ",
+heroDescription:
+`Professional borewell drilling services with transparent pricing, experienced crews and vehicle-based drilling operations across Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan.`,
 
-    h1_accent:
-      "done right",
+whatsapp:
+"Get Quote on WhatsApp",
 
-    h1_post:
-      " — with a price you can see before we arrive.",
+call:
+"Call 70108 94661",
 
-    sub:
-      "Tell us the depth. We show you the cost. No pump installation — borewell drilling only, and we mean it.",
+calcTitle:
+"Borewell Estimator",
 
-    cta:
-      "Get instant quote on WhatsApp",
+depthLabel:
+"Required Depth",
 
-    call:
-      "Call now",
+rateLabel:
+"Drilling",
 
-    navCall:
-      "Call",
+travelLabel:
+"Travel",
 
-    statRateLabel:
-      "Drilling rate",
+totalLabel:
+"Estimated Total",
 
-    statAreasLabel:
-      "Coverage",
+calcNote:
+"Final price confirmed after site visit.",
 
-    statLangLabel:
-      "Languages",
+servicesTitle:
+`Focused on drilling.<br>Built for the ground.`,
 
-    calcTitle:
-      "Estimate your borewell",
+servicesSubtitle:
+`We keep our service simple — professional borewell drilling, proper casing and transparent communication.`,
 
-    depthLabel:
-      "Depth required (feet)",
+service1Title:
+"Borewell Drilling",
 
-    depthUnit:
-      "ft",
+service1Text:
+"Professional borewell drilling using vehicle-mounted drilling equipment.",
 
-    rateLine:
-      "Rate",
+service2Title:
+"Transparent Pricing",
 
-    travelLine:
-      "Travel charge",
+service2Text:
+"Use our depth estimator to get a quick drilling estimate before contacting us.",
 
-    otherLine:
-      "Other charge",
+service3Title:
+"Experienced Crew",
 
-    totalLabel:
-      "Estimated total",
+service3Text:
+"Ground conditions vary. Our crew works with experience across multiple states and terrains.",
 
-    disclaimer:
-      d => `Final price confirmed after site visit. Minimum depth ${d} ft.`,
+service4Title:
+"Vehicle Ready",
 
-    scopeEyebrow:
-      "Scope of work",
+service4Text:
+"Vehicle-based drilling operations subject to availability in your location.",
 
-    scopeTitle:
-      "What we drill — and what we don't",
+coverageTitle:
+`Five states.<br>One drilling team.`,
 
-    scope1Title:
-      "Borewell drilling only",
+coverageText:
+`We provide borewell drilling services across Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh and Rajasthan.`,
 
-    scope1Desc:
-      "We drill and case the borewell. That's the job, and we do it well.",
+availability:
+"Vehicle availability confirmed on call",
 
-    scope2Title:
-      "No pump installation",
+whyTitle:
+`Simple service.<br>Serious drilling.`,
 
-    scope2Desc:
-      "We don't sell or fit pumps. Ask us and we'll point you to someone who does.",
+why1Title:"Transparent",
+why1Text:"Clear estimate before drilling with no unnecessary service additions.",
 
-    coverageEyebrow:
-      "Coverage",
+why2Title:"Professional",
+why2Text:"Experienced drilling crew and vehicle-based operations.",
 
-    coverageTitle:
-      "Where we work",
+why3Title:"Multi-State",
+why3Text:"Service coverage across five states.",
 
-    whyEyebrow:
-      "Why us",
+why4Title:"5 Languages",
+why4Text:"Communicate comfortably in English, Tamil, Kannada, Marathi or Hindi.",
 
-    whyTitle:
-      "Why people call us back",
+finalTitle:
+"Ready to drill?",
 
-    card1Title:
-      "Transparent pricing",
+finalText:
+"Tell us your required borewell depth and location. We'll help you understand the estimated drilling cost and availability."
 
-    card1Desc:
-      "See the estimate before we start drilling — no surprises at the site.",
+},
 
-    card2Title:
-      "Experienced crew",
+ta:{
 
-    card2Desc:
-      "Years of experience across multiple regions and different soil and rock conditions.",
+heroEyebrow:"தொழில்முறை போர்வெல் துளையிடுதல்",
 
-    card3Title:
-      "Vehicle-ready",
+heroTitle:
+`ஆழமாக துளையிடுங்கள்.<br><span>நம்பிக்கையுடன் தொடங்குங்கள்.</span>`,
 
-    card3Desc:
-      "Drilling rigs on standby, subject to availability in your area.",
+heroDescription:
+`தமிழ்நாடு, கர்நாடகா, மகாராஷ்டிரா, மத்தியப் பிரதேசம் மற்றும் ராஜஸ்தானில் தொழில்முறை போர்வெல் துளையிடும் சேவை.`,
 
-    card4Title:
-      "5 languages, one crew",
+whatsapp:
+"வாட்ஸ்அப்பில் விலை கேளுங்கள்",
 
-    card4Desc:
-      "Talk to us in the language you're most comfortable in.",
+call:
+"அழைக்கவும் 70108 94661",
 
-    contactTitle:
-      "Ready to drill?",
+calcTitle:
+"போர்வெல் மதிப்பீடு",
 
-    contactSub:
-      "Sri Venkateshwara TubeWells · Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh, Rajasthan",
+depthLabel:
+"தேவையான ஆழம்",
 
-    whatsappBtn:
-      "Enquire on WhatsApp",
+rateLabel:
+"துளையிடுதல்",
 
-    callBtn:
-      p => `Call ${p}`,
+travelLabel:
+"பயண கட்டணம்",
 
-    footerLine:
-      (c,a) => `${c} · Borewell drilling services · ${a}`,
+totalLabel:
+"மதிப்பிடப்பட்ட மொத்தம்",
 
-    waMessage:
-      (company,depth,total) =>
-        `Hi ${company}, I need a borewell around ${depth} ft deep. My estimate was ₹${total}. Please share more details.`
+calcNote:
+"தள ஆய்வுக்குப் பிறகு இறுதி விலை உறுதி செய்யப்படும்.",
 
-  },
+servicesTitle:
+`துளையிடுதலில் கவனம்.<br>தரமான பணியில் நம்பிக்கை.`,
 
+servicesSubtitle:
+"தொழில்முறை போர்வெல் துளையிடுதல் மற்றும் வெளிப்படையான சேவை.",
 
-  hi: {
+service1Title:"போர்வெல் துளையிடுதல்",
+service1Text:"வாகன அடிப்படையிலான தொழில்முறை போர்வெல் துளையிடுதல்.",
 
-    eyebrow:
-      "तमिलनाडु + कर्नाटक + महाराष्ट्र + मध्य प्रदेश + राजस्थान · वाहन आधारित सेवा",
+service2Title:"வெளிப்படையான விலை",
+service2Text:"துளையிடும் முன் ஆழத்தின் அடிப்படையில் மதிப்பீடு பெறுங்கள்.",
 
-    h1_pre:
-      "बोरवेल ड्रिलिंग, ",
+service3Title:"அனுபவம் வாய்ந்த குழு",
+service3Text:"பல மாநிலங்களில் பல்வேறு நில அமைப்புகளில் அனுபவம்.",
 
-    h1_accent:
-      "सही तरीके से",
+service4Title:"வாகனம் தயார்",
+service4Text:"உங்கள் பகுதியில் வாகன கிடைப்புக்கு உட்பட்டு சேவை.",
 
-    h1_post:
-      " — कीमत पहले से जानें।",
+coverageTitle:
+`ஐந்து மாநிலங்கள்.<br>ஒரே துளையிடும் குழு.`,
 
-    sub:
-      "गहराई बताएं, हम कीमत दिखाएंगे। सिर्फ बोरवेल ड्रिलिंग — पंप इंस्टॉलेशन नहीं।",
+coverageText:
+"தமிழ்நாடு, கர்நாடகா, மகாராஷ்டிரா, மத்தியப் பிரதேசம் மற்றும் ராஜஸ்தான்.",
 
-    cta:
-      "व्हाट्सएप पर तुरंत कोटेशन पाएं",
+availability:
+"வாகன கிடைப்பை தொலைபேசியில் உறுதி செய்யலாம்.",
 
-    call:
-      "अभी कॉल करें",
+whyTitle:
+`எளிய சேவை.<br>தீவிரமான துளையிடுதல்.`,
 
-    navCall:
-      "कॉल",
+why1Title:"வெளிப்படைத்தன்மை",
+why1Text:"துளையிடும் முன் தெளிவான மதிப்பீடு.",
 
-    statRateLabel:
-      "ड्रिलिंग दर",
+why2Title:"தொழில்முறை",
+why2Text:"அனுபவம் வாய்ந்த துளையிடும் குழு.",
 
-    statAreasLabel:
-      "सेवा क्षेत्र",
+why3Title:"பல மாநிலங்கள்",
+why3Text:"ஐந்து மாநிலங்களில் சேவை.",
 
-    statLangLabel:
-      "भाषाएं",
+why4Title:"5 மொழிகள்",
+why4Text:"ஆங்கிலம், தமிழ், கன்னடம், மராத்தி அல்லது இந்தியில் பேசலாம்.",
 
-    calcTitle:
-      "अपने बोरवेल का अनुमान लगाएं",
+finalTitle:
+"துளையிட தயாரா?",
 
-    depthLabel:
-      "आवश्यक गहराई (फ़ीट)",
+finalText:
+"உங்கள் தேவையான ஆழம் மற்றும் இருப்பிடத்தை தெரிவிக்கவும்."
 
-    depthUnit:
-      "फ़ीट",
+},
 
-    rateLine:
-      "दर",
+kn:{
 
-    travelLine:
-      "यात्रा शुल्क",
+heroEyebrow:"ವೃತ್ತಿಪರ ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವ ಸೇವೆ",
 
-    otherLine:
-      "अन्य शुल्क",
+heroTitle:
+`ಆಳವಾಗಿ ಕೊರೆಯಿರಿ.<br><span>ನಂಬಿಕೆಯಿಂದ ನಿರ್ಮಿಸಿ.</span>`,
 
-    totalLabel:
-      "अनुमानित कुल राशि",
+heroDescription:
+`ತಮಿಳುನಾಡು, ಕರ್ನಾಟಕ, ಮಹಾರಾಷ್ಟ್ರ, ಮಧ್ಯಪ್ರದೇಶ ಮತ್ತು ರಾಜಸ್ಥಾನದಲ್ಲಿ ವೃತ್ತಿಪರ ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವ ಸೇವೆ.`,
 
-    disclaimer:
-      d => `साइट विज़िट के बाद अंतिम कीमत तय होगी। न्यूनतम गहराई ${d} फ़ीट।`,
+whatsapp:"ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಕೋಟ್ ಪಡೆಯಿರಿ",
 
-    scopeEyebrow:
-      "काम का दायरा",
+call:"ಕರೆ ಮಾಡಿ 70108 94661",
 
-    scopeTitle:
-      "हम क्या ड्रिल करते हैं — और क्या नहीं",
+calcTitle:"ಬೋರ್‌ವೆಲ್ ಅಂದಾಜು",
 
-    scope1Title:
-      "केवल बोरवेल ड्रिलिंग",
+depthLabel:"ಅಗತ್ಯವಿರುವ ಆಳ",
 
-    scope1Desc:
-      "हम बोरवेल ड्रिल और केसिंग करते हैं। यही हमारा काम है।",
+rateLabel:"ಕೊರೆಯುವಿಕೆ",
 
-    scope2Title:
-      "पंप इंस्टॉलेशन नहीं",
+travelLabel:"ಪ್ರಯಾಣ",
 
-    scope2Desc:
-      "हम पंप नहीं बेचते या लगाते।",
+totalLabel:"ಅಂದಾಜು ಒಟ್ಟು",
 
-    coverageEyebrow:
-      "सेवा क्षेत्र",
+calcNote:"ಸೈಟ್ ಭೇಟಿಯ ನಂತರ ಅಂತಿಮ ಬೆಲೆ ಖಚಿತಪಡಿಸಲಾಗುತ್ತದೆ.",
 
-    coverageTitle:
-      "हम कहाँ काम करते हैं",
+servicesTitle:
+`ಕೊರೆಯುವಿಕೆಯ ಮೇಲೆ ಗಮನ.<br>ಗುಣಮಟ್ಟದ ಕೆಲಸ.`,
 
-    whyEyebrow:
-      "क्यों हम",
+servicesSubtitle:
+"ವೃತ್ತಿಪರ ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ ಮತ್ತು ಪಾರದರ್ಶಕ ಸೇವೆ.",
 
-    whyTitle:
-      "लोग हमें दोबारा क्यों बुलाते हैं",
+service1Title:"ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ",
+service1Text:"ವಾಹನ ಆಧಾರಿತ ವೃತ್ತಿಪರ ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ.",
 
-    card1Title:
-      "पारदर्शी कीमत",
+service2Title:"ಪಾರದರ್ಶಕ ಬೆಲೆ",
+service2Text:"ಕೊರೆಯುವ ಮೊದಲು ಆಳದ ಆಧಾರದ ಮೇಲೆ ಅಂದಾಜು ಪಡೆಯಿರಿ.",
 
-    card1Desc:
-      "काम शुरू करने से पहले अनुमान देखें।",
+service3Title:"ಅನುಭವಿ ತಂಡ",
+service3Text:"ವಿವಿಧ ರಾಜ್ಯಗಳು ಮತ್ತು ಭೂಪ್ರದೇಶಗಳಲ್ಲಿ ಅನುಭವ.",
 
-    card2Title:
-      "अनुभवी टीम",
+service4Title:"ವಾಹನ ಸಿದ್ಧ",
+service4Text:"ನಿಮ್ಮ ಪ್ರದೇಶದ ವಾಹನ ಲಭ್ಯತೆಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ.",
 
-    card2Desc:
-      "अलग-अलग मिट्टी और चट्टानों में वर्षों का अनुभव।",
+coverageTitle:
+`ಐದು ರಾಜ್ಯಗಳು.<br>ಒಂದು ಕೊರೆಯುವ ತಂಡ.`,
 
-    card3Title:
-      "वाहन तैयार",
+coverageText:
+"ತಮಿಳುನಾಡು, ಕರ್ನಾಟಕ, ಮಹಾರಾಷ್ಟ್ರ, ಮಧ್ಯಪ್ರದೇಶ ಮತ್ತು ರಾಜಸ್ಥಾನ.",
 
-    card3Desc:
-      "आपके क्षेत्र में उपलब्धता के अनुसार ड्रिलिंग रिग।",
+availability:"ವಾಹನ ಲಭ್ಯತೆಯನ್ನು ಕರೆ ಮಾಡಿ ಖಚಿತಪಡಿಸಿ.",
 
-    card4Title:
-      "5 भाषाएं, एक टीम",
+whyTitle:
+`ಸರಳ ಸೇವೆ.<br>ಗಂಭೀರ ಕೊರೆಯುವಿಕೆ.`,
 
-    card4Desc:
-      "जिस भाषा में आप सहज हों, उसी में बात करें।",
+why1Title:"ಪಾರದರ್ಶಕ",
+why1Text:"ಕೊರೆಯುವ ಮೊದಲು ಸ್ಪಷ್ಟ ಅಂದಾಜು.",
 
-    contactTitle:
-      "ड्रिल करने के लिए तैयार हैं?",
+why2Title:"ವೃತ್ತಿಪರ",
+why2Text:"ಅನುಭವಿ ಕೊರೆಯುವ ತಂಡ.",
 
-    contactSub:
-      "श्री वेंकटेश्वर ट्यूबवेल्स · तमिलनाडु, कर्नाटक, महाराष्ट्र, मध्य प्रदेश, राजस्थान",
+why3Title:"ಬಹು ರಾಜ್ಯಗಳು",
+why3Text:"ಐದು ರಾಜ್ಯಗಳಲ್ಲಿ ಸೇವೆ.",
 
-    whatsappBtn:
-      "व्हाट्सएप पर पूछें",
+why4Title:"5 ಭಾಷೆಗಳು",
+why4Text:"ಇಂಗ್ಲಿಷ್, ಕನ್ನಡ, ತಮಿಳು, ಮರಾಠಿ ಅಥವಾ ಹಿಂದಿಯಲ್ಲಿ ಮಾತನಾಡಿ.",
 
-    callBtn:
-      p => `कॉल करें ${p}`,
+finalTitle:"ಕೊರೆಯಲು ಸಿದ್ಧವೇ?",
 
-    footerLine:
-      (c,a) => `${c} · बोरवेल ड्रिलिंग सेवाएं · ${a}`,
+finalText:"ನಿಮ್ಮ ಅಗತ್ಯವಿರುವ ಆಳ ಮತ್ತು ಸ್ಥಳವನ್ನು ತಿಳಿಸಿ."
 
-    waMessage:
-      (company,depth,total) =>
-        `नमस्ते ${company}, मुझे लगभग ${depth} फ़ीट गहरा बोरवेल चाहिए। मेरा अनुमान ₹${total} था। कृपया अधिक जानकारी दें।`
+},
 
-  },
+mr:{
 
+heroEyebrow:"व्यावसायिक बोअरवेल ड्रिलिंग सेवा",
 
-  mr: {
+heroTitle:
+`अधिक खोल ड्रिल करा.<br><span>विश्वासाने सुरुवात करा.</span>`,
 
-    eyebrow:
-      "तमिळनाडू + कर्नाटक + महाराष्ट्र + मध्य प्रदेश + राजस्थान · वाहन आधारित सेवा",
+heroDescription:
+`तमिळनाडू, कर्नाटक, महाराष्ट्र, मध्य प्रदेश आणि राजस्थानमध्ये व्यावसायिक बोअरवेल ड्रिलिंग सेवा.`,
 
-    h1_pre:
-      "बोअरवेल ड्रिलिंग, ",
+whatsapp:"व्हॉट्सअॅपवर कोट मिळवा",
 
-    h1_accent:
-      "योग्य पद्धतीने",
+call:"कॉल करा 70108 94661",
 
-    h1_post:
-      " — किंमत आधीच पहा.",
+calcTitle:"बोअरवेल अंदाज",
 
-    sub:
-      "खोली सांगा, आम्ही किंमत दाखवतो. फक्त बोअरवेल ड्रिलिंग — पंप बसवत नाही.",
+depthLabel:"आवश्यक खोली",
 
-    cta:
-      "व्हॉट्सअॅपवर त्वरित कोटेशन मिळवा",
+rateLabel:"ड्रिलिंग",
 
-    call:
-      "आत्ता कॉल करा",
+travelLabel:"प्रवास",
 
-    navCall:
-      "कॉल",
+totalLabel:"अंदाजे एकूण",
 
-    statRateLabel:
-      "ड्रिलिंग दर",
+calcNote:"साइट भेटीनंतर अंतिम किंमत निश्चित केली जाईल.",
 
-    statAreasLabel:
-      "सेवा क्षेत्र",
+servicesTitle:
+`ड्रिलिंगवर लक्ष.<br>गुणवत्तेची हमी.`,
 
-    statLangLabel:
-      "भाषा",
+servicesSubtitle:
+"व्यावसायिक बोअरवेल ड्रिलिंग आणि पारदर्शक सेवा.",
 
-    calcTitle:
-      "तुमच्या बोअरवेलचा अंदाज घ्या",
+service1Title:"बोअरवेल ड्रिलिंग",
+service1Text:"वाहन आधारित व्यावसायिक बोअरवेल ड्रिलिंग.",
 
-    depthLabel:
-      "आवश्यक खोली (फूट)",
+service2Title:"पारदर्शक किंमत",
+service2Text:"ड्रिलिंगपूर्वी खोलीनुसार अंदाज मिळवा.",
 
-    depthUnit:
-      "फूट",
+service3Title:"अनुभवी टीम",
+service3Text:"अनेक राज्ये आणि विविध भूभागांमध्ये अनुभव.",
 
-    rateLine:
-      "दर",
+service4Title:"वाहन सज्ज",
+service4Text:"तुमच्या भागातील वाहन उपलब्धतेनुसार सेवा.",
 
-    travelLine:
-      "प्रवास शुल्क",
+coverageTitle:
+`पाच राज्ये.<br>एक ड्रिलिंग टीम.`,
 
-    otherLine:
-      "इतर शुल्क",
+coverageText:
+"तमिळनाडू, कर्नाटक, महाराष्ट्र, मध्य प्रदेश आणि राजस्थान.",
 
-    totalLabel:
-      "अंदाजे एकूण रक्कम",
+availability:"वाहन उपलब्धता कॉलवर निश्चित करा.",
 
-    disclaimer:
-      d => `साइट भेटीनंतर अंतिम किंमत निश्चित होईल. किमान खोली ${d} फूट.`,
+whyTitle:
+`साधी सेवा.<br>व्यावसायिक ड्रिलिंग.`,
 
-    scopeEyebrow:
-      "कामाची व्याप्ती",
+why1Title:"पारदर्शक",
+why1Text:"ड्रिलिंगपूर्वी स्पष्ट अंदाज.",
 
-    scopeTitle:
-      "आम्ही काय ड्रिल करतो — आणि काय नाही",
+why2Title:"व्यावसायिक",
+why2Text:"अनुभवी ड्रिलिंग टीम.",
 
-    scope1Title:
-      "फक्त बोअरवेल ड्रिलिंग",
+why3Title:"अनेक राज्ये",
+why3Text:"पाच राज्यांमध्ये सेवा.",
 
-    scope1Desc:
-      "आम्ही बोअरवेल ड्रिल आणि केसिंग करतो.",
+why4Title:"5 भाषा",
+why4Text:"इंग्रजी, मराठी, कन्नड, तमिळ किंवा हिंदीमध्ये बोला.",
 
-    scope2Title:
-      "पंप बसवत नाही",
+finalTitle:"ड्रिलिंगसाठी तयार?",
 
-    scope2Desc:
-      "आम्ही पंप विकत किंवा बसवत नाही.",
+finalText:"तुमची आवश्यक खोली आणि ठिकाण आम्हाला सांगा."
 
-    coverageEyebrow:
-      "सेवा क्षेत्र",
+},
 
-    coverageTitle:
-      "आम्ही कुठे काम करतो",
+hi:{
 
-    whyEyebrow:
-      "आमचे वैशिष्ट्य",
+heroEyebrow:"प्रोफेशनल बोरवेल ड्रिलिंग सेवा",
 
-    whyTitle:
-      "लोक आम्हाला पुन्हा का बोलावतात",
+heroTitle:
+`और गहराई तक ड्रिल करें।<br><span>विश्वास के साथ शुरुआत करें।</span>`,
 
-    card1Title:
-      "पारदर्शी किंमत",
+heroDescription:
+`तमिलनाडु, कर्नाटक, महाराष्ट्र, मध्य प्रदेश और राजस्थान में प्रोफेशनल बोरवेल ड्रिलिंग सेवा.`,
 
-    card1Desc:
-      "काम सुरू करण्यापूर्वी अंदाज पहा.",
+whatsapp:"व्हाट्सऐप पर कोट पाएं",
 
-    card2Title:
-      "अनुभवी टीम",
+call:"कॉल करें 70108 94661",
 
-    card2Desc:
-      "वेगवेगळ्या माती आणि खडकांचा अनेक वर्षांचा अनुभव.",
+calcTitle:"बोरवेल अनुमान",
 
-    card3Title:
-      "वाहन सज्ज",
+depthLabel:"आवश्यक गहराई",
 
-    card3Desc:
-      "तुमच्या भागातील उपलब्धतेनुसार ड्रिलिंग रिग.",
+rateLabel:"ड्रिलिंग",
 
-    card4Title:
-      "5 भाषा, एक टीम",
+travelLabel:"यात्रा",
 
-    card4Desc:
-      "तुम्हाला सोयीस्कर असलेल्या भाषेत बोला.",
+totalLabel:"अनुमानित कुल",
 
-    contactTitle:
-      "ड्रिल करण्यासाठी तयार आहात?",
+calcNote:"साइट विज़िट के बाद अंतिम कीमत तय होगी।",
 
-    contactSub:
-      "श्री व्यंकटेश्वर ट्यूबवेल्स · तमिळनाडू, कर्नाटक, महाराष्ट्र, मध्य प्रदेश, राजस्थान",
+servicesTitle:
+`ड्रिलिंग पर ध्यान।<br>बेहतर काम का भरोसा.`,
 
-    whatsappBtn:
-      "व्हॉट्सअॅपवर विचारा",
+servicesSubtitle:
+"प्रोफेशनल बोरवेल ड्रिलिंग और पारदर्शी सेवा।",
 
-    callBtn:
-      p => `कॉल करा ${p}`,
+service1Title:"बोरवेल ड्रिलिंग",
+service1Text:"वाहन आधारित प्रोफेशनल बोरवेल ड्रिलिंग।",
 
-    footerLine:
-      (c,a) => `${c} · बोअरवेल ड्रिलिंग सेवा · ${a}`,
+service2Title:"पारदर्शी कीमत",
+service2Text:"ड्रिलिंग से पहले गहराई के आधार पर अनुमान प्राप्त करें।",
 
-    waMessage:
-      (company,depth,total) =>
-        `नमस्कार ${company}, मला अंदाजे ${depth} फूट खोल बोअरवेल हवे आहे. माझा अंदाज ₹${total} होता. कृपया अधिक माहिती द्या.`
+service3Title:"अनुभवी टीम",
+service3Text:"कई राज्यों और विभिन्न जमीनों पर अनुभव।",
 
-  },
+service4Title:"वाहन तैयार",
+service4Text:"आपके क्षेत्र में वाहन उपलब्धता के अनुसार सेवा।",
 
+coverageTitle:
+`पांच राज्य।<br>एक ड्रिलिंग टीम.`,
 
-  kn: {
+coverageText:
+"तमिलनाडु, कर्नाटक, महाराष्ट्र, मध्य प्रदेश और राजस्थान।",
 
-    eyebrow:
-      "ತಮಿಳುನಾಡು + ಕರ್ನಾಟಕ + ಮಹಾರಾಷ್ಟ್ರ + ಮಧ್ಯಪ್ರದೇಶ + ರಾಜಸ್ಥಾನ · ವಾಹನ ಆಧಾರಿತ ಸೇವೆ",
+availability:"वाहन उपलब्धता के लिए कॉल करें।",
 
-    h1_pre:
-      "ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ, ",
+whyTitle:
+`सरल सेवा।<br>प्रोफेशनल ड्रिलिंग.`,
 
-    h1_accent:
-      "ಸರಿಯಾಗಿ",
+why1Title:"पारदर्शी",
+why1Text:"ड्रिलिंग से पहले स्पष्ट अनुमान।",
 
-    h1_post:
-      " — ಬೆಲೆ ಮೊದಲೇ ತಿಳಿಯಿರಿ.",
+why2Title:"प्रोफेशनल",
+why2Text:"अनुभवी ड्रिलिंग टीम।",
 
-    sub:
-      "ಆಳ ಹೇಳಿ, ನಾವು ಬೆಲೆ ತೋರಿಸುತ್ತೇವೆ. ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ ಮಾತ್ರ — ಪಂಪ್ ಅಳವಡಿಕೆ ಇಲ್ಲ.",
+why3Title:"कई राज्य",
+why3Text:"पांच राज्यों में सेवा।",
 
-    cta:
-      "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ತಕ್ಷಣ ಕೋಟ್ ಪಡೆಯಿರಿ",
+why4Title:"5 भाषाएं",
+why4Text:"अंग्रेजी, हिंदी, तमिल, कन्नड़ या मराठी में बात करें।",
 
-    call:
-      "ಈಗ ಕರೆ ಮಾಡಿ",
+finalTitle:"ड्रिलिंग के लिए तैयार?",
 
-    navCall:
-      "ಕರೆ",
+finalText:"अपनी आवश्यक गहराई और स्थान बताएं।"
 
-    statRateLabel:
-      "ಕೊರೆಯುವ ದರ",
-
-    statAreasLabel:
-      "ಸೇವಾ ಪ್ರದೇಶ",
-
-    statLangLabel:
-      "ಭಾಷೆಗಳು",
-
-    calcTitle:
-      "ನಿಮ್ಮ ಬೋರ್‌ವೆಲ್ ಅಂದಾಜು ಮಾಡಿ",
-
-    depthLabel:
-      "ಅಗತ್ಯವಿರುವ ಆಳ (ಅಡಿ)",
-
-    depthUnit:
-      "ಅಡಿ",
-
-    rateLine:
-      "ದರ",
-
-    travelLine:
-      "ಪ್ರಯಾಣ ಶುಲ್ಕ",
-
-    otherLine:
-      "ಇತರೆ ಶುಲ್ಕ",
-
-    totalLabel:
-      "ಅಂದಾಜು ಒಟ್ಟು ಮೊತ್ತ",
-
-    disclaimer:
-      d => `ಸೈಟ್ ಭೇಟಿಯ ನಂತರ ಅಂತಿಮ ಬೆಲೆ ನಿರ್ಧಾರವಾಗುತ್ತದೆ. ಕನಿಷ್ಠ ಆಳ ${d} ಅಡಿ.`,
-
-    scopeEyebrow:
-      "ಕೆಲಸದ ವ್ಯಾಪ್ತಿ",
-
-    scopeTitle:
-      "ನಾವು ಏನು ಕೊರೆಯುತ್ತೇವೆ — ಏನು ಮಾಡುವುದಿಲ್ಲ",
-
-    scope1Title:
-      "ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವಿಕೆ ಮಾತ್ರ",
-
-    scope1Desc:
-      "ನಾವು ಬೋರ್‌ವೆಲ್ ಕೊರೆದು ಕೇಸಿಂಗ್ ಮಾಡುತ್ತೇವೆ.",
-
-    scope2Title:
-      "ಪಂಪ್ ಅಳವಡಿಕೆ ಇಲ್ಲ",
-
-    scope2Desc:
-      "ನಾವು ಪಂಪ್ ಮಾರಾಟ ಅಥವಾ ಅಳವಡಿಕೆ ಮಾಡುವುದಿಲ್ಲ.",
-
-    coverageEyebrow:
-      "ಸೇವಾ ಪ್ರದೇಶ",
-
-    coverageTitle:
-      "ನಾವು ಎಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತೇವೆ",
-
-    whyEyebrow:
-      "ಏಕೆ ನಾವು",
-
-    whyTitle:
-      "ಜನರು ನಮ್ಮನ್ನು ಮತ್ತೆ ಏಕೆ ಕರೆಯುತ್ತಾರೆ",
-
-    card1Title:
-      "ಪಾರದರ್ಶಕ ಬೆಲೆ",
-
-    card1Desc:
-      "ಕೆಲಸ ಪ್ರಾರಂಭಿಸುವ ಮೊದಲು ಅಂದಾಜು ನೋಡಿ.",
-
-    card2Title:
-      "ಅನುಭವಿ ತಂಡ",
-
-    card2Desc:
-      "ವಿವಿಧ ಮಣ್ಣು ಮತ್ತು ಬಂಡೆಗಳ ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ ವರ್ಷಗಳ ಅನುಭವ.",
-
-    card3Title:
-      "ವಾಹನ ಸಿದ್ಧ",
-
-    card3Desc:
-      "ನಿಮ್ಮ ಪ್ರದೇಶದ ಲಭ್ಯತೆಗೆ ಒಳಪಟ್ಟು ಡ್ರಿಲ್ಲಿಂಗ್ ರಿಗ್‌ಗಳು ಸಿದ್ಧವಾಗಿವೆ.",
-
-    card4Title:
-      "5 ಭಾಷೆಗಳು, ಒಂದು ತಂಡ",
-
-    card4Desc:
-      "ನಿಮಗೆ ಆರಾಮದಾಯಕವಾದ ಭಾಷೆಯಲ್ಲಿ ಮಾತನಾಡಿ.",
-
-    contactTitle:
-      "ಕೊರೆಯಲು ಸಿದ್ಧರಿದ್ದೀರಾ?",
-
-    contactSub:
-      "ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಟ್ಯೂಬ್‌ವೆಲ್ಸ್ · ತಮಿಳುನಾಡು, ಕರ್ನಾಟಕ, ಮಹಾರಾಷ್ಟ್ರ, ಮಧ್ಯಪ್ರದೇಶ, ರಾಜಸ್ಥಾನ",
-
-    whatsappBtn:
-      "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಕೇಳಿ",
-
-    callBtn:
-      p => `ಕರೆ ಮಾಡಿ ${p}`,
-
-    footerLine:
-      (c,a) => `${c} · ಬೋರ್‌ವೆಲ್ ಕೊರೆಯುವ ಸೇವೆಗಳು · ${a}`,
-
-    waMessage:
-      (company,depth,total) =>
-        `ನಮಸ್ಕಾರ ${company}, ನನಗೆ ಸುಮಾರು ${depth} ಅಡಿ ಆಳದ ಬೋರ್‌ವೆಲ್ ಬೇಕು. ನನ್ನ ಅಂದಾಜು ₹${total} ಆಗಿತ್ತು. ದಯವಿಟ್ಟು ಹೆಚ್ಚಿನ ವಿವರಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.`
-
-  },
-
-
-  ta: {
-
-    eyebrow:
-      "தமிழ்நாடு + கர்நாடகா + மகாராஷ்டிரா + மத்தியப் பிரதேசம் + ராஜஸ்தான் · வாகன அடிப்படையிலான சேவை",
-
-    h1_pre:
-      "போர்வெல் துளையிடல், ",
-
-    h1_accent:
-      "சரியாக",
-
-    h1_post:
-      " — விலையை முன்பே பாருங்கள்.",
-
-    sub:
-      "ஆழத்தை சொல்லுங்கள், விலையை காட்டுகிறோம். போர்வெல் துளையிடல் மட்டும் — பம்ப் பொருத்துவதில்லை.",
-
-    cta:
-      "வாட்ஸ்அப்பில் உடனடி மதிப்பீடு பெறுங்கள்",
-
-    call:
-      "இப்போது அழைக்கவும்",
-
-    navCall:
-      "அழை",
-
-    statRateLabel:
-      "துளையிடும் விகிதம்",
-
-    statAreasLabel:
-      "சேவைப் பகுதி",
-
-    statLangLabel:
-      "மொழிகள்",
-
-    calcTitle:
-      "உங்கள் போர்வெல்லை மதிப்பிடுங்கள்",
-
-    depthLabel:
-      "தேவையான ஆழம் (அடி)",
-
-    depthUnit:
-      "அடி",
-
-    rateLine:
-      "விகிதம்",
-
-    travelLine:
-      "பயண கட்டணம்",
-
-    otherLine:
-      "பிற கட்டணம்",
-
-    totalLabel:
-      "மதிப்பிடப்பட்ட மொத்தம்",
-
-    disclaimer:
-      d => `தள வருகைக்குப் பிறகு இறுதி விலை உறுதி செய்யப்படும். குறைந்தபட்ச ஆழம் ${d} அடி.`,
-
-    scopeEyebrow:
-      "பணியின் எல்லை",
-
-    scopeTitle:
-      "நாங்கள் என்ன துளையிடுகிறோம் — என்ன செய்ய மாட்டோம்",
-
-    scope1Title:
-      "போர்வெல் துளையிடல் மட்டும்",
-
-    scope1Desc:
-      "நாங்கள் போர்வெல்லை துளையிட்டு கேசிங் செய்கிறோம்.",
-
-    scope2Title:
-      "பம்ப் பொருத்துவதில்லை",
-
-    scope2Desc:
-      "நாங்கள் பம்ப் விற்பதோ பொருத்துவதோ இல்லை.",
-
-    coverageEyebrow:
-      "சேவைப் பகுதி",
-
-    coverageTitle:
-      "நாங்கள் எங்கு வேலை செய்கிறோம்",
-
-    whyEyebrow:
-      "ஏன் நாங்கள்",
-
-    whyTitle:
-      "மக்கள் ஏன் மீண்டும் எங்களை அழைக்கிறார்கள்",
-
-    card1Title:
-      "வெளிப்படையான விலை",
-
-    card1Desc:
-      "வேலை தொடங்குவதற்கு முன் மதிப்பீட்டைப் பாருங்கள்.",
-
-    card2Title:
-      "அனுபவம் வாய்ந்த குழு",
-
-    card2Desc:
-      "பல பகுதிகளில் மண் மற்றும் பாறை நிலைகளில் பல ஆண்டு அனுபவம்.",
-
-    card3Title:
-      "வாகனம் தயார்",
-
-    card3Desc:
-      "உங்கள் பகுதியில் கிடைக்கும் தன்மைக்கு உட்பட்டு ரிக்குகள் தயாராக உள்ளன.",
-
-    card4Title:
-      "5 மொழிகள், ஒரு குழு",
-
-    card4Desc:
-      "நீங்கள் வசதியாக உணரும் மொழியில் பேசுங்கள்.",
-
-    contactTitle:
-      "துளையிட தயாரா?",
-
-    contactSub:
-      "ஸ்ரீ வெங்கடேஸ்வர டியூப்வெல்ஸ் · தமிழ்நாடு, கர்நாடகா, மகாராஷ்டிரா, மத்தியப் பிரதேசம், ராஜஸ்தான்",
-
-    whatsappBtn:
-      "வாட்ஸ்அப்பில் கேளுங்கள்",
-
-    callBtn:
-      p => `அழைக்கவும் ${p}`,
-
-    footerLine:
-      (c,a) => `${c} · போர்வெல் துளையிடும் சேவைகள் · ${a}`,
-
-    waMessage:
-      (company,depth,total) =>
-        `வணக்கம் ${company}, எனக்கு சுமார் ${depth} அடி ஆழமான போர்வெல் தேவை. என் மதிப்பீடு ₹${total}. மேலும் விவரங்களைப் பகிரவும்.`
-
-  }
+}
 
 };
-
-
-/* =========================================================
-   DATA
-========================================================= */
-
-const areas =
-  CONFIG.SERVICE_AREAS
-    .split(",")
-    .map(s => s.trim());
-
-let currentLang =
-  LANGS[CONFIG.DEFAULT_LANGUAGE]
-    ? CONFIG.DEFAULT_LANGUAGE
-    : "en";
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-function fmt(n){
-
-  return "₹" +
-    Math.round(n).toLocaleString("en-IN");
-
-}
-
-
-function computeTotal(depth){
-
-  const billedDepth =
-    Math.max(
-      depth,
-      CONFIG.MIN_DEPTH
-    );
-
-  return (
-    billedDepth *
-    CONFIG.DRILLING_RATE_PER_FOOT
-  )
-  +
-  CONFIG.TRAVEL_CHARGE
-  +
-  CONFIG.OTHER_CHARGE;
-
-}
 
 
 /* =========================================================
    CALCULATOR
 ========================================================= */
 
-function updateCalculator(){
+const slider =
+document.getElementById("depthSlider");
 
-  const slider =
-    document.getElementById("depthSlider");
+function formatMoney(value){
+
+  return "₹" +
+    Math.round(value).toLocaleString("en-IN");
+
+}
+
+function updateCalculator(){
 
   const depth =
     Number(slider.value);
 
-  const t =
-    LANGS[currentLang];
-
-  const billedDepth =
-    Math.max(
-      depth,
-      CONFIG.MIN_DEPTH
-    );
-
-  const rateAmt =
-    billedDepth *
-    CONFIG.DRILLING_RATE_PER_FOOT;
+  const drilling =
+    depth * CONFIG.DRILLING_RATE;
 
   const total =
-    computeTotal(depth);
+    drilling + CONFIG.TRAVEL_CHARGE;
 
-
-  document.getElementById("depthVal")
+  document.getElementById("depthValue")
     .textContent = depth;
 
+  document.getElementById("drillingAmount")
+    .textContent = formatMoney(drilling);
 
-  document.getElementById("depthUnit")
-    .textContent = t.depthUnit;
+  document.getElementById("travelAmount")
+    .textContent = formatMoney(CONFIG.TRAVEL_CHARGE);
 
+  document.getElementById("totalAmount")
+    .textContent = formatMoney(total);
 
-  document.getElementById("txt-rateLine")
-    .textContent =
-      `${t.rateLine} ${fmt(CONFIG.DRILLING_RATE_PER_FOOT)}/${t.depthUnit}`;
+  updateWhatsApp(depth,total);
 
+}
 
-  document.getElementById("lineRateAmt")
-    .textContent = fmt(rateAmt);
-
-
-  const rowTravel =
-    document.getElementById("rowTravel");
-
-
-  if(CONFIG.TRAVEL_CHARGE > 0){
-
-    rowTravel.style.display = "flex";
-
-    document.getElementById("txt-travelLine")
-      .textContent = t.travelLine;
-
-    document.getElementById("lineTravelAmt")
-      .textContent =
-        fmt(CONFIG.TRAVEL_CHARGE);
-
-  }else{
-
-    rowTravel.style.display = "none";
-
-  }
+slider.addEventListener(
+  "input",
+  updateCalculator
+);
 
 
-  const rowOther =
-    document.getElementById("rowOther");
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
+function updateWhatsApp(depth,total){
 
-  if(CONFIG.OTHER_CHARGE > 0){
+  const message =
+`Hi Sri Venkateshwara TubeWells,
 
-    rowOther.style.display = "flex";
+I need a borewell drilling service.
 
-    document.getElementById("txt-otherLine")
-      .textContent = t.otherLine;
+Required Depth: ${depth} ft
+Estimated Drilling Cost: ${formatMoney(total)}
 
-    document.getElementById("lineOtherAmt")
-      .textContent =
-        fmt(CONFIG.OTHER_CHARGE);
+Location:
+Please share your availability and further details.
 
-  }else{
+Thank you.`;
 
-    rowOther.style.display = "none";
+  const url =
+    "https://wa.me/" +
+    CONFIG.WHATSAPP +
+    "?text=" +
+    encodeURIComponent(message);
 
-  }
+  document.getElementById("whatsappHero")
+    .href = url;
 
+  document.getElementById("whatsappFinal")
+    .href = url;
 
-  document.getElementById("txt-totalLabel")
-    .textContent = t.totalLabel;
-
-
-  document.getElementById("totalAmt")
-    .textContent = fmt(total);
-
-
-  document.getElementById("txt-disclaimer")
-    .textContent =
-      t.disclaimer(CONFIG.MIN_DEPTH);
-
-
-  const pct =
-    (
-      (depth - Number(slider.min))
-      /
-      (Number(slider.max) - Number(slider.min))
-    )
-    * 100;
-
-
-  document.getElementById("drillbit")
-    .style.top =
-      Math.min(pct,96) + "%";
-
-
-  const waText =
-    encodeURIComponent(
-      t.waMessage(
-        CONFIG.COMPANY_NAME,
-        depth,
-        Math.round(total)
-          .toLocaleString("en-IN")
-      )
-    );
-
-
-  const waUrl =
-    `https://wa.me/${CONFIG.WHATSAPP}?text=${waText}`;
-
-
-  [
-    "ctaWhatsapp",
-    "ctaWhatsapp2",
-    "ctaWhatsapp3",
-    "waFloat"
-  ]
-  .forEach(id => {
-
-    const el =
-      document.getElementById(id);
-
-    if(el){
-      el.href = waUrl;
-    }
-
-  });
+  document.getElementById("whatsappFloat")
+    .href = url;
 
 }
 
 
 /* =========================================================
-   APPLY LANGUAGE
+   LANGUAGE
 ========================================================= */
 
-function applyLang(lang){
+const languageSelect =
+document.getElementById("languageSelect");
 
-  if(!LANGS[lang]){
-    lang = "en";
+function setText(id,value){
+
+  const element =
+    document.getElementById(id);
+
+  if(element){
+    element.innerHTML = value;
   }
 
-  currentLang = lang;
+}
 
-  const t =
-    LANGS[lang];
+function applyLanguage(language){
 
+  const t = LANG[language];
+
+  if(!t) return;
 
   document.documentElement.lang =
-    lang;
-
-
-  /* Desktop buttons */
-
-  document.querySelectorAll(".lang-btn")
-    .forEach(btn => {
-
-      btn.classList.toggle(
-        "active",
-        btn.dataset.lang === lang
-      );
-
-    });
-
-
-  /* Mobile dropdown */
-
-  const mobileSelect =
-    document.getElementById("langSelect");
-
-  if(mobileSelect){
-    mobileSelect.value = lang;
-  }
-
-
-  /* Brand */
-
-  document.querySelector(".brand-line-1")
-    .textContent = "Sri Venkateshwara";
-
-  document.querySelector(".brand-line-2")
-    .textContent = "TubeWells";
-
-
-  /* Hero */
-
-  document.getElementById("txt-eyebrow")
-    .textContent = t.eyebrow;
-
-
-  document.getElementById("txt-h1")
-    .innerHTML =
-      `${t.h1_pre}
-       <span class="accent">
-         ${t.h1_accent}
-       </span>
-       ${t.h1_post}`;
-
-
-  document.getElementById("txt-sub")
-    .textContent = t.sub;
-
-
-  document.getElementById("txt-cta")
-    .textContent = t.cta;
-
-
-  document.getElementById("txt-cta2")
-    .textContent = t.cta;
-
-
-  document.getElementById("txt-call")
-    .textContent = t.call;
-
-
-  document.getElementById("navCallLabel")
-    .textContent = t.navCall;
-
-
-  /* Stats */
-
-  document.getElementById("txt-statRateLabel")
-    .textContent = t.statRateLabel;
-
-
-  document.getElementById("txt-statAreasLabel")
-    .textContent = t.statAreasLabel;
-
-
-  document.getElementById("txt-statLangLabel")
-    .textContent = t.statLangLabel;
-
-
-  document.getElementById("statRate")
-    .textContent =
-      `₹${CONFIG.DRILLING_RATE_PER_FOOT}/${t.depthUnit}`;
-
-
-  document.getElementById("statAreas")
-    .textContent =
-      areas.length +
-      (lang === "en" ? " states" : "");
-
-
-  /* Calculator */
-
-  document.getElementById("txt-calcTitle")
-    .textContent = t.calcTitle;
-
-
-  document.getElementById("txt-depthLabel")
-    .textContent = t.depthLabel;
-
-
-  /* Offer */
-
-  document.getElementById("offerBadge")
-    .textContent =
-      CONFIG.OFFER_BADGE;
-
-
-  document.getElementById("offerTitle")
-    .textContent =
-      CONFIG.OFFER_TITLE;
-
-
-  document.getElementById("offerText")
-    .textContent =
-      CONFIG.OFFER_TEXT;
-
-
-  document.getElementById("offerStrip")
-    .style.display =
-      CONFIG.OFFER_BADGE
-        ? "block"
-        : "none";
-
-
-  /* Scope */
-
-  document.getElementById("txt-scopeEyebrow")
-    .textContent = t.scopeEyebrow;
-
-
-  document.getElementById("txt-scopeTitle")
-    .textContent = t.scopeTitle;
-
-
-  document.getElementById("txt-scope1Title")
-    .textContent = t.scope1Title;
-
-
-  document.getElementById("txt-scope1Desc")
-    .textContent = t.scope1Desc;
-
-
-  document.getElementById("txt-scope2Title")
-    .textContent = t.scope2Title;
-
-
-  document.getElementById("txt-scope2Desc")
-    .textContent = t.scope2Desc;
-
-
-  /* Coverage */
-
-  document.getElementById("txt-coverageEyebrow")
-    .textContent = t.coverageEyebrow;
-
-
-  document.getElementById("txt-coverageTitle")
-    .textContent = t.coverageTitle;
-
-
-  document.getElementById("areasRow")
-    .innerHTML =
-      areas
-        .map(
-          area =>
-            `<span class="area-chip">${area}</span>`
-        )
-        .join("");
-
-
-  document.getElementById("txt-availNote")
-    .textContent =
-      CONFIG.AVAILABILITY_NOTE;
-
-
-  /* Why us */
-
-  document.getElementById("txt-whyEyebrow")
-    .textContent = t.whyEyebrow;
-
-
-  document.getElementById("txt-whyTitle")
-    .textContent = t.whyTitle;
-
-
-  document.getElementById("txt-card1Title")
-    .textContent = t.card1Title;
-
-
-  document.getElementById("txt-card1Desc")
-    .textContent = t.card1Desc;
-
-
-  document.getElementById("txt-card2Title")
-    .textContent = t.card2Title;
-
-
-  document.getElementById("txt-card2Desc")
-    .textContent = t.card2Desc;
-
-
-  document.getElementById("txt-card3Title")
-    .textContent = t.card3Title;
-
-
-  document.getElementById("txt-card3Desc")
-    .textContent = t.card3Desc;
-
-
-  document.getElementById("txt-card4Title")
-    .textContent = t.card4Title;
-
-
-  document.getElementById("txt-card4Desc")
-    .textContent = t.card4Desc;
-
-
-  /* Contact */
-
-  document.getElementById("txt-contactTitle")
-    .textContent = t.contactTitle;
-
-
-  document.getElementById("txt-contactSub")
-    .textContent = t.contactSub;
-
-
-  document.getElementById("txt-whatsappBtn")
-    .textContent = t.whatsappBtn;
-
-
-  document.getElementById("txt-callBtn")
-    .textContent =
-      t.callBtn(CONFIG.PHONE);
-
-
-  /* Footer */
-
-  document.getElementById("footerLine")
-    .textContent =
-      t.footerLine(
-        CONFIG.COMPANY_NAME,
-        areas.join(", ")
-      );
-
-
-  /* Phone links */
-
-  const telHref =
-    "tel:" +
-    CONFIG.PHONE
-      .replace(/\s+/g,"");
-
-
-  document.getElementById("navCall")
-    .href = telHref;
-
-
-  document.getElementById("ctaCall")
-    .href = telHref;
-
-
-  document.getElementById("ctaCall2")
-    .href = telHref;
-
-
-  /* Update calculator */
+    language;
+
+  setText(
+    "heroEyebrow",
+    t.heroEyebrow
+  );
+
+  setText(
+    "heroTitle",
+    t.heroTitle
+  );
+
+  setText(
+    "heroDescription",
+    t.heroDescription
+  );
+
+  setText(
+    "whatsappHeroText",
+    t.whatsapp
+  );
+
+  setText(
+    "callHeroText",
+    t.call
+  );
+
+  setText(
+    "calcTitle",
+    t.calcTitle
+  );
+
+  setText(
+    "depthLabel",
+    t.depthLabel
+  );
+
+  setText(
+    "rateLabel",
+    t.rateLabel
+  );
+
+  setText(
+    "travelLabel",
+    t.travelLabel
+  );
+
+  setText(
+    "totalLabel",
+    t.totalLabel
+  );
+
+  setText(
+    "calcNote",
+    t.calcNote
+  );
+
+  setText(
+    "servicesTitle",
+    t.servicesTitle
+  );
+
+  setText(
+    "servicesSubtitle",
+    t.servicesSubtitle
+  );
+
+  setText(
+    "service1Title",
+    t.service1Title
+  );
+
+  setText(
+    "service1Text",
+    t.service1Text
+  );
+
+  setText(
+    "service2Title",
+    t.service2Title
+  );
+
+  setText(
+    "service2Text",
+    t.service2Text
+  );
+
+  setText(
+    "service3Title",
+    t.service3Title
+  );
+
+  setText(
+    "service3Text",
+    t.service3Text
+  );
+
+  setText(
+    "service4Title",
+    t.service4Title
+  );
+
+  setText(
+    "service4Text",
+    t.service4Text
+  );
+
+  setText(
+    "coverageTitle",
+    t.coverageTitle
+  );
+
+  setText(
+    "coverageText",
+    t.coverageText
+  );
+
+  setText(
+    "availabilityText",
+    t.availability
+  );
+
+  setText(
+    "whyTitle",
+    t.whyTitle
+  );
+
+  setText(
+    "why1Title",
+    t.why1Title
+  );
+
+  setText(
+    "why1Text",
+    t.why1Text
+  );
+
+  setText(
+    "why2Title",
+    t.why2Title
+  );
+
+  setText(
+    "why2Text",
+    t.why2Text
+  );
+
+  setText(
+    "why3Title",
+    t.why3Title
+  );
+
+  setText(
+    "why3Text",
+    t.why3Text
+  );
+
+  setText(
+    "why4Title",
+    t.why4Title
+  );
+
+  setText(
+    "why4Text",
+    t.why4Text
+  );
+
+  setText(
+    "finalTitle",
+    t.finalTitle
+  );
+
+  setText(
+    "finalText",
+    t.finalText
+  );
 
   updateCalculator();
 
@@ -3409,61 +3063,32 @@ function applyLang(lang){
 
 
 /* =========================================================
-   LANGUAGE BUTTON EVENTS
+   EVENTS
 ========================================================= */
 
-document
-  .getElementById("langGroup")
-  .addEventListener(
-    "click",
-    function(e){
+languageSelect.addEventListener(
+  "change",
+  function(){
 
-      const btn =
-        e.target.closest(".lang-btn");
+    applyLanguage(
+      this.value
+    );
 
-      if(!btn){
-        return;
-      }
-
-      applyLang(btn.dataset.lang);
-
-    }
-  );
+  }
+);
 
 
 /* =========================================================
-   MOBILE LANGUAGE DROPDOWN
+   INIT
 ========================================================= */
 
-document
-  .getElementById("langSelect")
-  .addEventListener(
-    "change",
-    function(){
+document.getElementById("year")
+  .textContent =
+    new Date().getFullYear();
 
-      applyLang(this.value);
+applyLanguage("en");
 
-    }
-  );
-
-
-/* =========================================================
-   DEPTH SLIDER
-========================================================= */
-
-document
-  .getElementById("depthSlider")
-  .addEventListener(
-    "input",
-    updateCalculator
-  );
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
-applyLang(currentLang);
+updateCalculator();
 
 </script>
 
